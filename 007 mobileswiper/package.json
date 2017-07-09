@@ -1,0 +1,17 @@
+{
+  "name": "mobile-swiper",
+  "version": "1.0.0",
+  "description": "移动端滑动翻页组件",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "SBDavid",
+  "license": "ISC",
+  "dependencies": {
+    "event-adder": "^1.0.0"
+  },
+  "devDependencies": {
+    "webpack": "^3.1.0"
+  }
+}
