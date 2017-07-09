@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script type="text/javascript">
+        (function (designW) {
+            var docEl = document.documentElement,
+                resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                recalc = function () {
+                    var clientWidth = docEl.clientWidth;
+                    if (!clientWidth) return;
+                    docEl.style.fontSize = 100 * (clientWidth / designW) + 'px';
+                };
+            if (!document.addEventListener) return;
+                recalc();
+            window.addEventListener(resizeEvt, recalc, false);
+            document.addEventListener('DOMContentLoaded', recalc, false);
+        })(750);        
+    </script>
+    <script src="./utils/event.js"></script>
+    <script src="./js/index.js"></script>
+    <link href="./index.css" rel="stylesheet" type="text/css" /> 
+</head>
+<body>
+    <div class="swiper-container">
+        <div class="swiper-content init" style="background-color:burlywood"></div>
+        <div class="swiper-content" style="background-color:darkslateblue"></div>
+        <div class="swiper-content" style="background-color: salmon"></div>
+    </div>
+</body>
+</html>
