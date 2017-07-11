@@ -1,0 +1,62 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link href="./index.css" rel="stylesheet" type="text/css" /> 
+
+    <script type="text/javascript">
+        (function (designW) {
+            var docEl = document.documentElement,
+                resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                recalc = function () {
+                    var clientWidth = docEl.clientWidth;
+                    if (!clientWidth) return;
+                    docEl.style.fontSize = 100 * (clientWidth / designW) + 'px';
+                };
+            if (!document.addEventListener) return;
+                recalc();
+            window.addEventListener(resizeEvt, recalc, false);
+            document.addEventListener('DOMContentLoaded', recalc, false);
+        })(750);        
+    </script>
+
+        <script>
+        var EventUtil = {
+            addHandler: function(element,type,handler) {
+                if(element.addEventListener) {
+                    element.addEventListener(type,handler,false);
+                }else if(element.attachEvent) {
+                    element.attachEvent("on"+type,handler);
+                }else {
+                    element["on" +type] = handler;
+                }
+            },
+            removeHandler: function(element,type,handler){
+                if(element.removeEventListener) {
+                    element.removeEventListener(type,handler,false);
+                }else if(element.detachEvent) {
+                    element.detachEvent("on"+type,handler);
+                }else {
+                    element["on" +type] = null;
+                }
+            }
+        };
+
+        window.onload = function () {
+            var btn = document.getElementById('btn');
+            EventUtil.addHandler(btn, 'click', function() {
+                console.info('click: ', (new Date()).getTime());
+            });
+
+            EventUtil.addHandler(btn, 'touchstart', function(e) {
+                console.info('touchstart: ', (new Date()).getTime());
+                e.preventDefault();
+            });
+        }
+    </script>
+</head>
+<body>
+    <button id="btn">点我</button>
+</body>
+</html>
