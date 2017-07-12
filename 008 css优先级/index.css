@@ -1,0 +1,15 @@
+.a {
+    color: green;
+}
+
+.a div {
+    color: red;
+}
+
+.a.b div{
+    color: yellowgreen;
+}
+
+.a.b .c{
+    color: gray;
+}
