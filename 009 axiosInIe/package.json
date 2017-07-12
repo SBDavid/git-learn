@@ -8,6 +8,8 @@
   "author": "SBDavid",
   "license": "ISC",
   "dependencies": {
+    "axios": "^0.16.2",
+    "es6-promise-promise": "^1.0.0"
   },
   "devDependencies": {
     "webpack": "^3.1.0"
