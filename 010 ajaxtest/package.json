@@ -1,0 +1,17 @@
+{
+  "name": "temp",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "start": "webpack -w --colors --profile"
+  },
+  "author": "SBDavid",
+  "license": "ISC",
+  "dependencies": {
+    "jquery": "^3.2.1",
+    "jquery-parallel-ajax": "^1.0.0"
+  },
+  "devDependencies": {
+    "webpack": "^3.1.0"
+  }
+}

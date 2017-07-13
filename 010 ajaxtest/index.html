@@ -1,0 +1,23 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="./js/jquery.min.js"></script>
+    <script src="./dist/bundle.js"></script>
+    <link href="./index.css" rel="stylesheet" type="text/css" /> 
+
+    <script>
+        $.parallelAjax([
+            {url: 'https://api.github.com/'},
+            {url: 'https://api.github.com/'},
+        ], function(response) {
+            console.info('success', response);
+        }, function(error) {
+            console.info('error', error);
+        });
+    </script>
+</head>
+<body>s
+</body>
+</html>
