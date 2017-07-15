@@ -8,6 +8,8 @@
   "author": "SBDavid",
   "license": "ISC",
   "dependencies": {
+    "eventlistener": "^0.0.1",
+    "underscore": "^1.8.3"
   },
   "devDependencies": {
     "webpack": "^3.1.0"
