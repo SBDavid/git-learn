@@ -1,4 +1,4 @@
-var _ = require('underscore');
+var _ = require('./underscore');
 var listen = require('eventlistener');
 
 var tmpl = 
