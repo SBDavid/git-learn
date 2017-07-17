@@ -4,7 +4,7 @@ function runAsync(){
     setTimeout(function(){
         console.log('执行完成');
 
-        def.resolve('resolve');
+        def.reject('reject');
     }, 500);
     return def.promise();
 }
