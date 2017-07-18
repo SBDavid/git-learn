@@ -9,6 +9,7 @@
   "license": "ISC",
   "dependencies": {
     "eventlistener": "^0.0.1",
+    "jquery": "^3.2.1",
     "underscore": "^1.8.3"
   },
   "devDependencies": {

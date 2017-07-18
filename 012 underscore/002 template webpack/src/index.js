@@ -1,6 +1,7 @@
 import MyList from './Mylist';
 
 var list = new MyList.mylist();
+var list1 = new MyList.mylist();
 
 window.onload = function() {
     list.mount(document.getElementById('con'),
@@ -11,4 +12,15 @@ window.onload = function() {
             {name: 'wei'}
         ]
     });
+    
+    list1.mount(document.getElementById('con1'),
+    {
+        data: [
+            {name: 'tang'}
+        ]
+    });
+
+    setTimeout(function() {
+        list.removeEnd();
+    }, 5000);
 }

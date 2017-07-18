@@ -1,4 +1,5 @@
 var _ = require('./underscore');
+var $ = require('jquery');
 var listen = require('eventlistener');
 
 var tmpl = 
@@ -14,16 +15,20 @@ var mylist = function() {
 }
 
 mylist.prototype.mount = function(ele, data) {
-    var elem = document.createElement("div");
-    elem.innerHTML = this.compiled(data);
+    var _self = this;
+
+    ele.innerHTML = this.compiled(data);
     
-    var test = elem.getElementsByClassName('test');
-    listen.add(test[0], 'click', function(e) {
-        console.log('test');
+    this.test = ele.getElementsByClassName('test')[0];
+    listen.add(this.test, 'click', function(e) {
+        console.log('click test', _self);
+        _self.removeEnd();
     })
+}
 
-
-    ele.appendChild(elem.firstChild);
+mylist.prototype.removeEnd = function() {
+    console.info('removeEnd: ', this.test);
+    $(this.test).remove();
 }
 
 module.exports.mylist = mylist;
