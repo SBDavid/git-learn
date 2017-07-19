@@ -1451,7 +1451,7 @@
       source + 'return __p;\n';
 
     try {
-      console.info(source);
+     /*  console.info(source); */
       var render = new Function(settings.variable || 'obj', '_', source);
     } catch (e) {
       e.source = source;

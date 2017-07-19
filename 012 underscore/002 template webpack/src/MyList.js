@@ -4,14 +4,19 @@ var listen = require('eventlistener');
 
 var tmpl = 
     "<ul> \
-        <% _.each(data, function(item){ %> \
+        <%1 _.each(data, function(item){ %> \
             <li name=<%= item.name %>><%= item.name %></li> \
         <% }); %> \
         <li class='test'>end</li> \
     </ul>";
 
 var mylist = function() {
-    this.compiled = _.template(tmpl);
+    try {
+        this.compiled = _.template(tmpl);
+    } catch (error) {
+        /* throw error; */
+    }
+    
 }
 
 mylist.prototype.mount = function(ele, data) {
