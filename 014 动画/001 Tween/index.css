@@ -1,0 +1,13 @@
+.bar {
+    height: 50px;
+    position: relative;
+    background-color: #f1f1f1;
+}
+
+#s{
+    width: 20px;
+    position: absolute;
+    left: -20px;
+    display: inline-block;
+    transform: translateZ(0px);
+}
