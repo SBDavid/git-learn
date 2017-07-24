@@ -3,9 +3,16 @@ window.onload = function() {
 
     var ctx = canvas.getContext('2d');
 
-    ctx.fillStyle = "rgb(200,0,0)";
-    ctx.fillRect (10, 10, 55, 50);
+    // 文字渲染
+    ctx.font = "24px serif";
+    ctx.fillText("Helloworld", 0, 100);
+    // 文字测量
+    var text = ctx.measureText("Helloworld唐");
+    console.info(text);
 
-    ctx.fillStyle = "rgba(0, 0, 200, 0.5)";
-    ctx.fillRect (30, 30, 55, 50);
+    // 绘制圆形
+    ctx.fillStyle = "rgba(0,0,0,0.3)";
+    ctx.beginPath();
+    ctx.arc(50, 200, 30, 0, Math.PI * 2, true);
+    ctx.fill();
 }
