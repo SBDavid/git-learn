@@ -1,0 +1,6 @@
+.test {
+    position: relative;
+}
+#SomeElementYouWantToAnimate {
+    position: absolute;
+}
