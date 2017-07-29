@@ -1,0 +1,9 @@
+.box {
+    width: 4rem;
+    height: 3rem;
+    border: .01rem solid #000;
+    background-image: url(./gka_sprites.png);
+    background-repeat: no-repeat;
+    background-size: 400% 500%;
+    background-position: 100% 100%;
+}
