@@ -28,7 +28,7 @@ class DoubanGroupSpider(scrapy.Spider):
 
     def parse(self, response):
         for tr in response.css("table.olt tr"):
-            if tr.css('td') == None:
+            if tr.css('td') == []:
                 yield {
                     'pass': '1',
                 }
