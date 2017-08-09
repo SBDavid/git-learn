@@ -2,11 +2,11 @@ import scrapy
 
 
 class DoubanGroupSpider(scrapy.Spider):
-    name = "DBGroup"
+    name = "DBGroupArg"
 
     def start_requests(self):
         urls = [
-            'https://www.douban.com/group/pudongzufang/discussion?start=0',
+            'https://www.douban.com/group/%s/discussion?start=0' % self.group,
         ]
         for url in urls:
             yield scrapy.Request(
