@@ -1,5 +1,8 @@
 import scrapy
 
+'''
+scrapy crawl DBGroupArg -o shanghai.xml -a group=558292
+'''
 
 class DoubanGroupSpider(scrapy.Spider):
     name = "DBGroupArg"
@@ -27,6 +30,9 @@ class DoubanGroupSpider(scrapy.Spider):
             )
 
     def parse(self, response):
+
+        yield {'title': response.xpath('//title/text()').extract_first()}
+
         for tr in response.css("table.olt tr"):
             if tr.css('td') == []:
                 pass
