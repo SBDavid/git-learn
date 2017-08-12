@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items>
+<item><title>
+        上海租房族小组
+</title></item>
+</items><?xml version="1.0" encoding="utf-8"?>
+<items>
+<item><title>&lt;bound method SelectorList.extract of [&lt;Selector xpath='//title/text()' data='\n        上海租房族小组\n'&gt;]&gt;</title></item>
+</items><?xml version="1.0" encoding="utf-8"?>
+<items>
+<item><title><value>
+        上海租房族小组
+</value></title></item>
+</items><?xml version="1.0" encoding="utf-8"?>
+<items>
+<item><title>
+        更多小组讨论
+</title></item>
+</items>
