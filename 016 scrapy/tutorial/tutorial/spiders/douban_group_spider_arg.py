@@ -33,15 +33,8 @@ class DoubanGroupSpider(scrapy.Spider):
 
         yield {'title': response.xpath('//title/text()').extract_first()}
 
-        for tr in response.css("table.olt tr"):
-            if tr.css('td') == []:
-                pass
-            elif tr.css('a::attr(title)').extract_first() is None:
-                pass
-            elif  tr.css('td')[1].css('a::text').extract_first() is None:
-                pass
-            else:
-                yield {
+        for tr in response.xpath('//table[@class="olt"]//tr[@class=""]'):
+            yield {
                     'title': tr.css('a::attr(title)').extract_first(),
                     'author':  tr.css('td')[1].css('a::text').extract_first(),
                 }
