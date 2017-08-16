@@ -4,6 +4,10 @@ import scrapy
 scrapy crawl DBGroupArg -o shanghai.xml -a group=558292
 '''
 
+class ArticleLink(scrapy.Item):
+    title = scrapy.Field()
+    author = scrapy.Field()
+
 class DoubanGroupSpider(scrapy.Spider):
     name = "DBGroupArg"
 
