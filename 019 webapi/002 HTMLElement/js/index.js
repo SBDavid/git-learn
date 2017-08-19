@@ -16,7 +16,9 @@ window.onload = function() {
     console.info('offsetParent', offset.offsetParent);
 
     document.getElementById('oncopy').oncopy = function(e) {
-         e.clipboardData.setData("text", "test")
+        e.clipboardData.setData("text", "test")
         console.info('oncopy: ', e.clipboardData.getData("text"));
     }
+
+    document.getElementById('forceSpellCheck').spellcheck = true;
 }
