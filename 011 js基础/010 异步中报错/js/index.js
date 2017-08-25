@@ -14,7 +14,6 @@ function err(i) {
     console.info(i)
     var test = aaa;
 }
-
 setTimeout(function(){
     err(1);
 },0);
