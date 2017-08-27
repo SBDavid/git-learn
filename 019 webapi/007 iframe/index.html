@@ -1,0 +1,28 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="./js/index.js"></script>
+    <link href="./index.css" rel="stylesheet" type="text/css" /> 
+    
+</head><script>
+        var index = "test";
+    </script>
+<body>
+        <div id="index">index</div>
+        <iframe  src="http://static9.pplive.cn/019%20webapi/007%20iframe/index.1.html">
+        </iframe>
+        <script>
+            console.info('index', document.getElementsByTagName('iframe')[0].contentWindow.document);
+            if (window.addEventListener) {
+                window.addEventListener("message", function(event) {
+                    console.info('message', event)
+                }, false);
+            } else {
+                window.attachEvent("message", function(event) {
+                    console.info('message', event)
+                })
+            }
+        </script>
+</body>
+</html>
