@@ -1,20 +1,23 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8">
-    <title>example</title>
-  </head>
+
+<head>
+  <meta charset="UTF-8">
+  <title>example</title>
+</head>
+
 <body>
   <label for="weather_input">请输入北京今天空气质量：<input id="weather_input" type="text"/></label>
   <button id="confirm_button">确认</button>
   <p>你输入的值是：<span id="value_show">尚未输入</span></p>
-<script type="text/javascript">
-window.onload=function(){
-  var button=document.getElementById("confirm_button");
-  var span=document.getElementById("value_show");
-  alert(document.getElementById("weather_input").value===undefined);//验证是否等于undefined
-  alert(document.getElementById("weather_input").value==="");//验证是否等于""
-}
-</script>
+  <script type="text/javascript">
+    window.onload = function () {
+      var button = document.getElementById("confirm_button");
+      var span = document.getElementById("value_show");
+      alert(document.getElementById("weather_input").value === undefined); //验证是否等于undefined
+      alert(document.getElementById("weather_input").value === ""); //验证是否等于""
+    }
+  </script>
 </body>
+
 </html>
