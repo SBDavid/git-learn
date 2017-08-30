@@ -10,10 +10,12 @@
     </script>
 <body>
         <div id="index">index</div>
-        <iframe  src="http://static9.pplive.cn/019%20webapi/007%20iframe/index.1.html">
+        <iframe src="http://b.com/019%20webapi/007%20iframe/index.1.html">
         </iframe>
         <script>
             console.info('index', document.getElementsByTagName('iframe')[0].contentWindow.document);
+            console.info('index window.top', window.top);
+            console.info('index window.top === window', window.top === window);
             if (window.addEventListener) {
                 window.addEventListener("message", function(event) {
                     console.info('message', event)

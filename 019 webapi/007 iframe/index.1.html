@@ -6,8 +6,9 @@
     <link href="./index.css" rel="stylesheet" type="text/css" /> 
     <script>
         var index1 = "test1";
-        console.info('index1', parent.document.getElementById('index'));
-        parent.postMessage("message text", 'http://static9.pplive.cn')
+        parent.postMessage("message text", 'http://a.com')
+        console.info('index1 window.top', window.top);
+        console.info('index1 window.top === window', window.top === window);
     </script>
 </head>
 <body>
