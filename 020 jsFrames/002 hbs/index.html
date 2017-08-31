@@ -1,0 +1,66 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <script src="./js/index.js"></script>
+    <script src="./js/handlebars-v4.0.10.js"></script>
+    <link href="./index.css" rel="stylesheet" type="text/css" />
+
+    <script id="entry-template" type="text/x-handlebars-template">
+        <div class="entry">
+            <h1>{{title}}</h1>
+            <div class="body">
+                {{{body}}}
+            </div>
+        </div>
+    </script>
+
+    <script id="list-template" type="text/x-handlebars-template">
+        {{#list people}}{{firstName}} {{lastName}}{{/list}}
+    </script>
+
+    <script id="help-template" type="text/x-handlebars-template">
+        <h1>By {{fullName author}}</h1>
+    </script>
+
+    <script id="partials-template" type="text/x-handlebars-template">
+        <div class="post">
+            {{> userMessage tagName="h1" }}
+
+            <h1>Comments</h1>
+
+            {{#each comments}} {{> userMessage tagName="h2" }} {{/each}}
+        </div>
+    </script>
+
+    <script id="my-partials-template" type="text/x-handlebars-template">
+        <div>
+            <h2>my-partials-template</h2>
+            {{> mypartials data=people }}
+        </div>
+    </script>
+
+    <script id="my-name-template" type="text/x-handlebars-template">
+        <p>
+            first-name: {{data.firstname}} | last-name: {{data.lastName}}
+        </p>
+    </script>
+
+    <script id="if-template" type="text/x-handlebars-template">
+        <h2>if-template</h2>
+        <p>
+            {{#if author}}
+                true
+            {{else}}
+                false
+            {{/if}}
+        </p>
+    </script>
+
+</head>
+
+<body>
+</body>
+
+</html>
