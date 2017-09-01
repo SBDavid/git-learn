@@ -48,36 +48,9 @@ var Model = function() {
     }
 };
 
-Model.prototype.getModel = function() {
-    return this.model;
-}
-
 Model.extend = extend;
 
 
+var myDate = Model.extend({});
 
-var c = Model.extend({
-    prop: 'prop',
-    fun: function() {
-        console.info(this.prop);
-    }
-})
-
-var c1 = new c();
-c1.fun();
-
-var cc = c.extend({
-    propc: 'propc',
-    func: function() {
-        console.info(this.propc);
-    }
-})
-
-var cc1 = new cc();
-
-cc1.fun();
-cc1.func();
-
-console.info('getModel', cc1.getModel());
-cc1.setModel('11');
-console.info('getModel', cc1.getModel());
+var d = new myDate();
