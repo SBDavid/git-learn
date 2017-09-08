@@ -1,0 +1,7 @@
+{{! with hepler 用户向子模板传递参数 }}
+<div>
+    <h2>我的姓名</h2>
+    {{#with name}}
+        {{{firstname}}}-{{{lastname}}}
+    {{/with}}
+</div>

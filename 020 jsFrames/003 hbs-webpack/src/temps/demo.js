@@ -8,7 +8,7 @@ function demo(name) {
         name: name
     });
 
-    return dom;
+    return dom.children[0];
 }
 
 module.exports = demo;
