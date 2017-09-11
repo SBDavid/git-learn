@@ -8,10 +8,10 @@
   "author": "SBDavid",
   "license": "ISC",
   "dependencies": {
-    "handlebars": "^4.0.10",
-    "handlebars-loader": "^1.6.0"
   },
   "devDependencies": {
-    "webpack": "^3.1.0"
+    "webpack": "^3.1.0",
+    "handlebars": "^4.0.10",
+    "handlebars-loader": "^1.6.0"
   }
 }
