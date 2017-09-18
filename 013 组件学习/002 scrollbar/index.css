@@ -1,0 +1,39 @@
+.Container {
+    position: absolute;
+    top: 50px; left: 100px;
+    width: 400px;
+    height: 200px;
+    background-color: #EEE;
+  }
+  #Scroller-1 { 
+    position: absolute; 
+    overflow: hidden;
+    width: 400px;
+    height: 200px;
+  }
+  #Scroller-1 p {
+    margin: 0; padding: 10px 20px;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 11px;
+    text-indent: 20px;
+    color: #777;
+  }
+  .Scroller-Container {
+    position: absolute;
+    top: 0px; left: 0px;
+  }
+  .Scrollbar-Track {
+    width: 6px;
+    height: 200px;
+    position: absolute;
+    top: 50px;
+    left: 495px;
+    background-color: #EEE;
+  }
+  .Scrollbar-Handle {
+    position: absolute;
+    top: 0px; left: 0px;
+    width: 5px; height: 100px;
+    background-color: #CCC;
+    border-radius: 5px;
+  }
