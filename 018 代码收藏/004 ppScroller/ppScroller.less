@@ -1,0 +1,11 @@
+.pp-scroller-container{ position: relative;}
+
+.pp-scroller{display:none;box-sizing:border-box;width:8px;height:8px;border-radius:2px;background:#e6e6e6;position:absolute;right:0;top:0;overflow: hidden}
+.pp-scroller div{position:relative;box-sizing:border-box;border-radius:2px;width:8px;height:8px; background:#c5c5c5;border:1px solid #b4b4b4;position:absolute;right:0;top:0;}
+
+.pp-scroller-container-h .pp-scroller{top:auto;bottom:0;}
+/*for mobile scroller*/
+.pp-scroller-container::-webkit-scrollbar{width: 8px;background: #eee;}
+.pp-scroller-container::-webkit-scrollbar-thumb {background: #ccc;border-radius: 15px;}
+.pp-scroller-container::-webkit-scrollbar-button {display: none;}
+.pp-scroller-container::-webkit-scrollbar-track-piece {background: transparent;}
