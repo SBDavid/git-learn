@@ -2,7 +2,7 @@ const Koa = require('koa');
 const app = new Koa();
 var ReactDOMServer = require('react-dom/server');
 
-var element = require('./temp/dist/demo');
+var element = require('./temp/src/demo');
 // x-response-time
 
 app.use(async (ctx, next) => {
