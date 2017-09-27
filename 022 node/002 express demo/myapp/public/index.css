@@ -1,0 +1,49 @@
+#root {
+    width: 500px;
+    height: 500px;
+}
+
+#root div {
+    margin: 5px;
+    width: 40px;
+    height: 40px;
+    float: left;
+    background-color: #000;
+    border-radius: 50% 50%;
+    opacity: 1;
+    animation: hide 2s infinite;
+}
+
+#root div.round0 {
+    animation-delay: 200ms;
+}
+
+#root div.round1 {
+    animation-delay: 400ms;
+}
+#root div.round2 {
+    animation-delay: 600ms;
+}
+
+#root div.round3 {
+    animation-delay: 800ms;
+}
+#root div.round4 {
+    animation-delay: 1000ms;
+}
+
+
+#root div:hover {
+    animation: hide 2s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes hide
+{
+0% {opacity:1;}
+50% {opacity:0;}
+100% {opacity:1;}
+}
+
+
+

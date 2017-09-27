@@ -1,0 +1,11 @@
+html
+  head
+    title= "我的第一个模板"
+    meta(charset='UTF-8')
+    script(src='static/index.js')
+    link(rel='stylesheet', href='static/index.css')
+  body
+    div#root
+        - var num = 0;  
+        - for(; num < 100; num++) 
+            div(class='round'+Math.floor(num/20))
