@@ -1,0 +1,17 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="./js/index.js"></script>
+    <link href="./index.css" rel="stylesheet" type="text/css" /> 
+    <script>
+        window.addEventListener('message', function (res) {
+            console.info('window.frames[0]',window.frames[0]);
+            window.frames[0].postMessage('hello babi','*');
+        })
+    </script>
+</head>
+<body>
+    <iframe src="http://live.pptv.com/tuan/pg_detail?familyId=261&plt=longzhu"><iframe>
+</body>
+</html>
