@@ -1,4 +1,6 @@
 #root {
+    border: 3px solid #000;
+    display: inline-block;
 }
 
 #root>div {
@@ -6,25 +8,31 @@
     width: 40px;
     height: 40px;
     float: left;
-    border: 1px solid #000;
-    
 }
 
 .block {
-    background-color: #000;
-    opacity: 0;
+    background-color: #c5c5c5;
     transition: 100ms cubic-bezier(0.075, 0.82, 0.165, 1);
     width: 100%;
     height: 100%;
 }
 
 #root div.show {
-    opacity: 1;
+    background-color: #000;
+    transition: 100ms cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
 #root div.hide {
-    opacity: 0;
-    transition: 5s;
+    background-color: #c5c5c5;
+    transition: 500ms;
+}
+
+#root div.head {
+    background-color: red;
+}
+
+#root div.food {
+    background-color: goldenrod;
 }
 
 

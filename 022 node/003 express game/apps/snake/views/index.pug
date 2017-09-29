@@ -7,7 +7,7 @@ html
 		script(src='static/vendor/jquery.js')
 		script(src='snake/static/js/index.js')
 	body
-		div#root
+		div.cf#root
 			- var xNum = 0;
 			- for(; xNum < num; xNum++) 
 				div(style=xNum % x === 0 ? 'clear: left' : '')
