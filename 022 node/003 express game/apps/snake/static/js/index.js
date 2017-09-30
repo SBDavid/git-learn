@@ -99,7 +99,7 @@ function gameView(model) {
     this.blocks = Array.prototype.slice.call(this.rootCon.getElementsByClassName('block'), 0);
 
     // 事件挂载
-    window.addEventListener('keyup', function(event){
+    window.addEventListener('keydown', function(event){
         var nextStep = self.gameM.nextStepPosition(event.keyCode);
         if ($(self.blocks[getNum(nextStep)]).attr('food') === 'true') {
             self.eat(nextStep);
