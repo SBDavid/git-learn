@@ -10,19 +10,10 @@
     </script>
 <body>
         <div id="index">index</div>
-<<<<<<< HEAD
-        <iframe  src="http://static8.pplive.cn/019%20webapi/007%20iframe/index.1.html">
+        <iframe  src="http://b.com/019%20webapi/007%20iframe/index.1.html">
         </iframe>
         <script>
             /* console.info('index', document.getElementsByTagName('iframe')[0].contentWindow.document); */
-=======
-        <iframe src="http://b.com/019%20webapi/007%20iframe/index.1.html">
-        </iframe>
-        <script>
-            console.info('index', document.getElementsByTagName('iframe')[0].contentWindow.document);
-            console.info('index window.top', window.top);
-            console.info('index window.top === window', window.top === window);
->>>>>>> 9bc2a261a3d8144e85261a47165d7f84745061ff
             if (window.addEventListener) {
                 window.addEventListener("message", function(event) {
                     console.info('message', event)
@@ -33,41 +24,8 @@
                 })
             }
 
-            //写cookies 
-
-function setCookie(name,value) 
-{ 
-    var Days = 30; 
-    var exp = new Date(); 
-    exp.setTime(exp.getTime() + Days*24*60*60*1000); 
-    document.cookie = name + "="+ escape (value) + ";expires=" + exp.toGMTString(); 
-} 
 
 
-        // cookie
-        //读取cookies 
-function getCookie(name) 
-{ 
-    var arr,reg=new RegExp("(^| )"+name+"=([^;]*)(;|$)");
- 
-    if(arr=document.cookie.match(reg))
- 
-        return unescape(arr[2]); 
-    else 
-        return null; 
-} 
-
-//删除cookies 
-function delCookie(name) 
-{ 
-    var exp = new Date(); 
-    exp.setTime(exp.getTime() - 1); 
-    var cval=getCookie(name); 
-    if(cval!=null) 
-        document.cookie= name + "="+cval+";expires="+exp.toGMTString(); 
-} 
-//使用示例 
-alert(getCookie("name")); 
         </script>
 </body>
 </html>
