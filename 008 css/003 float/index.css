@@ -1,0 +1,39 @@
+.fl {
+    float: left;
+}
+
+.cl {
+    clear: left;
+}
+
+.blk {
+    margin: 10px;
+    width: 100px;
+    height: 100px;
+    background-color: red;
+}
+
+.a {
+    background-color: grey;
+    height: 100px;
+    width: 100px;
+    margin: 10px;
+}
+
+.cf:before,
+.cf:after {
+    content: " "; /* 1 */
+    display: table; /* 2 */
+}
+
+.cf:after {
+    clear: both;
+}
+
+/**
+ * For IE 6/7 only
+ * Include this rule to trigger hasLayout and contain floats.
+ */
+.cf {
+    *zoom: 1;
+}
