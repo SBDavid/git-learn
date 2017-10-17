@@ -1,0 +1,36 @@
+.box{
+    display: flex;
+    display: -webkit-flex;     /* NEW - Chrome */    
+    justify-content: center;
+    -webkit-justify-content: center;
+    display: -webkit-box; /* 2009年语法 */
+       display: box; /* 2009年语法 */
+  }
+  ul
+  {
+    list-style:none; /* 去掉ul前面的符号 */
+    width: auto; /* 宽度根据元素内容调整 */
+    border: 1px solid #000;
+    padding: 0;
+    margin: 0;
+    width: 400px;
+    padding: 10px 0px;
+  }
+  /* 所有class为menu的div中的ul中的li样式 */
+  li
+  {
+    display: block;
+    text-align: center;
+    background-color: #f1f1f1;
+  }
+  
+  .link {
+    margin: 0px 0px;
+    flex-grow: 1;
+    -webkit-flex-grow: 1;
+    -webkit-box-flex: 1; /* 2009年语法 */
+  }
+  
+  .split {
+    margin: 0px 0px
+  }
