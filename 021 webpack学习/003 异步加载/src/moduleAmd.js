@@ -1,0 +1,3 @@
+define({
+    answer: 42
+});
