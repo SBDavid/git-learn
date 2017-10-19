@@ -1,0 +1,8 @@
+#root div{
+    border: 1px black solid
+}
+
+#root:hover div{
+    color: red;
+    width: 100px;
+}
