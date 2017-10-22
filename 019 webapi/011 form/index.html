@@ -1,0 +1,23 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="./js/index.js"></script>
+    <link href="./index.css" rel="stylesheet" type="text/css" /> 
+</head>
+<body>
+    <form>
+        姓：<input type="text" name="lname"><br>
+        名：<input type="text" name="fname"><br>
+        <input type="submit" value="提交">
+    </form>
+    <script>
+        var f = document.getElementsByTagName('form')[0];
+        f.addEventListener('submit', function(e) {
+            e.preventDefault();
+            console.info(e);
+            f.submit();
+        })
+    </script>
+</body>
+</html>
