@@ -1,0 +1,106 @@
+/* base color */
+@mcolor:#1b1b1b;
+@scolor:#707070;
+@orange:#faa61a;
+@blue:#00aeef;
+
+.border-radius(@radius){
+    -webkit-border-radius: @radius;
+    -moz-border-radius: @radius;
+    border-radius: @radius;
+}
+
+.text-overflow(){
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.text-overflow-more(@value){
+    overflow: hidden;
+    -webkit-line-clamp: @value;
+    -moz-line-clamp: @value;
+    -ms-line-clamp: @value;
+    -o-line-clamp: @value;
+    line-clamp: @value;
+    -webkit-box-orient: vertical;
+    -moz-box-orient: vertical;
+    -ms-box-orient: vertical;
+    -o-box-orient: vertical;
+    box-orient: vertical;
+    word-break: break-all;
+}
+
+.box-shadow(@x,@y,@blur,@color){
+    -webkit-box-shadow: @arguments;
+    -moz-box-shadow: @arguments;
+    -ms-box-shadow: @arguments;  
+    -o-box-shadow: @arguments;  
+    box-shadow: @arguments;
+}
+
+.backgroundSize(@size){  
+    -webkit-background-size: @size;
+    -moz-background-size: @size;  
+    -ms-background-size: @size;  
+    -o-background-size: @size;  
+    background-size: @size;  
+}  
+
+.transition(@prop,@time,@ease){  
+    -webkit-transition: @arguments;  
+    -moz-transition: @arguments;  
+    -o-transition: @arguments;  
+    -ms-transition: @arguments;  
+    transition: @arguments;  
+}  
+
+/* 强制换行 */
+.force-wrap {
+    white-space: pre;
+    white-space: pre-wrap;
+    white-space: pre-line;
+    white-space: -pre-wrap;
+    white-space: -o-pre-wrap;
+    white-space: -moz-pre-wrap;
+    white-space: -hp-pre-wrap;
+    word-wrap: break-word;
+    word-break: break-all;
+}
+
+/* 强制不换行 */
+.noforce-wrap{
+    white-space:nowrap;
+}
+
+.center-line(@height,@lineheight){
+    height:@height;
+    line-height:@lineheight;
+}
+
+.rhythm-line(@multiple,@lineheight){
+    height:@lineheight * @multiple;
+    line-height:@lineheight;
+}
+
+.triangle(top,@width,@color){
+     border-width: @width;
+     border-color: transparent transparent @color transparent;
+     border-style: dashed dashed solid dashed;
+}
+.triangle(bottom,@width,@color){
+     border-width: @width;
+     border-color: @color transparent transparent transparent;
+     border-style: dashed dashed solid dashed;
+}
+.triangle(left,@width,@color){
+     border-width: @width;
+     border-color: transparent @color transparent transparent;
+     border-style: dashed solid dashed dashed;
+}
+.triangle(right,@width,@color){
+     border-width: @width;
+     border-color: transparent transparent transparent @color;
+     border-style: dashed dashed dashed solid;
+}
+

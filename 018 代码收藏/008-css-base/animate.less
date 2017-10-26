@@ -1,0 +1,25 @@
+@keyframes hide
+{
+    0%   {opacity:1;display: block}
+    99%  {opacity:0;}
+    100% {opacity:0;display: none}
+}
+
+@keyframes show
+{
+    0%   {opacity:0;display: block}
+    99%  {opacity:1;}
+    100% {opacity:1;}
+}
+
+.hide
+{
+    animation: 500ms linear hide;
+    -webkit-animation: 500ms linear hide;
+}
+
+.show
+{
+    animation: 500ms linear show;
+    -webkit-animation: 500ms linear show;
+}
