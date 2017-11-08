@@ -2,10 +2,19 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+     <script src="./js/polyfill.js"></script>
     <script src="./js/vue.js"></script>
     <link href="./index.css" rel="stylesheet" type="text/css" /> 
 </head>
 <body>
+    <div id='root'>root</div>
+    <script type="text/x-template" id="root-template">
+        <div>
+            <div>{{ a }}{{ b }}</div>
+            <div>c: {{ obj.c }}</div>
+            <div>d: {{ obj.d.d1 }}</div>
+        </div>
+    </script>
     <script src="./js/index.js"></script>
 </body>
 </html>
