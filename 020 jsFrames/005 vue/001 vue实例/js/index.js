@@ -1,32 +1,73 @@
+Vue.config.silent = true;
+
+var Component = Vue.extend({
+    render: function (createElement) {
+        var self = this;
+        return createElement(
+            'ul',
+            self.myProp
+        )
+    },
+    props: {
+        myProp: {
+            type: Number,
+            required: true
+        }
+    },
+});
+
+
+
 var vm = new Vue({
     /* template: '#root-template', */
-    render: function(createElement) {
+    render: function (createElement) {
+        var self = this;
         return createElement(
             'div',
-            '顶层div'
+            {
+                'class': {
+                    foo: true,
+                    bar: false
+                },
+                style: {
+                    color: 'red',
+                    fontSize: '14px'
+                },
+                attrs: {
+                    id: 'foo',
+                    name: 'my-custom-directive',
+                },
+                ref: 'myRef',
+                on: {
+                    click: function (e) {
+                        console.info(e)
+                    }
+                },
+            },
+            [
+                '来一段',
+                createElement(Component, {
+                    props: {
+                        myProp: 1
+                    },
+                }),
+                createElement('div', `${self.a}${self.b}`),
+                createElement('div', `c: ${self.obj.c}`),
+                createElement('div', `d: ${self.obj.d.d1}`)
+            ],
         )
     },
     el: '#root',
     data: function () {
         return {
+            s: 's',
             a: 1,
             obj: {
                 c: 100,
                 d: {
                     d1: 111
                 }
-            },
-            'class': {
-                foo: true,
-                bar: false
-            },
-            style: {
-                color: 'red',
-                fontSize: '14px'
-            },
-            attrs: {
-                id: 'foo'
-            },
+            }
         }
     },
     computed: {
