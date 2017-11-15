@@ -12,6 +12,7 @@ var inherits = function(parent, protoProps, staticProps) {
         child = protoProps.constructor;
     } else {
         child = function() {
+            // 如果不适用apply那么parent中创建的实例不会存在于child的实例内
             parent.apply(this, arguments);
         };
     }
@@ -21,6 +22,7 @@ var inherits = function(parent, protoProps, staticProps) {
 
     // Set the prototype chain to inherit from `parent`, without calling
     // `parent`'s constructor function.
+    // 使用中间对象避免child的原型对象上存在parent实例属性；
     ctor = function() {}
     ctor.prototype = parent.prototype;
     child.prototype = new ctor();
@@ -41,16 +43,17 @@ var inherits = function(parent, protoProps, staticProps) {
     return child;
 };
 
-var Model = function() {
+var Base = function() {
     this.model = 'm';
     this.setModel = function(str){
         this.model = str;
     }
 };
 
-Model.extend = extend;
+Base.extend = extend;
 
+var B = new Base();
 
-var myDate = Model.extend({});
+var Child = Base.extend({});
 
-var d = new myDate();
+var C = new Child();
