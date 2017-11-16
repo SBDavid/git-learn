@@ -1,0 +1,12 @@
+#id {
+    position: relative;
+    background-color: #ebc3c3;
+}
+
+#move {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background-color: #d67575;
+    left: 0;
+}
