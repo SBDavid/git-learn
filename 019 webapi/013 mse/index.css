@@ -1,0 +1,72 @@
+::selection {
+    color: #fff;
+    background: pink;
+  }
+  html, body {
+    overflow: hidden;
+    height: 100%;
+  }
+  body {
+    margin: 0;
+  }
+  body {
+    color: #222;
+    font-family: 'Open Sans', arial, sans-serif;
+    display: -webkit-flex;
+    -webkit-align-items: center;
+    -webkit-justify-content: center;
+    -webkit-flex-direction: column;
+    display: -ms-flex;
+    -ms-align-items: center;
+    -ms-justify-content: center;
+    -ms-flex-direction: column;
+    display: -moz-flex;
+    -moz-align-items: center;
+    -moz-justify-content: center;
+    -moz-flex-direction: column;
+    display: -o-flex;
+    -o-align-items: center;
+    -o-justify-content: center;
+    -o-flex-direction: column;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+  details {
+    position: absolute;
+    top: 1em;
+    left: 1em;
+    margin: 1em 0;
+    cursor: pointer;
+    padding: 10px;
+    background: #fff;
+    border: 1px solid rgba(0,0,0,0.3);
+    border-radius: 5px;
+    max-width: 600px;
+    font-size: 10pt;
+    z-index: 100;
+  }
+  details > div {
+    margin: 10px 0;
+  }
+  details blockquote {
+    font-style: italic;
+  }
+  pre:not(#log) {
+    background: #eee;
+    border-radius: 5px;
+    padding: 3px 17px 20px 17px;
+    border: 1px solid #ccc;
+    color: navy;
+  }
+  #log {
+    margin: 0 1em;
+  }
+  code {
+    font-weight: bold;
+  }
+  section {
+    display: -webkit-flex;
+    display: flex;
+  }

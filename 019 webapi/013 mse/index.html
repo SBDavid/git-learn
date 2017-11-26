@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="./js/index.js"></script>
+    <link href="./index.css" rel="stylesheet" type="text/css" /> 
+</head>
+<body>
+	<h3>Appending .webm video chunks using the Media Source API</h3>
+    
+    <section>
+      <video controls="" autoplay="" width="320" height="240"></video>
+      <pre id="log"></pre>
+    </section>
+    
+    <pre><code>
+    var ms = new MediaSource();
+    
+    var video = document.querySelector('video');
+    video.src = window.URL.createObjectURL(ms);
+    
+    ms.addEventListener('sourceopen', function(e) {
+      ...
+      var sourceBuffer = ms.addSourceBuffer('video/webm; codecs="vorbis,vp8"');
+      sourceBuffer.appendBuffer(oneVideoWebMChunk);
+      ....
+    }, false);
+    </code></pre>
+</body>
+</html>
