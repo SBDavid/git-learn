@@ -79,14 +79,18 @@ function onOpen(status) {
         });
         console.log('search res:', res)
     }, 6000);
-
-    setTimeout(function() {
-        page.render('004_gotoTarget.png');
-        phantom.exit();
-    }, 9000)
 }
 
 page.onUrlChanged = function() {
     console.log("page.onUrlChanged");
     printArgs.apply(this, arguments);
 };
+
+page.onPageCreated  = function(newPage) {
+    newPage.onLoadFinished = function(status) {
+        
+        console.log("Status new page: " + status);
+        newPage.render('004_gotoTarget.png');
+        phantom.exit();
+    }
+}
