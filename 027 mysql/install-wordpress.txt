@@ -1,0 +1,20 @@
+1. 下载
+wget http://wordpress.org/latest.tar.gz
+
+2. 解压
+tar -xzvf latest.tar.gz
+
+3. 数据库创建
+mysql -u root -p
+CREATE DATABASE wordpress;
+GRANT ALL PRIVILEGES ON wordpress.* TO "SBDavid"@"hostname" IDENTIFIED BY "g<)f*w,&s2Vd";
+FLUSH PRIVILEGES
+EXIT
+
+4. nginx配置虚拟server
+
+5. 配置数据库用户
+
+6. 用户名
+SBDavid
+G)88LVyqF^Tc6iT7eq

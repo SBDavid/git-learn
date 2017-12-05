@@ -2,6 +2,22 @@ https://www.cnblogs.com/bigbrotherer/p/7241845.html
 
 root g<)f*w,&s2Vd
 
+安装路径
+一、查看文件安装路径
+由于软件安装的地方不止一个地方，所有先说查看文件安装的所有路径(地址)。
+这里以mysql为例。比如说我安装了mysql,但是不知道文件都安装在哪些地方、放在哪些文件夹里，可以用下面的命令查看所有的文件路径 
+在终端输入：
+whereis mysql
+回车，如果你安装好了mysql，就会显示文件安装的地址，例如我的显示(安装地址可能会不同)
+[root@localhost ~]# whereis mysql 
+mysql: /usr/bin/mysql /usr/lib/mysql /usr/share/mysql /usr/share/man/man1/mysql.1.gz
+二、查询运行文件所在路径(文件夹地址)
+如果你只要查询文件的运行文件所在地址，直接用下面的命令就可以了(还是以mysql为例)：
+which mysql
+终端显示:
+
+[root@localhost ~]# which mysql 
+/usr/bin/mysql
 
 在CentOS中默认安装有MariaDB，这个是MySQL的分支，但为了需要，还是要在系统中安装MySQL，而且安装完成之后可以直接覆盖掉MariaDB。
 
@@ -23,7 +39,7 @@ root g<)f*w,&s2Vd
 2 MySQL数据库设置
 
   首先启动MySQL
-
+[root@localhost ~]# systemctl stop  mysqld.service
 [root@localhost ~]# systemctl start  mysqld.service
   查看MySQL运行状态，运行状态如图：
 
