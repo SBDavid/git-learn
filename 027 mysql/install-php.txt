@@ -1,0 +1,28 @@
+http://php.net/manual/zh/install.unix.nginx.php
+
+重新安装libxml2和libxml2-devel包
+yum install libxml2
+yum install libxml2-devel -y
+安装完之后查找xml2-config文件是否存在
+[root@test31 php-5.4.1]#  find / -name "xml2-config"
+/usr/bin/xml2-config
+
+cd /usr/local
+wget http://cn2.php.net/distributions/php-7.2.0.tar.gz
+tar zxf php-7.2.0.tar.gz
+cd php-7.2.0
+./configure --enable-fpm --with-mysql --disable-fileinfo 
+make
+sudo make install
+
+cp php.ini-development /usr/local/php/php.ini
+cp /usr/local/etc/php-fpm.conf.default /usr/local/etc/php-fpm.conf
+cp sapi/fpm/php-fpm /usr/local/bin
+cp /usr/local/etc/php-fpm.d/www.conf.default /usr/local/etc/php-fpm.d/www.conf
+
+打开 php.ini:
+vim /usr/local/php/php.ini
+定位到 cgi.fix_pathinfo= 并将其修改为如下所示：
+cgi.fix_pathinfo=0
+
+/usr/local/bin/php-fpm

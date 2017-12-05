@@ -1,0 +1,4 @@
+cd /usr/local/mongodb/bin
+mongod -shutdown -dbpath=/usr/local/mongodb/data/test/db
+
+mongod --config mongodb.conf

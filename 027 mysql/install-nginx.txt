@@ -1,0 +1,53 @@
+http://www.jianshu.com/p/d5114a2a2052
+
+C++ yum install -y gcc gcc-c++
+
+wget ftp://ftp.csx.cam.ac.uk/pub/software/programming/pcre/pcre-8.40.tar.gz
+tar -zxvf pcre-8.40.tar.gz
+ cd pcre-8.40
+./configure
+$ make
+$ make install
+
+wget http://zlib.net/zlib-1.2.11.tar.gz
+tar -zxvf openssl-1.0.1j.tar.gz
+$ ./config
+$ make
+$ make install
+
+$ cd /usr/local/
+$ wget http://www.openssl.org/source/openssl-1.0.1j.tar.gz
+$ tar -zxvf openssl-1.0.1j.tar.gz
+$ ./config
+$ make
+$ make install
+
+$ cd /usr/local/
+$ wget http://nginx.org/download/nginx-1.8.0.tar.gz
+$ tar -zxvf nginx-1.8.0.tar.gz
+$ cd nginx-1.8.0  
+$ ./configure --prefix=/usr/local/nginx 
+$ make
+$ make install
+
+--with-pcre=/usr/local/pcre-8.36 指的是pcre-8.36 的源码路径。
+--with-zlib=/usr/local/zlib-1.2.8 指的是zlib-1.2.8 的源码路径。
+
+$ /usr/local/nginx/sbin/nginx
+重启：
+$ /usr/local/nginx/sbin/nginx –s reload
+
+停止：
+$ /usr/local/nginx/sbin/nginx –s stop
+
+测试配置文件是否正常：
+$ /usr/local/nginx/sbin/nginx –t
+
+强制关闭：
+$ pkill nginx
+
+配置
+
+以上安装方法nginx的配置文件位于
+
+/usr/local/nginx/conf/nginx.conf
