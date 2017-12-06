@@ -1,5 +1,6 @@
 1. 下载
 wget http://wordpress.org/latest.tar.gz
+wget https://cn.wordpress.org/wordpress-4.9.1-zh_CN.zip
 
 2. 解压
 tar -xzvf latest.tar.gz
@@ -18,3 +19,8 @@ EXIT
 6. 用户名
 SBDavid
 G)88LVyqF^Tc6iT7eq
+
+7. 语言
+https://make.wordpress.org/polyglots/teams/
+wp-config.php
+define('WPLANG', 'zh_CN');
