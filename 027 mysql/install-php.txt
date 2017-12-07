@@ -14,7 +14,7 @@ tar zxf php-7.2.0.tar.gz
 tar zxf php-5.6.32.tar.gz
 cd php-7.2.0
 ./configure --enable-fpm --with-mysql=/usr/bin/mysql --disable-fileinfo 
-./configure --enable-fpm --with-mysql --disable-fileinfo
+./configure --enable-fpm --with-mysql --enable-zip --with-zlib --disable-fileinfo
 make
 sudo make install
 
@@ -45,3 +45,6 @@ fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
 
 mysql
 yum install php-mysql
+
+1. zip
+wget https://jaist.dl.sourceforge.net/project/libpng/zlib/1.2.11/zlib-1.2.11.tar.gz

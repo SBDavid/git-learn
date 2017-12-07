@@ -11,7 +11,7 @@ $ make install
 
 wget http://zlib.net/zlib-1.2.11.tar.gz
 tar -zxvf openssl-1.0.1j.tar.gz
-$ ./config
+$ ./config --prefix=/usr/local/zlib
 $ make
 $ make install
 
