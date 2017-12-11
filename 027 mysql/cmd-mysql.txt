@@ -1,0 +1,15 @@
+1. 连接
+root g<)f*w,&s2Vd
+mysql -uroot -p
+
+2. 选择一个数据库
+use wordpress;
+
+3. 显示所有的数据库
+show databases;
+
+4. 显示table
+show table; 
+
+5. 删除数据库
+ drop database wordpress;

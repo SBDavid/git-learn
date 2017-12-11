@@ -1,0 +1,7 @@
+vi /usr/local/nginx/conf/nginx.conf
+
+2. 关闭
+pkill nginx
+
+3. 启动
+/usr/local/nginx/sbin/nginx

@@ -3,12 +3,15 @@ wget http://wordpress.org/latest.tar.gz
 wget https://cn.wordpress.org/wordpress-4.9.1-zh_CN.zip
 
 2. 解压
-tar -xzvf latest.tar.gz
+tar -xzvf wordpress-4.9.1-zh_CN.tar.gz
+cp -r ./wordpress/ ../../project/
+chown -R www-data wordpress/
+chmod -R 777 wordpress/
 
 3. 数据库创建
 mysql -u root -p
 CREATE DATABASE wordpress;
-GRANT ALL PRIVILEGES ON wordpress.* TO "SBDavid"@"hostname" IDENTIFIED BY "g<)f*w,&s2Vd";
+GRANT ALL PRIVILEGES ON wordpress.* TO "SBDavid"@"localhost" IDENTIFIED BY "g<)f*w,&s2Vd";
 FLUSH PRIVILEGES
 EXIT
 
@@ -24,3 +27,10 @@ G)88LVyqF^Tc6iT7eq
 https://make.wordpress.org/polyglots/teams/
 wp-config.php
 define('WPLANG', 'zh_CN');
+
+8. 配置
+cp wp-config-sample.php wp-config.php
+
+9. 插件
+tar -xzvf /home/tool/wordpress/plugins/all-in-one-seo-pack.2.4.3.1.zip
+cp -r /home/tool/wordpress/plugins/all-in-one-seo-pack /home/project/wordpresstest/wp-content/plugins/
