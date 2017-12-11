@@ -17,3 +17,9 @@ function myCoolFunction() {
     }
     // ...
 }
+
+// 尖括号声明类型
+let someValue: Array<number> = [1,2];
+let strLength: number = (<Array<number>>someValue).length;
+console.info(strLength);
+
