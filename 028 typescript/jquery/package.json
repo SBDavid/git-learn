@@ -1,0 +1,19 @@
+{
+  "name": "temp",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "start": "webpack -w --colors --profile"
+  },
+  "author": "SBDavid",
+  "license": "ISC",
+  "dependencies": {
+    "@types/jquery": "^3.2.16",
+    "jquery": "^3.2.1",
+    "ts-loader": "^3.2.0",
+    "yargs-parser": "^8.0.0"
+  },
+  "devDependencies": {
+    "webpack": "^3.1.0"
+  }
+}
