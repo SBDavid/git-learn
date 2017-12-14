@@ -8,3 +8,12 @@ console.info(g1.greet());
 let g2 = new G2("world");
 console.info(g2.greet());
 
+// 导入Boolean
+import {testVal} from "./module3";
+console.info('导入Boolean', testVal);
+
+// 导出接口，方法
+import {testInterface, funa} from "./module3";
+
+funa({label: "label"});
+
