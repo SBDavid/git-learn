@@ -1,12 +1,12 @@
-1. 下载
+﻿1. 下载
 wget http://wordpress.org/latest.tar.gz
 wget https://cn.wordpress.org/wordpress-4.9.1-zh_CN.zip
 
 2. 解压
 tar -xzvf wordpress-4.9.1-zh_CN.tar.gz
-cp -r ./wordpress/ ../../project/
-chown -R www-data wordpress/
-chmod -R 777 wordpress/
+cp -r /home/tool/wordpress/wordpress45pro/ /home/project/
+chown -R www-data /home/project/wordpress45
+chmod -R 777 /home/project/wordpress45
 
 3. 数据库创建
 mysql -u root -p
@@ -34,3 +34,6 @@ cp wp-config-sample.php wp-config.php
 9. 插件
 tar -xzvf /home/tool/wordpress/plugins/all-in-one-seo-pack.2.4.3.1.zip
 cp -r /home/tool/wordpress/plugins/all-in-one-seo-pack /home/project/wordpresstest/wp-content/plugins/
+
+10.主题
+cp -r /home/tool/wordpress/theme/llorix-one-lite /home/project/wordpress45/wp-content/themes/
