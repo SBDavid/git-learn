@@ -1,4 +1,4 @@
-1. 连接
+﻿1. 连接
 root g<)f*w,&s2Vd
 mysql -uroot -p
 
@@ -13,3 +13,9 @@ show table;
 
 5. 删除数据库
  drop database wordpress;
+
+6. 远程连接
+use mysql;
+select host, user from user;
+GRANT ALL PRIVILEGES ON *.* TO 'SBDavid'@'%' IDENTIFIED BY 'g<)f*w,&s2Vd' WITH GRANT OPTION; 
+打开安全组
