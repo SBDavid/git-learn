@@ -33,7 +33,7 @@ cp wp-config-sample.php wp-config.php
 
 9. 插件
 tar -xzvf /home/tool/wordpress/plugins/all-in-one-seo-pack.2.4.3.1.zip
-cp -r /home/tool/wordpress/plugins/all-in-one-seo-pack /home/project/wordpresstest/wp-content/plugins/
+cp -r /home/tool/wordpress/plugins/all-in-one-seo-pack /home/project/wordpress45/wp-content/plugins/
 
 10.主题
 cp -r /home/tool/wordpress/theme/llorix-one-lite /home/project/wordpress45/wp-content/themes/

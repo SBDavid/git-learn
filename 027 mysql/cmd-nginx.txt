@@ -1,7 +1,10 @@
-vi /usr/local/nginx/conf/nginx.conf
+﻿vi /usr/local/nginx/conf/nginx.conf
 
 2. 关闭
 pkill nginx
 
 3. 启动
 /usr/local/nginx/sbin/nginx
+
+4. 日志
+less /usr/local/nginx/logs/error.log
