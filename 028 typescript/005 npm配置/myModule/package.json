@@ -1,12 +1,12 @@
 {
-  "name": "mymodule",
+  "name": "hwrld",
   "version": "1.0.0",
   "description": "",
   "scripts": {
     "start": "webpack -w --colors --profile"
   },
   "main": "dist/index.js",
-  "typings": "types/index.d.ts",
+  "types": "dist/index.d.ts",
   "author": "SBDavid",
   "license": "ISC",
   "dependencies": {
