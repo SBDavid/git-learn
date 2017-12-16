@@ -79,9 +79,9 @@ let basecfg = {
     },
     resolve: {
         extensions: ['.js', '.css', '.json', '.jsx', '.vue', '.ts'],
-        alias: {
+/*         alias: {
             vue: 'vue/dist/vue.esm.js'
-        }
+        } */
     },
     module: {
         rules: [

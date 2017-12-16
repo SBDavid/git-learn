@@ -23,11 +23,11 @@ let config = {
         filename: '[name].js',
         library: '[name]'
     },
-    resolve: {
+/*     resolve: {
         alias: {
             vue: 'vue/dist/vue.esm.js'
         }
-    },
+    }, */
     module: {
         rules: []
     },
