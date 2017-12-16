@@ -12,7 +12,6 @@ import { base, define, uglify, banner } from './webpack.config.base';
 let entryObj = {};
 let getEntry = (dir) => {
     fs.readdirSync(dir).filter(function(item) { 
-        console.info(item)
         return item.match(/\.d\.ts$/) === null;
     }).map((item) => {
         let _name = path.basename(item, path.extname(item));
