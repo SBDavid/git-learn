@@ -14,7 +14,7 @@ tar zxf php-7.2.0.tar.gz
 tar zxf php-5.6.32.tar.gz
 cd php-7.2.0
 ./configure --enable-fpm --with-mysql=/usr/bin/mysql --disable-fileinfo 
-./configure --enable-fpm --with-mysql --enable-zip --with-zlib --disable-fileinfo
+./configure --enable-fpm --with-mysql --enable-zip --with-zlib --disable-fileinfo --prefix=/usr/local/phpc
 make
 sudo make install
 
@@ -29,6 +29,7 @@ vim /usr/local/php/php.ini
 cgi.fix_pathinfo=0
 
 /usr/local/bin/php-fpm
+/usr/local/phpc/sbin/php-fpm
 
 重启
 ps aux|grep php-fpm

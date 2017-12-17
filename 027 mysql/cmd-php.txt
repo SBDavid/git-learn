@@ -1,0 +1,6 @@
+1. 启动
+/usr/local/phpc/sbin/php-fpm
+
+2. 关闭
+ps aux|grep php-fpm
+kill -USR2 4289
