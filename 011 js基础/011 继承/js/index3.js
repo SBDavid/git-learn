@@ -44,16 +44,44 @@ var inherits = function(parent, protoProps, staticProps) {
 };
 
 var Base = function() {
-    this.model = 'm';
-    this.setModel = function(str){
-        this.model = str;
-    }
+    console.info('this is the constructor of base')
 };
 
 Base.extend = extend;
 
-var B = new Base();
+// 方法一：通过调用父类的构造方法
+var parentModel1 = Base.extend({
+	// 对象中的方法将被添加到子类的prototype上
+    funA: function() {
+        console.info('this is a function');
+    }
+}, {
+	// 这个方法将被添加到子类的构造器上
+	staticFun: function() {
+		console.info('this is a static function');
+	}
+});
 
-var Child = Base.extend({});
+var p1 = new parentModel1();
+p1.funA();
+parentModel1.staticFun();
 
-var C = new Child();
+// 方法二：子类自己定义构造方法
+var parentModel2 = Base.extend({
+    constructor: function(){
+        console.info('this is the constructor of parentModel2')
+    },
+	// 对象中的方法将被添加到子类的prototype上
+    funA: function() {
+        console.info('this is a function');
+    }
+}, {
+	// 这个方法将被添加到子类的构造器上
+	staticFun: function() {
+		console.info('this is a static function');
+	}
+});
+
+var p2 = new parentModel2();
+p2.funA();
+parentModel2.staticFun();
