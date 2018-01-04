@@ -4,12 +4,15 @@
       <div>data测试：{{demo}} - {{demo2}}</div>
       <div>computed测试：{{computedMsg}}</div>
       <div>method测试：{{hello()}}</div>
+      <div>vuwx测试：{{vuexState()}}</div>
     </div>
 </template>
 
 <script lang="ts">
 import Vue from "vue";
 import Component from "vue-class-component";
+import store from "../store/store";
+
 
 @Component({
   props: {
@@ -26,6 +29,10 @@ export default class demo extends Vue {
   // get -> 计算属性
   get computedMsg () {
     return 'computed ' + this.demo;
+  }
+
+  get vuexState () {
+    return store.state.count
   }
 
   // method
