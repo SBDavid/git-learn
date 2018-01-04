@@ -4,7 +4,8 @@
       <div>data测试：{{demo}} - {{demo2}}</div>
       <div>computed测试：{{computedMsg}}</div>
       <div>method测试：{{hello()}}</div>
-      <div>vuwx测试：{{vuexState()}}</div>
+      <div>vuwx测试：{{vuexState}}</div>
+      <div>vuwx-class: state测试：{{countState}}</div>
     </div>
 </template>
 
@@ -12,7 +13,13 @@
 import Vue from "vue";
 import Component from "vue-class-component";
 import store from "../store/store";
-
+import {
+  State,
+  Getter,
+  Action,
+  Mutation,
+  namespace
+} from 'vuex-class'
 
 @Component({
   props: {
@@ -42,7 +49,12 @@ export default class demo extends Vue {
   // 声明周期钩子
   mounted() {
     alert(this.hello());
+    setInterval(function() {
+        store.commit('increment');
+    }, 1000)
   }
+
+  // @State('count') countState:Number
 }
 
 </script>
