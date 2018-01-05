@@ -6,13 +6,12 @@
       <div>method测试：{{hello()}}</div>
       <div>vuwx测试：{{vuexState}}</div>
       <div>vuwx-class: state测试：{{countState}}</div>
+      <div>vuwx-class: Getter测试：{{countGetter}}</div>
     </div>
 </template>
 
 <script lang="ts">
 import Vue from "vue";
-import Component from "vue-class-component";
-import store from "../store/store";
 import {
   State,
   Getter,
@@ -20,6 +19,9 @@ import {
   Mutation,
   namespace
 } from 'vuex-class'
+import Component from "vue-class-component";
+import store from "../store/store";
+
 
 @Component({
   props: {
@@ -48,13 +50,18 @@ export default class demo extends Vue {
   }
   // 声明周期钩子
   mounted() {
-    alert(this.hello());
-    setInterval(function() {
-        store.commit('increment');
+    //alert(this.hello());
+    setInterval(() => {
+        // store.commit('increment');
+        this.countMutation();
     }, 1000)
+    this.countReset();
   }
 
-  // @State('count') countState:Number
+  @State('count') countState:Number
+  @Getter('count') countGetter:Number
+  @Mutation('increment') countMutation: Function
+  @Action('reset') countReset: Function
 }
 
 </script>

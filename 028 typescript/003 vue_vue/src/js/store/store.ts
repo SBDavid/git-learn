@@ -1,8 +1,6 @@
 import Vue from 'vue';
 import Vuex from 'vuex'
-
 Vue.use(Vuex);
-
 const store = new Vuex.Store({
   state: {
     count: 0
@@ -14,7 +12,14 @@ const store = new Vuex.Store({
   },
   getters: {
     count: state => {
-      return state.count
+      return state.count + ' getter'
+    }
+  },
+  actions: {
+    reset: ({state}) => {
+      setTimeout(function() {
+        state.count = 0;
+      }, 3000)
     }
   }
 })
