@@ -1,0 +1,12 @@
+{
+    "ug": {
+        "mangle": true,
+        "comments": false,
+        "compressor": {
+            "warnings": false
+        }
+    },
+    "vue": {
+        "isTS": true
+    }
+}
