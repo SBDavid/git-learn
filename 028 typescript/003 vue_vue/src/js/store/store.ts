@@ -1,27 +1,50 @@
 import Vue from 'vue';
 import Vuex from 'vuex'
 Vue.use(Vuex);
-const store = new Vuex.Store({
-  state: {
-    count: 0
-  },
+
+interface State {
+  count: number;
+}
+
+interface resetPayload {
+  count: number;
+}
+
+interface incrementPayload {
+  amount: number;
+}
+
+let state: State = {
+  count: 0
+}
+
+export const store = new Vuex.Store({
+  state: state,
   mutations: {
-    increment(state) {
-      state.count++
+    increment(state: State, payload: incrementPayload):void {
+      state.count += payload.amount;
     }
   },
   getters: {
-    count: state => {
+    count(state: State): string  {
       return state.count + ' getter'
     }
   },
   actions: {
-    reset: ({state}) => {
+    reset({state: State}, payload: resetPayload): void {
       setTimeout(function() {
-        state.count = 0;
+        state.count = payload.count;
       }, 3000)
     }
   }
 })
 
-export default store;
+export function dispatchReset(payload: resetPayload):void {
+  store.dispatch('reset', payload);
+}
+
+export function commitIncement(payload: incrementPayload): void {
+
+  store.commit('increment', payload);
+}
+

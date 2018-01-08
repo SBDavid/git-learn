@@ -2,7 +2,7 @@
 
 import Vue from 'vue';
 import Vuex from 'vuex';
-import store from "../store/store";
+import {store} from "../store/store";
 import demo from '../compnents/demo.vue';
 
 var vm = new Vue({
