@@ -51,22 +51,14 @@ Vue.component('child', {
 
 
 var data = {
-    message: 'Hello Vue!',
-    message1: 'Hello Vue1!'
+    message: 'Hello Vue!'
 }
 
 var app = Vue.extend({
     template: `<div id="root">
             <div>
-                {{ message }}
-            </div>
-            <div>
                 {{ messageComputed }}
             </div>
-            <div>
-                {{ messageComputed1 }}
-            </div>
-            <child v-demo:foo.a="message">
             </child>
         </div>`,
 
@@ -74,18 +66,12 @@ var app = Vue.extend({
         return data;
     },
     created: function() {
-        console.info('created')
     },
     mounted: function () {
     },
     computed: {
         messageComputed: function() {
-            console.info('messageComputed');
-            return this.message + 'Computed';
-        },
-        messageComputed1: function() {
-            console.info('messageComputed1');
-            return this.message1 + 'Computed';
+            return this.message + 'Computed' + Math.random();
         }
     }
 
