@@ -1,0 +1,25 @@
+li {
+    list-style: none;
+}
+
+.tabs {
+    li {
+        display: inline-block;
+        margin: 10px;
+        background-color: #f1f1f1;
+
+        &.cur {
+            background-color: #999;
+        }
+    }
+}
+
+.content {
+    li {
+        display: none;
+
+        &.cur {
+            display: block;
+        }
+    }
+}
