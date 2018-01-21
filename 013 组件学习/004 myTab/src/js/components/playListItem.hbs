@@ -1,0 +1,21 @@
+{{!-- 播放器右侧栏列表子模版 --}}
+<li {{{activeClassHelp active}}} data-index={{index}}>
+    <a class='cf' data-id={{id}} data-title='{{title}}'>
+        <img src={{surface}} alt={{title}} />
+        <div class="contright">
+            <span>{{title}}</span>
+        </div>
+    </a>
+    {{#if episodes}}
+        <div class='js_scroller_block cf'>
+            {{#eachHelp episodes}}
+                <a data-id={{id}} data-title={{../title}}>{{episodeTitle}}</a>
+            {{/eachHelp}}
+        </div>
+    {{/if}}
+</li>
+
+  
+  
+          
+

@@ -1,0 +1,11 @@
+{{!-- 播放器右侧栏列表子模版 --}}
+<div class="pro-text">
+    <h3 class='pro-title'>{{data.title}}</h3>
+    <div class="plist1">
+        <ul>
+            {{#eachHelp data}}
+                {{> playListItem }}
+            {{/eachHelp}}
+        </ul>
+    </div>
+</div>

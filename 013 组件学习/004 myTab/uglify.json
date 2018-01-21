@@ -1,0 +1,17 @@
+{
+    "ug": {
+        "comments": false,
+        "compressor": {
+            "properties": false,
+            "warnings": false,
+            "drop_console": true
+        },
+        "output": {
+            "quote_keys": true
+        },
+        "mangle": {
+            "screw_ie8": false
+        }
+    },
+    "isEs3": true
+}

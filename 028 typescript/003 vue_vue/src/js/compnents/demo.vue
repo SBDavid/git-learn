@@ -20,7 +20,7 @@ import {
   namespace
 } from 'vuex-class'
 import Component from "vue-class-component";
-import store from "../store/store";
+import {store , dispatchReset, commitIncement} from "../store/store";
 
 
 @Component({
@@ -52,10 +52,13 @@ export default class demo extends Vue {
   mounted() {
     //alert(this.hello());
     setInterval(() => {
-        // store.commit('increment');
-        this.countMutation();
+        // store.commit('increment', {amount: 1});
+        // this.countMutation({amount: 2});
+        commitIncement({amount: 3});
     }, 1000)
-    this.countReset();
+    // store.dispatch('reset', {count: 100});
+    // this.countReset({count: 200});
+    dispatchReset({count: 300});
   }
 
   @State('count') countState:Number
