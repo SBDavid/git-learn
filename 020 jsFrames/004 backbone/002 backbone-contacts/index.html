@@ -1,0 +1,65 @@
+<!DOCTYPE html>  
+<html>  
+<head>  
+  <meta charset="utf-8">  
+  <title>Backbone通讯录</title>  
+  <link rel="stylesheet" href="css/application.css" type="text/css" charset="utf-8">  
+</head>  
+<body>  
+  <header id="header"><h1>Backbone通讯录</h1></header>  
+  <article id="article"></article>  
+</body>  
+  <script src="js/lib/jquery.js" type="text/javascript" charset="utf-8"></script>  
+  <script src="js/lib/underscore.js" type="text/javascript" charset="utf-8"></script>  
+  <script src="js/lib/backbone.js" type="text/javascript" charset="utf-8"></script>  
+  <script src="js/lib/backbone-localstorage.js" type="text/javascript" charset="utf-8"></script>  
+  <script src="js/application.js" type="text/javascript" charset="utf-8"></script>  
+  
+  <!-- 联系人 -->  
+  <script type="text/template" id="tpl-item">  
+      <%= (name ? name : "<i>无名</i>") %>  
+  </script>  
+  
+  <!-- 左边的侧边条，包括联系人列表 -->  
+  <script type="text/template" id="tpl-sidebar">  
+    <header>  
+      <input type="search" placeholder="搜索" results="0" incremental="true" autofocus>  
+    </header>  
+    <div class="items"></div>  
+    <footer>  
+      <button>新建联系人</button>  
+    </footer>  
+  </script>  
+  
+  <!-- 显示联系人详细信息 -->  
+  <script type="text/template" id="tpl-show">  
+    <header>  
+      <a class="edit">编辑</a>  
+    </header>  
+    <div class="content">  
+      <p><label>姓名：<%= name %></label></p>  
+      <p><label>邮箱：<%= email %></label></p>  
+    </div>  
+  </script>  
+    
+  <!-- 编辑联系人信息 -->  
+  <script type="text/template" id="tpl-edit">  
+    <header>  
+      <a class="save">保存</a>  
+      <a class="delete">删除</a>  
+    </header>  
+    <div class="content">  
+      <form>  
+        <label>  
+          <span>姓名：</span>  
+          <input type="text" name="name" value="<%= name %>">  
+        </label>  
+        <label>  
+          <span>邮箱：</span>  
+          <input type="email" name="email" value="<%= email %>">  
+        </label>    
+        <button>保存</button>  
+      </form>  
+    </div>  
+  </script>  
+</html>  
