@@ -1,0 +1,7 @@
+.item {
+    border: 1px black solid;
+}
+
+.selected {
+    background-color: blueviolet;
+}
