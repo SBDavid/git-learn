@@ -5,3 +5,12 @@
 .selected {
     background-color: blueviolet;
 }
+
+.contents div {
+    display: none;
+}
+
+.contents div.selected {
+    display: block;
+    background-color: transparent;
+}

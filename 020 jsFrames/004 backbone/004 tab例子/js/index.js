@@ -14,11 +14,11 @@ window.onload = function() {
         },
     
         select: function() {
-          this.set('selected', !this.get("selected"));
+          this.set('selected', true);
         },
     
         unSelect: function() {
-            this.set('selected', !this.get("selected"));
+            this.set('selected', false);
         }
     });
 
@@ -35,13 +35,14 @@ window.onload = function() {
                 contentType: 'content_1',
                 contentData: {
                     name: 'contentData1'
-                }
+                },
+                selected: true
             }));
             this.add(new tabItem({
                 id: 1,
                 tabType: 'tab_2',
                 tabData: {
-                    name: 'tabName2'
+                    name: ["tab_21","tab_22"]
                 },
                 contentType: 'content_2',
                 contentData: {
@@ -52,12 +53,13 @@ window.onload = function() {
     });
 
     var tabC = new tabContainer();
-    console.info('tabC before load', tabC);
     tabC.load();
-    console.info('tabC after load', tabC);
 
     var tabView1 = Backbone.View.extend({
         template: _.template($('#tab_1').html()),
+        initialize: function() {
+            this.listenTo(this.model, 'change', this.render);
+        },
         events: {
             'click': 'select'
         },
@@ -70,46 +72,77 @@ window.onload = function() {
             }
         },
         render: function() {
-            $(this.el).html(this.template(this.model.get('tabData')));
+            this.$el.html(this.template(this.model.get('tabData')));
+            if (this.model.get('selected')) {
+                this.$el.addClass('selected');
+            } else {
+                this.$el.removeClass('selected');
+            }
             return this;
         }
     });
 
     var tabView2 = Backbone.View.extend({
         template: _.template($('#tab_2').html()),
-        events: {
-            'click': 'select'
+        initialize: function() {
+            this.listenTo(this.model, 'change', this.render);
         },
-        select: function() {
-            if (this.model.get('selected') === false) { alert('tab2')
+        events: {
+            'click li': 'select'
+        },
+        select: function(e) {
+            if (this.model.get('selected') === false) {
                 this.model.collection.each(function(item) {
                     item.unSelect();
                 });
                 this.model.select();
+                this.model.set('contentData', {
+                    name: e.target.getAttribute('data-id')
+                })
+                
             }
         },
         render: function() {
-            $(this.el).html(this.template(this.model.get('tabData')));
+            this.$el.html(this.template(this.model.get('tabData')));
+            if (this.model.get('selected')) {
+                this.$el.addClass('selected');
+            } else {
+                this.$el.removeClass('selected');
+            }
             return this;
         }
     });
 
     var tabContentView1 = Backbone.View.extend({
         template: _.template($('#content_1').html()),
-
+        initialize: function() {
+            this.listenTo(this.model, 'change', this.render);
+        },
 
         render: function() {
-            $(this.el).html(this.template(this.model.get('contentData')));
+            this.$el.html(this.template(this.model.get('contentData')));
+            if (this.model.get('selected')) {
+                this.$el.addClass('selected');
+            } else {
+                this.$el.removeClass('selected');
+            }
             return this;
         }
     });
 
     var tabContentView2 = Backbone.View.extend({
         template: _.template($('#content_2').html()),
-
+        initialize: function() {
+            this.listenTo(this.model, 'change', this.render);
+        },
 
         render: function() {
-            $(this.el).html(this.template(this.model.get('contentData')));
+            this.$el.html(this.template(this.model.get('contentData')));
+            if (this.model.get('selected')) {
+                this.$el.addClass('selected');
+            } else {
+                this.$el.removeClass('selected');
+            }
             return this;
         }
     });
@@ -118,7 +151,7 @@ window.onload = function() {
         el: $('#root'),
         template: _.template($('#container').html()),
         render: function() {
-            $(this.el).html(this.template());
+            this.$el.html(this.template());
             tabC.each(function(tab) {
                 var tabItem;
                 var contentItem;
@@ -128,8 +161,16 @@ window.onload = function() {
                     tabItem = new tabView2({model: tab});
                 }
                 tabItem.render();
-                $('#root').find('.tabs').append(tabItem.el);
-            });
+                this.$el.find('.tabs').append(tabItem.el);
+
+                if (tab.get('contentType') === 'content_1') {
+                    contentItem = new tabContentView1({model: tab});
+                } else {
+                    contentItem = new tabContentView2({model: tab});
+                }
+                contentItem.render();
+                this.$el.find('.contents').append(contentItem.el);
+            }, this);
         }
     });
     

@@ -21,13 +21,16 @@
         tab_1<%= name %>
     </script>
     <script type="text/template" id="tab_2">
-        tab_2<%= name %>
+        <ul>
+            <li data-id=<%= name[0] %>>tab_2<%= name[0] %></li>
+            <li data-id=<%= name[1] %>>tab_2<%= name[1] %></li>
+        </ul>
     </script>
     <script type="text/template" id="content_1">
-        content_1
+        content_1: <%= name %>
     </script>
     <script type="text/template" id="content_2">
-        content_2
+        content_2: <%= name %>
     </script>
 </body>
 </html>

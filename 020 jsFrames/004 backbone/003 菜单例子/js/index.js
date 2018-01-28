@@ -34,9 +34,9 @@ window.onload = function() {
     });
 
     var meuns = new MeunList();
-/*     console.info('meuns before load', meuns);
+    console.info('meuns before load', meuns);
     meuns.load();
-    console.info('meuns after load', meuns); */
+    console.info('meuns after load', meuns);
 
     var MeunItemView = Backbone.View.extend({
         // Cache the template function for a single item.
