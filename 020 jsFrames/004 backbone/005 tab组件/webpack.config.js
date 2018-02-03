@@ -9,11 +9,19 @@ module.exports = {
   module: {
     loaders: [
       {
-        test: /\.html$/,
+        test: /\.htm$/,
         loader: "underscore-template-loader",
         query: {
           prependFilenameComment: __dirname,
         }
+      },
+      {
+        test: /\.less$/,
+        use: [
+          'style-loader',
+          { loader: 'css-loader', options: { importLoaders: 1 } },
+          { loader: 'less-loader', options: { strictMath: true, noIeCompat: true } }
+          ]
       }
     ]
   }
