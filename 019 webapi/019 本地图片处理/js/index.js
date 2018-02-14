@@ -4,8 +4,9 @@ window.onload = function() {
 
     var fileInput = document.getElementById('imgInput');
 
-    fileInput.click();
-    console.info('fileInput', fileInput);
+    fileInput.addEventListener('change', function(event) {
+        console.info(fileInput.files)
+    })
 
 
 }
