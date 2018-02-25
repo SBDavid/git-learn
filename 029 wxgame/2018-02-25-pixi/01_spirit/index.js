@@ -14,16 +14,17 @@ PIXI.loader
         sprite = new PIXI.Sprite(
             PIXI.loader.resources["./20160713222717872.png"].texture
         );
-
-
-
         app.stage.addChild(sprite);
 
-        sprite.x = 50;
-        sprite.y = 50;
-        sprite.scale.x = 2;
-        sprite.scale.y = 2;
-        sprite.rotation = 0.5;
+        function move(d) {
+            sprite.x += 1;
+            console.info(d);
+            if (sprite.x === 200) {
+                app.ticker.remove(move);
+            }
+        }
+
+        app.ticker.add(move);
     });
 
 window.onload = function () {
