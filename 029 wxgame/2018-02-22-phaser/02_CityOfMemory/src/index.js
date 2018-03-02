@@ -4,11 +4,13 @@ window.Phaser = require('Phaser');
 
 var game = require('./game'),
     preloadState = require('./states/preload'),
-    choseLevelState = require('./states/choseLevel');
+    choseLevelState = require('./states/choseLevel'),
+    chooseChapterState = require('./states/chooseChapter');
 
 window.onload = function() {
     game.state.add('preload', preloadState);
     game.state.add('choseLevel', choseLevelState);
+    game.state.add('chooseChapter', chooseChapterState);
 
     game.state.start('preload');
 }
