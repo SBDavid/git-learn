@@ -14,6 +14,14 @@ preload.prototype.preload = function() {
         fontWeight: 'bold',
         fill: '#f2bb15'
     });
+
+    // 图片资源加载
+    game.load.image('quit', './asset/img/quit.png');
+    game.load.image('test', './asset/img/test.jpg');
+
+    game.load.onLoadComplete.add(function() {
+        title.text = 'LoadComplete';
+    });
 }
 
 preload.prototype.create = function() {
@@ -21,6 +29,7 @@ preload.prototype.create = function() {
     setTimeout(function() {
         game.state.start('choseLevel');
     },1000);
+
 }
 
 module.exports = preload;

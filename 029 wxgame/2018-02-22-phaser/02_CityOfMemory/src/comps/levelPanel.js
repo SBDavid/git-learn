@@ -2,8 +2,6 @@ var game = require('../game');
 
 function levelPanel(level) {
     this.group = new Phaser.Group(game);
-    this.group.width = 300;
-    this.group.height = 100;
     this.group.inputEnableChildren = true;
 
     let bg = new Phaser.Graphics(game, 0, 0);
@@ -22,7 +20,7 @@ function levelPanel(level) {
 
     // 事件
     this.group.onChildInputUp.add(function() {
-        game.state.start('chooseChapter', true, true, level);
+        game.state.start('chooseChapter', true, false, level);
     })
 }
 

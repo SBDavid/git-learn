@@ -1,9 +1,11 @@
 var game = require('../game');
 
 function chapterPanel(level, chapter, width, height) {
+    var self = this;
+    this.levelNo = level;
+    this.chapterNo = chapter;
+
     this.group = new Phaser.Group(game);
-    this.group.width = width;
-    this.group.height = height;
     this.group.inputEnableChildren = true;
 
     let bg = new Phaser.Graphics(game, 0, 0);
@@ -22,8 +24,10 @@ function chapterPanel(level, chapter, width, height) {
 
     // 事件
     this.group.onChildInputUp.add(function() {
-        /* game.state.start('chooseChapter', true, false, level); */
-        console.info(level, chapter);
+        game.state.start('play', true, false, {
+            level: self.levelNo,
+            chapter: self.chapterNo
+        });
     })
 }
 

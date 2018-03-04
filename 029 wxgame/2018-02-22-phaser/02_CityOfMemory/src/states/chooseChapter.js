@@ -7,7 +7,8 @@ let chooseChapter = function() {
 }
 
 chooseChapter.prototype.init = function(level) {
-    this.levelNo = level
+    console.info('chooseChapter level: ' + level);
+    this.levelNo = level;
     this.chapterGroup = new Phaser.Group(game);
 }
 
@@ -17,29 +18,31 @@ chooseChapter.prototype.preload = function() {
 
 chooseChapter.prototype.create = function() {
 
-    var title = game.add.text(0, 0, '选择关卡', {
-        fontSize: '80px',
-        fontWeight: 'bold',
-        fill: '#f2bb15'
+    let quitBtn = new Phaser.Button(game, 0, 0, 'quit', function() {
+        game.state.start('choseLevel');
     });
 
+    quitBtn.width = 100;
+    quitBtn.height = 100;
+    game.add.world.add(quitBtn); 
+
     // 增加关卡
-    this.chapterGroup.top = 100;
+    this.chapterGroup.top = 150;
     game.add.world.add(this.chapterGroup);
 
-    let chapterOne = new chapterPanel(this.levelNo, 1, 300, 300);
+    let chapterOne = new chapterPanel(this.levelNo, 1, 300, 300).group;
     chapterOne.top = 0;
-    chapterOne.left = 0;
-    this.chapterGroup.add(chapterOne.group);
+    chapterOne.left = 20;
+    this.chapterGroup.add(chapterOne);
 
     let chapterTwo = new chapterPanel(this.levelNo, 2, 300, 300).group;
     chapterTwo.top = 0;
-    chapterTwo.left = 320;
+    chapterTwo.left = 340;
     this.chapterGroup.add(chapterTwo);
 
     let chapterThree = new chapterPanel(this.levelNo, 3, 300, 300).group;
     chapterThree.top = 0;
-    chapterThree.left = 640;
+    chapterThree.left = 660;
     this.chapterGroup.add(chapterThree);
 }
 
