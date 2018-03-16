@@ -1,0 +1,24 @@
+.placetaker {
+    height: 900px;
+    background: #666;
+}
+
+#swiper {
+    overflow: hidden;
+    width: 100%;
+}
+
+ul,li {
+    list-style: none;
+}
+
+ul {
+    width: 900px;
+    overflow: hidden;
+}
+
+li {
+    display: inline-block;
+    width: 100px;
+    height: 100px;
+}
