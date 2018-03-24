@@ -96,3 +96,29 @@ console.info('深复制，数组类型', t1.a1, t2.a1);
 console.info('深复制，数组类型，t1.a1 == t2.a1', t1.a1 == t2.a1);
 t2.a1.push(2);
 console.info('深复制，数组类型, push', t1.a1, t2.a1);
+
+// 无限循环
+t1 = {
+
+}
+
+t2 = {
+
+};
+
+t2.a1 = t2;
+$.extend( t1, t2); 
+console.info('深复制，循环引用', t1.a1, t2.a1);
+
+t1 = {
+
+}
+
+t2 = {
+
+};
+
+t2.a1 = t2;
+ 
+var t1 = _.cloneDeep([t2]);
+console.info('深复制，循环引用', t1[0], t2);
