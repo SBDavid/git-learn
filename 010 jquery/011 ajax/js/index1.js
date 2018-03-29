@@ -16,13 +16,15 @@ var JqXHR = function() {
         }
     }
     this.cbCount = 0;
+    this.idCount = 0;
 }
 JqXHR.prototype.AJAX = function(options) {
     return jQuery.ajax(options);
 }
 JqXHR.prototype.JSONP = function(options) {
-    var jsonkey = JSON.stringify(options);
-    console.info(jsonkey);
+    var jsonkey = md5(JSON.stringify(options));
+    var dfd = $.deferred();
+    var id = this.idCount++;
 }
 
 var test = new JqXHR();
@@ -46,5 +48,8 @@ test.JSONP({
     },
     dataType: 'jsonp',
     jsonp: 'cb',
-    jsonpCallback: 'pgrecommend'
+    jsonpCallback: 'pgrecommend',
+    success: function() {
+
+    }
 })
