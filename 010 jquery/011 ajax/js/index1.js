@@ -25,7 +25,7 @@ var JqXHR = function() {
                 }
                 // 如果url已经出现过，则判断之前的req是否完成，
                 // 如果已经完成则直接发送req,
-                // 如果未完成则推入jsonpReqQueue，等待上一个req完成后再发送
+                // 如果未完成则取消发送
                 else {
                     var previousReq = self.cbObj[settings.jsonpkey];
                     if (previousReq.completed) {
