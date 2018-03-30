@@ -11,6 +11,8 @@ var JqXHR = function() {
         jsonp: 'cb',
         beforeSend: function(jqXHR, settings ) {
             console.info('beforeSend', settings);
+            jqXHR.id = settings.id;
+            jqXHR.jsonpkey = settings.jsonpkey;
             // 如果指定了jsonpCallback
             if (settings['jsonpCallback'] != undefined && settings['url'] != undefined) {
                 // 如果url从未出现过，则直接写入cbObj
@@ -42,7 +44,21 @@ var JqXHR = function() {
             }
         },
         complete: function(jqXHR, textStatus) {
-            
+            console.info('complete', textStatus, jqXHR);
+            // this.cbObj标记为完成状态
+            self.cbObj[jqXHR.jsonpkey].completed = true;
+            // 触发dfd.then error
+            var jsonpReq = self.jsonpReqQueue[jqXHR.jsonpkey].shift();
+            jqXHR.then(function(){
+                jsonpReq.dfd.resolveWith(this, arguments);
+            }).catch(function() {
+                jsonpReq.dfd.rejectWith(this, arguments);
+            });
+            // 如果队列里有排队的请求，测取出一个进行发送
+            if (self.jsonpReqQueue[jqXHR.jsonpkey].length > 0) {
+                var nextReq = self.jsonpReqQueue[jqXHR.jsonpkey][0];
+                self.cleanJsonpQueue(nextReq.options);
+            }
         }
     }
     this.cbCount = 0;
@@ -51,6 +67,12 @@ var JqXHR = function() {
 JqXHR.prototype.AJAX = function(options) {
     return jQuery.ajax(options);
 }
+
+JqXHR.prototype.cleanJsonpQueue = function(options) {
+    var settings = $.extend({}, this.jsonpOptions, options);
+    $.ajax(settings);
+}
+
 JqXHR.prototype.JSONP = function(options) {
     var jsonpkey = md5(JSON.stringify(options));
     var dfd = $.Deferred();
@@ -74,28 +96,39 @@ JqXHR.prototype.JSONP = function(options) {
 
 var test = new JqXHR();
 
-test.JSONP({
-    url: '//api.v.pptv.com/api/pg_recommend',
-    data: {
-        from: 'web',
-        version: 1,
-        format: 'jsonp',
-        appplt: 'ik',
-        appid: 'pptv.web',
-        src: '71', //客户端63 网站71
-        appver: '1',
-        num: '18',
-        ppi: 12344,
-        userLevel: '0',
-        vipUser: '0',
-        uid: 123123123,
-        extraFields: 'all'
-    },
-    dataType: 'jsonp',
-    jsonp: 'cb',
-    jsonpCallback: 'pgrecommend',
-    success: function() {
+function send(name, src, jsonpCallback) {
+    test.JSONP({
+        url: '//api.v.pptv.com/api/pg_recommend',
+        data: {
+            from: 'web',
+            version: 1,
+            format: 'jsonp',
+            appplt: 'ik',
+            appid: 'pptv.web',
+            src: src, //客户端63 网站71
+            appver: '1',
+            num: '18',
+            ppi: 12344,
+            userLevel: '0',
+            vipUser: '0',
+            uid: 123123123,
+            extraFields: 'all'
+        },
+        cache: true,
+        dataType: 'jsonp',
+        jsonp: 'cb',
+        jsonpCallback: jsonpCallback,
+        success: function() {
+    
+        }
+    })
+    .then(function() {
+        console.info(name+ 'outter then', arguments);
+    })
+    .catch(function() {
+        console.info(name +'outter catch', arguments);
+    })
+}
 
-    }
-})
-debugger
+send(1, '63', 'pgrecommend');
+send(2, '63', 'pgrecommend');
