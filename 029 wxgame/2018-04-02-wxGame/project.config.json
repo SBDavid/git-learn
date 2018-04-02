@@ -11,6 +11,7 @@
 	"libVersion": "game",
 	"appid": "touristappid",
 	"projectname": "2018-04-02-wxGame",
+	"isGameTourist": true,
 	"condition": {
 		"search": {
 			"current": -1,
@@ -28,6 +29,5 @@
 			"current": -1,
 			"list": []
 		}
-	},
-	"isGameTourist": true
+	}
 }
