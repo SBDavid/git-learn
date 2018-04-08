@@ -1,6 +1,9 @@
 
 
 if (!!window.SharedWorker) {
+
+  var count = 0;
+
   var myWorker = new SharedWorker("worker.js");
 
   myWorker.port.onmessage = function(e) {
@@ -8,19 +11,24 @@ if (!!window.SharedWorker) {
     
     console.info('onmessage', data);
 
-    set(data+1);
+    if (count < 10000) {
+      add();
+      get();
+      count++;
+    }
   }
 
-  function set(data) {
+  function add() {
     myWorker.port.postMessage({
-      type: 'set',
-      val: data
+      type: 'add'
     });
   }
 
-  for(var i=0; i<10000; i++) {
+  function get() {
     myWorker.port.postMessage({
       type: 'get'
     });
   }
+
+  get();
 }
