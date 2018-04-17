@@ -4,14 +4,32 @@ window.addEventListener('DOMContentLoaded', function() {
     var right = document.getElementsByClassName('right')[0];
     var dragTarget = document.getElementById('dragTarget');
 
-    dragTarget.addEventListener('dragstart', function() {
-        console.info('dragstart', this);
-        this.classList.add('drag-active')
+    document.addEventListener('dragstart', function(event) {
+        if (event.target.classList.contains('dragTarget')) {
+            dragTarget = event.target;
+            console.info('dragstart', dragTarget);
+            dragTarget.classList.add('drag-active');
+        }
     });
 
-    dragTarget.addEventListener('dragend', function() {
-        console.info('dragend');
-        this.classList.remove('drag-active')
+    document.addEventListener('dragend', function(event) {
+        
+        dragTarget = event.target;
+        console.info('dragend', dragTarget);
+        dragTarget.classList.remove('drag-active')
+    });
+
+    document.addEventListener('drop', function(event) {
+        if (event.target.classList.contains('dragTarget')) {
+            console.info('drop', dragTarget);
+            event.target.insertAdjacentElement('afterend', dragTarget);
+        }
+    });
+
+    document.addEventListener('dragover', function(event) {
+        if (event.target.classList.contains('dragTarget')) {
+            event.preventDefault();
+        }
     });
 
     right.addEventListener('dragenter', function() {
@@ -22,5 +40,21 @@ window.addEventListener('DOMContentLoaded', function() {
     right.addEventListener('dragleave', function() {
         console.info('dragleave');
         this.classList.remove('enter-right')
-    })
+    });
+
+    document.addEventListener('dragover', function( event ) {
+        // 防止拖拉效果被重置，允许被拖拉的节点放入目标节点
+        if (event.target.classList.contains('left') || event.target.classList.contains('right')) {
+            event.preventDefault();
+        }
+    }, false);
+
+    document.addEventListener('drop', function(event) {
+        if (event.target.classList.contains('left') || event.target.classList.contains('right')) {
+            console.info('drop');
+            event.preventDefault();
+            event.target.classList.remove('enter-right');
+            event.target.appendChild(dragTarget);
+        }
+    });
 })
