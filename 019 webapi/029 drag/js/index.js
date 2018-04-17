@@ -32,14 +32,18 @@ window.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    right.addEventListener('dragenter', function() {
-        console.info('dragenter');
-        this.classList.add('enter-right')
+    document.addEventListener('dragenter', function() {
+        if (event.target.classList.contains('left') || event.target.classList.contains('right')) {
+            console.info('dragenter');
+            event.target.classList.add('enter-right')
+        }
     });
 
-    right.addEventListener('dragleave', function() {
-        console.info('dragleave');
-        this.classList.remove('enter-right')
+    document.addEventListener('dragleave', function() {
+        if (event.target.classList.contains('left') || event.target.classList.contains('right')) {
+            console.info('dragleave');
+            event.target.classList.remove('enter-right');
+        }
     });
 
     document.addEventListener('dragover', function( event ) {
