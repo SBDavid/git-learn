@@ -6,28 +6,32 @@ import Container from "./comp/Container";
 
 ReactDOM.render(<Container />, document.getElementById("root"))
 
-import {decorate, observable, computed, autorun} from "mobx";
+import {decorate, observable, computed, autorun, extendObservable, action} from "mobx";
 
-class OrderLine {
-    /* price = 0;
-    amount = 1; */
-
-    constructor(price) {
-        console.info('constructor', this);
-        this.price = price;
-        this.amount = 1;
-    }
-
-    get total() {
-        return this.price * this.amount;
-    }
+var Person = function(firstName, lastName) {
+    // 在一个新实例上初始化 observable 属性
+    extendObservable(this, {
+        firstName: firstName,
+        lastName: lastName,
+        get fullName() {
+            return this.firstName + " " + this.lastName
+        },
+        setFirstName(firstName) {
+            this.firstName = firstName
+        }
+    }, {
+        setFirstName: action
+    });
 }
-decorate(OrderLine, {
-    price: observable,
-    amount: observable,
-    total: computed
+
+var p = new Person('1','2');
+
+autorun((e) => function() {
+    console.info(p)
 })
 
-var or = new OrderLine(1);
-autorun(() => console.log(or.total));
-or.price = 2;
+observable({
+    p:p
+})
+
+p.setFirstName('f')

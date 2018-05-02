@@ -79,3 +79,5 @@ var app = Vue.extend({
 
 var app1 = new app().$mount('#app1');
 
+console.info(app1);
+
