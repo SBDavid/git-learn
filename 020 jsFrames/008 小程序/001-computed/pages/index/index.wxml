@@ -1,6 +1,7 @@
 <!--index.wxml-->
 <view class="container">
-  <p bindtap="changeFirstName">firstName: {{firstName}}</p>
-  <p bindtap="changeLastName">lastName: {{lastName}}</p>
+  <p bindtap="changeFirstName">firstName: {{p.firstName}}</p>
+  <p bindtap="changeLastName">lastName: {{p.lastName}}</p>
   <p>fullName: {{fullName}}</p>
+  <p>{{arrStr}}</p>
 </view>

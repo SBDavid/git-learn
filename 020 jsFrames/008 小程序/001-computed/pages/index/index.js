@@ -7,9 +7,12 @@ const app = getApp()
 
 Page(computed({
     data: {
-        firstName: "firstName",
-        lastName: "lastName"
-    },
+		p: {
+			firstName: "firstName",
+			lastName: "lastName"
+		},
+		arr: [1, 2]
+	},
 
     onLoad: function () {
         console.info('onload');
@@ -18,20 +21,29 @@ Page(computed({
 
     computed: {
         fullName: function() {
-            console.info('fullName', this.data);
-            return this.data.firstName + ' -' + this.data.lastName;
-        }
+			console.info('computed:fullName')
+            return this.data.p.firstName + ' -' + this.data.p.lastName;
+        },
+		arrStr: function() {
+			return 'arrStr:' + this.data.arr.join();
+		}
     },
 
     changeFirstName: function() {
         this.setData({
-            firstName: 'changeFirstName'
-        })
+            'p.firstName': 'changeFirstName'
+        });
+		this.setData({
+			'arr': [3]
+		})
     },
 
     changeLastName: function () {
         this.setData({
-            lastName: 'changeLastName'
-        })
+            'p.lastName': 'changeLastName'
+        });
+		this.setData({
+			'arr[0]': 4
+		})
     }
 }))
