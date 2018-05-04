@@ -1,5 +1,6 @@
 {
   "name": "test",
+  "sideEffects": false,
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -11,6 +12,8 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "css-loader": "^0.28.11",
+    "style-loader": "^0.21.0",
     "webpack": "^4.6.0"
   },
   "dependencies": {
