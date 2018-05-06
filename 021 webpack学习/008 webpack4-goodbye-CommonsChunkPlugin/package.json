@@ -1,0 +1,21 @@
+{
+  "name": "test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack -w --colors --profile",
+    "dev": "webpack --colors --profile --mode=development",
+    "pro": "webpack --colors --profile --mode=production",
+    "sta": "webpack --colors --profile --mode=production --json > compilation-stats.json"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "webpack": "^4.6.0"
+  },
+  "dependencies": {
+    "jquery": "^3.3.1",
+    "webpack-cli": "^2.1.2"
+  }
+}
