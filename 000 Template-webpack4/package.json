@@ -1,0 +1,23 @@
+{
+  "name": "test",
+  "sideEffects": false,
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack -w --colors --profile",
+    "dev": "webpack --colors --profile --mode=development",
+    "pro": "webpack --colors --profile --mode=production",
+    "sta": "webpack --colors --profile --mode=production --json > compilation-stats.json"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "css-loader": "^0.28.11",
+    "style-loader": "^0.21.0",
+    "webpack": "^4.6.0"
+  },
+  "dependencies": {
+    "webpack-cli": "^2.1.2"
+  }
+}
