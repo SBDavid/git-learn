@@ -1,16 +1,18 @@
-function test(arg) {
+function leak(arg) {
     this.arg = arg;
 }
 
-function run() {
-    var v1 = new test('v1');
+function test() {
+    var l1= new leak('It is a leak');
 
-    var timer = setTimeout(function() {
-        var tset = v1.arg;
-    }, 50000);
+    function l() {
+        console.info('Here you are!')
+        l1.arg = 'Here you are!'
+        document.body.removeEventListener('click', l);
+    }
 
-    clearTimeout(timer);
+    document.body.addEventListener('click', l)
 }
 
-run();
+test();
 
