@@ -1,0 +1,13 @@
+div {
+    list-style: none;
+    padding-left: 0;
+}
+
+span {
+    display: inline;
+    padding: 0.3rem 0.5rem;
+    font-size: 0.8rem;
+    border-radius: 0.2rem;
+    background-color: #f1f1f1;
+    line-height: 2.6;
+}
