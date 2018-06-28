@@ -1,0 +1,20 @@
+{
+  "name": "temp",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "start": "webpack -w --colors --profile"
+  },
+  "author": "SBDavid",
+  "license": "ISC",
+  "dependencies": {
+    "underscore-template-loader": "^0.8.0"
+  },
+  "devDependencies": {
+    "css-loader": "^0.28.9",
+    "less": "^2.7.3",
+    "less-loader": "^4.0.5",
+    "style-loader": "^0.20.1",
+    "webpack": "^3.1.0"
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "name": "ppmvc",
+  "version": "1.0.0",
+  "description": "mvc for pptv",
+  "main": "ppmvc.js",
+  "directories": {
+    "example": "examples"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "jquery": "^3.3.1",
+    "underscore": "^1.8.3"
+  }
+}
