@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta content="width=device-width, initial-scale=1.0, user-scalable=no" name="viewport" >
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+	<meta charset="utf-8">
+	<title></title>
+	<style>
+		body{ 
+			margin:0; 
+			padding:0;
+		}
+	</style>
+</head>
+<body>
+<div style="width: 320px; height: 180px;">
+	<iframe id="m_player" src="http://player.aplus.pptv.com/corporate/proxy/proxy.html#id=25162909&autoplay=0&w=100%25&h=100%25&videoType=vod&ctx=kk%3Df71cb808794b36ac0c0eecb54c0d583d-b256-57fa1c79%26fwc%3D0%26complete%3D1%26o%3Dm.pptv.com&adConfig=chid%3D9041274%26clid%3D0&pageUrl=http%253A%252F%252Fm.pptv.com%252Fshow%252Fnac7uCCG9jSXFX0.html&pageRefer=http%253A%252F%252Fm.pptv.com%252Fshow%252FWwLgX8ctndsibvCQ.html" scrolling="no" frameborder="0" width="100%" height="100%"></iframe>
+</div>
+<script>
+	try{
+		document.domain = 'pptv.com';
+		window.addEventListener('message', function(e) {
+				if (e.data) {
+					if(JSON.parse(e.data).type == "onready"){
+						console.log('>>>>>>>>>>>>>>>>>>>>>',e)
+						var win = document.getElementById('m_player').contentWindow;
+						var pbtn = win.document.getElementsByClassName('p-video-button go')[0];
+						var nbtn = win.document.createElement("div");
+						nbtn.className = 'p-video-button';
+						nbtn.style.cssText = "z-index: 90;position: absolute;height: 100%;width: 100%;";
+						nbtn.innerHTML = '<img class="btn" style="height: auto;position: absolute;top: 110px;left: 250px;" src="http://r2.ykimg.com/0510000056D903E867BC3D0831026BB2" />';
+						pbtn.parentNode.insertBefore(nbtn, pbtn);
+						pbtn.parentNode.removeChild(pbtn);
+						win.document.getElementsByClassName('btn')[0].addEventListener('click', function(){
+							win.ppliveplayer.sharePlayer.playVideo();
+						});
+					}
+				}
+			});
+	}catch(e){};
+	
+	
+	
+	
+
+</script>
+</body>
+</html>

@@ -1,0 +1,128 @@
+﻿﻿p-video-tip3html,body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td{margin:0;padding:0;border:0}
+article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display: block}
+table{border-collapse:collapse;border-spacing:0}
+fieldset,img{border:0}
+address,cite,code,dfn,em,strong,th,var{font-style:normal;font-weight:normal}
+ul,ol,li{list-style:none}
+th{text-align:left}
+h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal}
+q:before,q:after{content:''}
+abbr,acronym{border:0;font-variant:normal}
+sup{vertical-align:text-top}
+sub{vertical-align:text-bottom}
+input,textarea,select{font-family:inherit;font-size:inherit;font-weight:inherit;font-size:100%}
+legend{color:#000}
+
+body{font-family:\5FAE\8F6F\96C5\9ED1;color:#fff;background:#000;}
+strong,b{ font-weight:bold}
+a{text-decoration:none;color:#1887DC;}
+a:link,a:hover,a:active {text-decoration: none; }
+.cf:before, .cf:after { content: ""; display: table; }
+.cf:after { clear: both; }
+
+html,body,.pplive-player{width:100%;height:100%;}
+.pplive-player{position:relative;width:100%;overflow:hidden;}
+.pplive-player .p-video-poster,
+.pplive-player .p-video-loading,
+.pplive-player .p-video-vastad{position:absolute; top:0; left:0; width:100%; height:100%; z-index:80;}
+.pplive-player .p-video-poster img{display:block; width:100%; height:100%;}
+.pplive-player .p-video-player{ display: none; background: #000}
+
+.p-video-loading{ background: url(loading.gif) no-repeat 50% 50%;}
+
+.pplive-player .control {position:absolute; z-index:105; width:100%;height:1.2rem;bottom:-1.2rem;}
+/*.pplive-player .control .status{overflow:hidden;}*/
+.pplive-player .p-video{width:100%; height:100%}
+.pplive-player .p-video-button{z-index:90;position:absolute;width:1.5rem;height:1.5rem;left:0;top:0;right:0;bottom:0;margin:auto; background:url(player_sprite.png) no-repeat 0 0;background-size:2.8rem 1.95rem;}
+
+.pplive-player .p-pause{cursor: pointer;float:left;display:inline;background:url(player_sprite.png) no-repeat 74.5% 98%;background-size:3.6rem 2.5rem;text-indent:-9999px;}
+.pplive-player .p-go{cursor: pointer;float:left;display:inline;background:url(player_sprite.png) no-repeat 56.5% 98%;background-size:3.6rem 2.5rem;text-indent:-9999px;}
+
+.pplive-player .b-close{cursor: pointer;float:left;display:inline;background:url(player_sprite.png) no-repeat center;background-size:contain;text-indent:-9999px;}
+.pplive-player .b-open{cursor: pointer;float:left;display:inline;background:url(player_sprite.png) no-repeat center;background-size:contain;text-indent:-9999px;}
+
+.pplive-player .p-pause, .pplive-player .p-go, .pplive-player .b-close, .pplive-player .b-open, .pplive-player .zoom, .pplive-player .progress{-webkit-tap-highlight-color:rgba(0,0,0,0);}
+
+.pplive-player .time{color: #fff; position: absolute;bottom: 0.04rem;}
+.pplive-player .time span{padding:0 2px;}
+.pplive-player .time .current{ cursor: default;float: left;}
+.pplive-player .time .total{ cursor: default;float: right;}
+.pplive-player .zoom{ cursor: pointer; float:right;display:inline;background:url(player_sprite.png) no-repeat 20% 98%;background-size:3.6rem 2.5rem;text-indent:-9999px;}
+.pplive-player .progress, .pplive-player .minprogress{ position: absolute;top: 0.6rem;height: 0.04rem;background: rgba(250,250,250,0.6);}
+.pplive-player .minprogress {top: -0.04rem;display:none;}
+.pplive-player .bufferBar, .pplive-player .posiBar, .pplive-player .minbufferBar, .pplive-player .minposiBar{position:absolute;top:0;left:0;height:100%;background:#439ce0;}
+.pplive-player .bufferBar, .pplive-player .minbufferBar{ background: #fff}
+.pplive-player .progress .drag{position: absolute;right: -0.15rem;top: -0.15rem;width: 0.3rem;height: 0.3rem;border-radius: 0.4rem;-webkit-border-radius: 0.4rem;background: #ffffff;border: 0.02rem solid rgba(31,31,31,0.3);}
+
+/*暂停，播放，放大缩小全局设置*/
+.pplive-player .p-play-container, .pplive-player .p-zoom-container, .pplive-player .p-barrage-container{background:rgba(31,31,31,0.3);-webkit-border-radius:1rem;border-radius:1rem;height:1rem;width:1rem;}
+.pplive-player .p-play-container{position: absolute; left: 0.1rem;top: 0.1rem;}
+.pplive-player .p-zoom-container{position: absolute; right: 0.1rem;top: 0.1rem;}
+.pplive-player .p-barrage-container{position: absolute; right: 60px;top: 5px;display:none}
+
+/*暂停，播放，放大缩小自适应宽高*/
+.pplive-player .time{font-size:0.3rem;line-height:0.5rem;}
+.pplive-player .zoom,.pplive-player .barrage,.pplive-player .p-pause,.pplive-player .p-go{width:0.5rem;height:0.5rem;position: absolute;left:0.5rem;top:0.5rem;margin:-0.25rem 0 0 -0.25rem;}
+/*@media screen and (min-width:250px){
+.pplive-player .time{font-size:12px;line-height:22px;}
+.pplive-player .zoom,.pplive-player .barrage,.pplive-player .p-pause,.pplive-player .p-go{width:0.5rem;height:0.5rem;position: absolute;left:0.5rem;top:0.5rem;margin:-0.3rem 0 0 -0.3rem;}
+}
+@media screen and (min-width:640px){
+.pplive-player .time{font-size:14px;line-height:24px;}
+.pplive-player .zoom,.pplive-player .barrage,.pplive-player .p-pause,.pplive-player .p-go{width:28px;height:28px;position: absolute;left:50%;top:50%;margin:-14px 0 0 -14px;}
+}
+@media screen and (min-width:1024px){
+.pplive-player .time{font-size:18px;line-height:26px}
+.pplive-player .zoom,.pplive-player .barrage,.pplive-player .p-pause,.pplive-player .p-go{width:46px;height:46px;position: absolute;left:50%;top:50%;margin:-23px 0 0 -23px;}
+}*/
+
+.pplive-player .tip, .pplive-player .tip2, .pplive-player .p-video-tip3{ display: none}
+.pplive-player .tip{position:absolute;top:0;left:0;width:95%;height:40px;line-height:40px;padding:0 2.5%;background:#3c3c3c;overflow:hidden;z-index:1000;}
+.pplive-player .tip p,.pplive-player .tip a{float:left;display:inline;font-size:14px;color:#fff;vertical-align:top;}
+.pplive-player .tip .viewall{height:26px;line-height:26px;padding:0 8px;margin:8px 0 0 10px;border-radius:3px;-webkit-border-radius:3px;background:#1982C6;}
+.pplive-player .tip .close{float:right;display:inline;font-size:24px;font-weight:bold;margin:0 0 0 5px;}
+.pplive-player .tip2 img{float:left;display:inline;width:24px;height:24px;margin:8px 5px 0 0;}
+.pplive-player .tip2 dl{float:left;display:inline;line-height:14px;margin:6px 0 0 5px;text-align:left;color:#fff;}
+.pplive-player .tip2 dd{font-size:14px;}
+
+
+/*Vipuser弹出层UI*/ /*background:url(p-player.jpg);background-size:contain; padding:4% 0;width:7.5rem;height:4.2rem;*/
+.pplive-player .p-video-tip3{position:absolute;margin:auto;left: 0; top: 0; right: 0; bottom:0;text-align:center;border-radius:5px;-webkit-border-radius:5px;color:#fff;z-index:1000;}
+.pplive-player .p-video-tip3 .wrap{position:absolute;left: 20%;top: 23%;}
+.pplive-player .p-video-tip3 p{font-size:0.3rem;line-height:0.5rem;display: inline-block;position: relative;top: -0.2rem;}
+.pplive-player .p-video-tip3 .btns, .pplive-player .p-video-tip3 .oths {height:0.7rem;padding:0.3rem 0 0;overflow: hidden;width: 4.6rem;}
+.pplive-player .p-video-tip3 .btns a, .pplive-player .p-video-tip3 .oths a{display:block;width:1.8rem;float: left;height:0.6rem;line-height:0.65rem;text-align:center;font-size:0.26rem;color:#fff;border-radius:4px;-webkit-border-radius:4px;}
+.pplive-player .p-video-tip3 .btns a{width:1.8rem;}
+.pplive-player .p-video-tip3 .oths a{width:2.5rem;}
+
+.pplive-player .p-video-tip3 .btns .right {border:1px solid #ff9312;float:right;background:rgba(255, 147, 19, 1);}
+.pplive-player .p-video-tip3 .btns .left {border:1px solid #ff9312;}
+.pplive-player .p-video-tip3 .oths .center {border:1px solid #ff9312;background:rgba(255, 147, 19, 1);margin-left: 25%}
+
+/*右上角tips：已是VIP会员请登录*/
+.pplive-player .p-video-tip3 .rightCorner {float:right;width:2.5rem;height:0.3rem;font-size:0.25rem;overflow: hidden;top:0.2rem;position:relative;line-height:0.3rem;right:0.2rem;}
+.pplive-player .p-video-tip3 .rightCorner span{display:block;width:2.5rem;height:0.3rem;color:#F1A837;}
+
+.pplive-player .p-error-img {background:url(player_sprite.png) no-repeat 100% 0;width:1.6rem;height:1.6rem;position:absolute;background-size:3.5rem 2.4rem;top:2%;left:2%;}
+.pplive-player .p-error-txt {position:absolute;font-size:0.26rem;left:32%;top:6%;}/* background:#1982C6;*/
+.pplive-player .p-error-txt .feedbackbtn{    display: block; border: 1px solid #00afec;  background: #00afec;  color: #fff;height: 0.5rem;width: 1.8rem;line-height: 0.5rem;text-align: center;border-radius: 4px;-webkit-border-radius: 4px;position: relative;top: 0.17rem;}/* background:#1982C6;*/
+
+.pplive-player .feedback  .mask { position: absolute; top: 0.6rem;; left: 50%;  width: 5rem; height: auto; z-index: 1; font-size: .24rem; overflow: hidden; color: #333; margin-left: -2.5rem;}
+.pplive-player .feedback  .mask-hd { height: .6rem; line-height: .6rem; width: 90%; font-weight: 600; overflow: hidden; padding: 0 5%; background: #eee; border-radius: 5px 5px 0 0; }
+.pplive-player .feedback  .mask-hd h3 { float: left; font-size: 0.3rem; font-weight: 600; }
+.pplive-player .feedback  .mask-hd .mask-close { float: right; display: inline-block; width: 0.4rem; height: 0.6rem; text-align: center;}
+.pplive-player .feedback  .mask-bd { border-radius: 0 0 5px 5px; background: #fff; height: auto; width: 90%; padding: 0.08rem 5%; overflow: hidden; }
+.pplive-player .feedback  .mask-bd p { line-height: .42rem; margin-bottom: .15rem; }
+.pplive-player .feedback  .pplive-player .p-error-txt .feedback .mask-bd .con { margin: .04rem 0; height: 0.58rem; line-height: .58rem; overflow: hidden; margin-top: .04rem; }
+.pplive-player .feedback  .mask-bd .con span { display: inline-block; height: 100%; width: 20%; float: left; text-align: left; }
+.pplive-player .feedback  .mask-bd .con input { border: 1px solid #eee; height: 100%; width: 80%; float: left; box-sizing: border-box; outline: none; background: #f8f8f8; padding: 0 .24rem; }
+.pplive-player .feedback  .mask-btn { float: right; margin: .08rem 0; }
+.pplive-player .feedback  .mask-btn a { display: inline-block; width: 1.4rem; height: 0.48rem; background: red; margin: 0 0.05rem; text-align: center; line-height: .48rem; background: #999; color: #fff; }
+.pplive-player .feedback  .mask-btn a.submit { background: #ff7400; }
+
+
+/*正片播放titile样式*/
+.pplive-player .p-video-title {width: 100%; height:auto;font-size:0.26rem;color:white; position:absolute; background: linear-gradient(to bottom, rgba(0,0,0,0.5), rgba(255,255,255,0));}
+.pplive-player .p-video-title span {position:relative;display:block;top:0.16rem;left:0.2rem;width:7rem;white-space: nowrap;overflow: hidden;text-overflow:ellipsis;} 
+
+.pplive-player .p-tips {width: 100%; height:auto;font-size:0.26rem;color:#ffffff; position:absolute;bottom:60px;z-index:110;}

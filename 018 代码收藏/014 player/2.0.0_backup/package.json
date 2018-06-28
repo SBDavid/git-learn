@@ -1,0 +1,34 @@
+{
+  "name": "player",
+  "author": "jasmineliu, sandyhong, pelexiang, xiangfeimeng",
+  "version": "2.1.0",
+  "devDependencies": {
+    "babel-preset-es2015": "^6.9.0",
+    "grunt": "^1.0.1",
+    "grunt-babel": "^6.0.0",
+    "grunt-contrib-clean": "^1.0.0",
+    "grunt-contrib-concat": "^1.0.1",
+    "grunt-contrib-copy": "^1.0.0",
+    "grunt-contrib-cssmin": "^1.0.2",
+    "grunt-contrib-uglify": "^1.0.1",
+    "grunt-contrib-watch": "^1.0.0",
+    "grunt-spritesmith": "^6.4.0"
+  },
+  "description": "player puremvc define",
+  "main": "Gruntfile.js",
+  "repository": {
+    "type": "git",
+    "url": "git@gitlab:static9/static9.git"
+  },
+  "license": "BSD-2-Clause",
+  "lib": "lib/",
+  "src": "src/",
+  "build": ".jsbuild/",
+  "js": "js/",
+  "css": "css/",
+  "scripts": {
+    "execute": "grunt execute",
+    "test": "grunt test",
+    "reload": "grunt reload"
+  }
+}
