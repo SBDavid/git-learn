@@ -1,0 +1,24 @@
+.c {
+    line-height: 1000px;
+    font-size: 400px;
+}
+
+.popup {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    overflow: scroll;
+    color: red;
+}
+
+.b {
+    color: blue;
+}
+
+.popup .c {
+    line-height: 1000px;
+    font-size: 300px;
+    opacity: 0.7;
+}
