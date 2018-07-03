@@ -1,0 +1,22 @@
+﻿mvvm mvc 区别 OK
+regular js
+display == invisiable OK 
+position fix absolute OK 
+css 优先级 OK
+闭包的理解 OK
+display static OK
+array shift 数组的操作 OK
+gulp
+node
+清楚浮动 OK
+函数定义和函数表达式 OK
+null和undefind的区别 OK
+GC
+html5新增加的标签
+css 多行文本加省略号
+css box-sizing
+for 闭包
+
+flux
+ajax 原理
+跨域方式
