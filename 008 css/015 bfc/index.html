@@ -1,0 +1,75 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="./js/index.js"></script>
+    <link href="./index.css" rel="stylesheet" type="text/css" /> 
+</head>
+<body>
+    <div class='hidden'>
+        <div class='bfc'>
+            <div class='fl'>float</div>
+            <div class='fl'>float</div>
+            <div class='fl'>float</div>
+            <div class='fl'>float</div>
+            <div class='fl'>float</div>
+            <div class='fl'>float</div>
+            <div class='fl'>float</div>
+            <div class='fl'>float</div>
+            <div class='fl'>float</div>
+            <div class='fl'>float</div>
+            <div class='fl'>float</div>
+            <div class='fl'>float</div>
+            <div class='fl'>使用overflow:hidden触发bfc</div>
+        </div>
+        <div class='blc'>
+            <div>block</div>
+            <div>block</div>
+            <div>block</div>
+        </div>
+    </div>
+    <div class='table-cell'>
+        <div class='bfc'>
+            <div class='fl'>float</div>
+            <div class='fl'>float</div>
+            <div class='fl'>float</div>
+            <div class='fl'>float</div>
+            <div class='fl'>float</div>
+            <div class='fl'>float</div>
+            <div class='fl'>float</div>
+            <div class='fl'>float</div>
+            <div class='fl'>float</div>
+            <div class='fl'>float</div>
+            <div class='fl'>float</div>
+            <div class='fl'>float</div>
+            <div class='fl'>使用overflow:hidden触发bfc</div>
+        </div>
+        <div class='blc'>
+            <div>block</div>
+            <div>block</div>
+            <div>block</div>
+        </div>
+    </div>
+    <div class='fugai'>
+        <div>
+            <div class='fl'>float</div>
+            <div class='fl'>float</div>
+            <div class='fl'>float</div>
+            <div class='fl'>float</div>
+            <div class='fl'>float</div>
+            <div class='fl'>float</div>
+            <div class='fl'>float</div>
+            <div class='fl'>float</div>
+            <div class='fl'>float</div>
+            <div class='fl'>float</div>
+            <div class='fl'>float</div>
+            <div class='fl'>float</div>
+            <div class='fl'>使用table-cell</div>
+        </div>
+        <div class='bfc'>
+            <div >非浮动元素不会覆盖浮动元素位置（非浮动元素触发了BFC）</div>
+        </div>
+    </div>
+    
+</body>
+</html>

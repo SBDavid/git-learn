@@ -1,0 +1,27 @@
+.fl {
+    float: left;
+}
+
+.hidden .bfc {
+    overflow: hidden;
+    margin: 100px 0 100px 0; 
+}
+
+.hidden .blc {
+    margin: 100px 0 100px 0; 
+}
+
+.table-cell .bfc {
+    display: table-cell;
+    margin: 100px 0 100px 0;
+    height: 100px;
+}
+
+.table-cell .blc {
+    margin: 100px 0 100px 0;
+}
+
+.fugai .bfc {
+    overflow: hidden;
+    clear: both;
+}
