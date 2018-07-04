@@ -1,4 +1,4 @@
-window.onError  = function(messageOrEvent, source, lineno, colno, error) { 
+window.onerror  = function(messageOrEvent, source, lineno, colno, error) { 
     console.info('messageOrEvent', messageOrEvent);
     console.info('source', source);
     console.info('lineno', lineno);
@@ -6,6 +6,9 @@ window.onError  = function(messageOrEvent, source, lineno, colno, error) {
     console.info('error', error);
  }
 
-var tang = test;
+window.onload = function() {
 
-setTimeout(function(){throw new Error}, 1000)
+    var tang = test;
+
+    setTimeout(function(){throw new Error}, 1000)
+}
