@@ -1,0 +1,12 @@
+#outter {
+    background-color: blueviolet;
+    height: 100px;
+    width: 100px;
+}
+
+#inner {
+    background-color: gray;
+    height: 100px;
+    width: 100px;
+    display: none;
+}
