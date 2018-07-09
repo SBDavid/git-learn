@@ -28,3 +28,4 @@ console.log(object2);
 // 不可以拷贝继承、不可迭代的属性
 // 拷贝get时，get会转换成对象，可以使用getOwnPropertyDescriptors解决这个问题
 // set的拷贝无法实现
+// 无法嫁接原型链
