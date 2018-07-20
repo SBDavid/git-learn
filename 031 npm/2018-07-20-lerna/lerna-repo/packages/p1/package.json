@@ -1,0 +1,17 @@
+{
+  "name": "p1",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepublish": "node ../../scripts/prepublish.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "jsonp-bugfree": "^1.0.12",
+    "vue": "^2.5.16"
+  }
+}
