@@ -1,0 +1,11 @@
+input {
+    outline: none;
+}
+
+input:focus {
+    background: red;
+}
+
+.container:focus-within {
+    background: rgb(219, 152, 152);
+}
