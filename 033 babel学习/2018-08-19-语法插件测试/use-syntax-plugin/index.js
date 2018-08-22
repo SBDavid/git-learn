@@ -40,8 +40,8 @@ const plugin = {
     },
 };
 
-const funPlugin = function() {
-    console.info(arguments);
+const funPlugin = function(api, opt, file) {
+    console.info(api.template);
     return {};
 }
 
@@ -86,7 +86,7 @@ const config4 = {
     ]
 }
 
-babel.transform(code, config4, function (err, result) {
+babel.transform(code, config3, function (err, result) {
     if (err) {
         console.error(err);
     } else {
