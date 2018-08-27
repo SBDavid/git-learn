@@ -35,6 +35,6 @@ babel.transform(code, {
     if (err) {
         console.error(err);
     } else {
-        console.log(result.code);
+        console.log(result);
     }
 });
