@@ -26,3 +26,4 @@ react context学习
 
 - Render Props
 - Forwarding Refs to Context Consumers
+- context发生变化，但是没有触发PureComponent的render和didUpated

@@ -1,11 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './dynamicContext/app';
+import AppDyamicContext from './dynamicContext/app';
+import AppComplexContext from './complexContext/app';
 
 
 window.onload = function () {
     ReactDOM.render(
-        <App />,
+        <AppComplexContext />,
         document.getElementById('root')
     );
 }
