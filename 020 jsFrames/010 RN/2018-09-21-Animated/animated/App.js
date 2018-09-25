@@ -23,14 +23,22 @@ export default class App extends Component<Props> {
   constructor(props) {
     super(props);
 
+
+    const rate = 178/1000;
     this.steps = [];
-    for (let i=1; i<=200; i++) {
-      this.steps.push(i);
+    for (let i=0; i<=1000; i++) {
+      const rand = Math.random();
+      if (rand <= rate) {
+        this.steps.push(i);
+      }
     }
+    this.steps.unshift(1)
+    this.steps.push(1000);
 
     this.state = {
       step: new Animated.Value(0),
-      stepB: 0
+      stepB: 0,
+      msg: ''
     }
   }
 
@@ -41,19 +49,26 @@ export default class App extends Component<Props> {
   }
 
   run() {
+    const startTime = +new Date();
     Animated.sequence(
-      this.steps.map(step => Animated.timing(
+      this.steps.map((step, idx) => Animated.timing(
         this.state.step,
         {
-          toValue: (step-1)*(-50),
-          delay: 8,
+          toValue: (idx)*(-50),
+          delay: 2,
           duration: 0,
           useNativeDriver: true
         })
         )
-    ).start();
+    ).start((endRes) => {
+      if (endRes.finished) {
+        this.setState({
+          msg: +new Date() - startTime
+        });
+      }
+    });
 
-    const timer = setInterval(() => {
+    /* const timer = setInterval(() => {
       this.setState((state) => {
         return {
           stepB: state.stepB + 1
@@ -64,7 +79,7 @@ export default class App extends Component<Props> {
           clearInterval(timer);
         }
       });
-    }, 8);
+    }, 8); */
   }
 
   render() {
@@ -100,6 +115,7 @@ export default class App extends Component<Props> {
           </Animated.View>
         </View>
         <Text style={styles.num}>{this.state.stepB}</Text>
+        <Text>{this.state.msg}</Text>
       </View>
     );
   }
