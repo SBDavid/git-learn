@@ -7,16 +7,24 @@
     "test": "jest"
   },
   "dependencies": {
-    "react": "16.5.0",
-    "react-native": "0.57.0"
+    "@babel/core": "^7.0.0-0",
+    "prop-types": "^15.6.2",
+    "react": "16.2.0",
+    "react-native": "0.52.0",
+    "react-native-svg": "6.4.1"
   },
   "devDependencies": {
     "babel-jest": "23.6.0",
+    "babel-preset-react-native": "4.0.0",
     "jest": "23.6.0",
-    "metro-react-native-babel-preset": "0.45.5",
     "react-test-renderer": "16.5.0"
   },
   "jest": {
     "preset": "react-native"
+  },
+  "rnpm": {
+    "assets": [
+      "fonts"
+    ]
   }
 }
