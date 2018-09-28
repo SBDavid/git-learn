@@ -36,6 +36,7 @@ export default class SVGTextMove extends React.PureComponent {
                 this.state.step,
                 {
                     toValue: (idx) * (-40),
+                    easing: function() {return 1;},
                     delay: this.props.delay || 0,
                     duration: this.props.duration || 16,
                     useNativeDriver: this.props.useNativeDriver || true,

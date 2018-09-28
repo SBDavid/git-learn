@@ -4003,6 +4003,10 @@ react-native-svg@6.4.1:
     lodash "^4.16.6"
     pegjs "^0.10.0"
 
+react-native-text-gradient@0.0.3:
+  version "0.0.3"
+  resolved "https://registry.npmjs.org/react-native-text-gradient/-/react-native-text-gradient-0.0.3.tgz#0ad20246baf9dcdf02ba61851d67685d6817f4b1"
+
 react-native@0.52.0:
   version "0.52.0"
   resolved "https://registry.npmjs.org/react-native/-/react-native-0.52.0.tgz#9784663a2aa40b30c87d4c9c06ef26cf8d419d91"

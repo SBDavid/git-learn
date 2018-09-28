@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import {StyleSheet, View, Button, Animated, Easing} from 'react-native';
-import Svg, { Defs, Stop, LinearGradient, Text, TSpan } from 'react-native-svg'
+import { LinearTextGradient } from 'react-native-text-gradient';
 
-export default class SVGTSpanMove extends React.PureComponent {
+export default class TextGradientMove extends React.PureComponent {
     constructor(props) {
         super(props);
 
@@ -33,7 +33,7 @@ export default class SVGTSpanMove extends React.PureComponent {
                     steps: nextSteps
                 }
             }, () => {
-                console.warn('SVGTSpanSetStateTime', new Date() - setStateTime);
+                console.warn('TextGradientSetStateTime', new Date() - setStateTime);
                 this.run();
             })
         } else {
@@ -42,7 +42,7 @@ export default class SVGTSpanMove extends React.PureComponent {
     }
 
     componentDidMount() {
-        console.warn('SVGTSpanMove componentDidMount', new Date() - this.startLoadTime);
+        console.warn('TextGradientMove componentDidMount', new Date() - this.startLoadTime);
     }
 
     componentWillUnmount() {
@@ -73,21 +73,30 @@ export default class SVGTSpanMove extends React.PureComponent {
     }
 
     render() {
+
         const steps = this.state.steps.map((step, idx) => {
-            return (
-                <TSpan
-                    key={idx}
-                    x='0'
-                    y={30 + idx * 40}
+            return(
+                <LinearTextGradient
+                key={idx}
+                style={{
+                    height: 40,
+                    fontSize: 28,
+                    fontFamily: 'Futura LT Book',
+
+                    }}
+                locations={[0, 1]}
+                colors={['#DAAB00', '#FDE71B']}
+                start={{ x: 0, y: 0 }}
+                end={{ x: 1, y: 0 }}
                 >
-                    {step}
-                </TSpan>
+                {step}
+                </LinearTextGradient>
             );
         });
 
         return (
             <View style={styles.container}>
-                <Button title={'SVG TSpan'} onPress={() => {
+                <Button title={'SVG TextGradient'} onPress={() => {
                     this.currentStep = 0;
                     this.loadMore();
                 }} />
@@ -114,23 +123,7 @@ export default class SVGTSpanMove extends React.PureComponent {
                                 ]
                             }}
                         >
-                            <Svg width='120' height={40 * this.state.steps.length}>
-                                <Defs>
-                                    <LinearGradient id='grad' x1='0' y1='0' x2={22 * ((this.amount + '').length + 1)} y2='0'>
-                                        <Stop offset='0' stopColor='#DAAB00' stopOpacity='1' />
-                                        <Stop offset='1' stopColor='#FDE71B' stopOpacity='1' />
-                                    </LinearGradient>
-                                </Defs>
-                                <Text
-                                width='120'
-                                height={40 * this.state.steps.length}
-                                fontFamily='Futura LT Book'
-                                fill='url(#grad)'
-                                fontSize='28'
-                                >
-                                    {steps}
-                                </Text>
-                            </Svg>
+                            {steps}
                         </Animated.View>
                     </View>
                 </View>

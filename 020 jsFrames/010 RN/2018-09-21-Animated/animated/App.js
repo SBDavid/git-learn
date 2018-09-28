@@ -10,7 +10,8 @@ import React, {Component} from 'react';
 import {Platform, StyleSheet, View, Button, Animated} from 'react-native';
 import SVGTextMove from './SVGTextMove';
 import SVGTSpanMove from './SVGTSpanMove';
-import TextMove from './TextMove';
+import TextMove from './Text2Move';
+import TextGradientMove from './TextGradientMove';
 
 type Props = {};
 export default class App extends Component<Props> {
@@ -20,11 +21,18 @@ export default class App extends Component<Props> {
   }
 
   render() {
+
+    const steps = [];
+    for (let i = 0; i < 300; i++) {
+      steps.push(i);
+    }
+
     return (
       <View style={styles.container}>
-        <SVGTextMove amount={1000} duration={0} useNativeDriver={true}/>
-        <SVGTSpanMove amount={1000} duration={0} useNativeDriver={true}/>
-        <TextMove amount={1000} duration={0} delay={0} useNativeDriver={true}/>
+        <SVGTextMove amount={300} duration={0} useNativeDriver={true}/>
+        <SVGTSpanMove list={steps} stepLength={10} delay={0} duration={0} useNativeDriver={true}/>
+        <TextMove list={steps} stepLength={10} delay={0} duration={0} useNativeDriver={true}/>
+        <TextGradientMove list={steps} stepLength={10} delay={0} duration={0} useNativeDriver={true}/>
       </View>
     );
   }
