@@ -1,0 +1,7 @@
+setState函数是在什么时候调用的？
+
+componentDidMount
+setState function
+shouldComponentUpdate
+componentDidUpdate
+setState callback function
