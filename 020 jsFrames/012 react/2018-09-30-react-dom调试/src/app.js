@@ -2,7 +2,7 @@ import React from 'react';
 import MyInput from './MyInput';
 import MySpan from './MySpan';
 
-export default class App extends React.Component {
+export default class App extends React.PureComponent {
 
     constructor(props) {
         super(props);
@@ -10,22 +10,66 @@ export default class App extends React.Component {
         this.textAmount = 1000;
         this.textList = [];
         while(this.textAmount--) {
-            this.textList.push(1);
+            this.textList.push('1');
         }
+        this.textAmount = 1000;
+
+        this.changeList = [];
 
         this.state = {
-            text: ''
+            textList: this.textList
         }
 
         this._onChange = this._onChange.bind(this);
+        this.changeText = this.changeText.bind(this);
+        this.changeTextWapper = this.changeTextWapper.bind(this);
+    }
+
+    changeTextWapper() {
+        requestIdleCallback((deadline) => {
+            this.changeText(deadline);
+
+            if (this.changeList.length > 0) {
+                requestIdleCallback(this.changeTextWapper);
+            }
+        });
+    }
+
+    changeText(deadline) {
+        if (this.changeList.length > 0 && deadline.timeRemaining() > 0 && this.p(deadline)) {
+            const item = this.changeList.shift();
+            this.setState((state) => {
+                const newTextList = Object.assign([], this.state.textList);
+                for (let i=item.start; i < item.start+100; i++) {
+                    newTextList[i] = item.text;
+                }
+                return {
+                    textList: newTextList
+                }
+            }, () => {
+                this.changeText(deadline)
+            });
+        }
+    }
+
+    p(deadline) {
+
+//        console.info(deadline.timeRemaining());
+        return true;
     }
 
     _onChange(text) {
-        this.setState((state) => {
-            return {
+
+        this.changeList = [];
+
+        for(let i=0; i<this.textAmount; i+=100) {
+            this.changeList.push({
+                start: i,
                 text: text
-            }
-        });
+            });
+        }
+
+        this.changeTextWapper();
     }
 
     render() {
@@ -35,15 +79,13 @@ export default class App extends React.Component {
             />
             <div>
                 {
-                    this.textList.map((val, idx) => {
-                        if (this.state.text !== '') {
-                            return (
-                                <MySpan
-                                key={idx}
-                                text={this.state.text}
-                                />
-                            );
-                        }
+                    this.state.textList.map((val, idx) => {
+                        return (
+                            <MySpan
+                            key={idx}
+                            text={val}
+                            />
+                        );
                     })
                 }
             </div>
