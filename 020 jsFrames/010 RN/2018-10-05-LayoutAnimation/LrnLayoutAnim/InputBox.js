@@ -41,6 +41,9 @@ export default class InputBox extends Component<Props> {
         this.props.onSubmitEditing(this.state.text);
         // 清空inputText
         this.inputTextRef.setNativeProps({text: ''});
+        this.setState({
+            text: ''
+        });
     }
 
     onTextChange(text) {

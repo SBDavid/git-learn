@@ -35,6 +35,9 @@ export default class ChatBox extends Component<Props> {
 
         if (currLastestMsgId > prevLastestMsgId) {
             this.hasNewMsg = true;
+            setTimeout(() => {
+                this.scrollViewRef.scrollToEnd({animated: true});
+            }, 100);
         } else {
             this.hasNewMsg = false;
         }
@@ -49,7 +52,7 @@ export default class ChatBox extends Component<Props> {
                     ref = {(comp) => { this.scrollViewRef = comp; }}
                     onContentSizeChange = {() => {
                         if (this.hasNewMsg) {
-                            this.scrollViewRef.scrollToEnd({animated: true});
+                            //this.scrollViewRef.scrollToEnd({animated: true});
                         }
                     }}
                     >
