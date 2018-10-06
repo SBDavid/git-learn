@@ -47,7 +47,7 @@ export default class App extends Component<AppProps> {
 				style={styles.InputBox}
 				onSubmitEditing={(text) => {
 					LayoutAnimation.configureNext({
-						duration: 300, //持续时间
+						duration: 400, //持续时间
 						create: { // 视图创建
 							type: LayoutAnimation.Types.spring,
 							property: LayoutAnimation.Properties.opacity,// opacity、scaleXY

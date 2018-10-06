@@ -27,6 +27,8 @@ export default class InputBox extends Component<Props> {
         this.onSubmit = this.onSubmit.bind(this);
         this.onTextChange = this.onTextChange.bind(this);
 
+        this.inputTextRef = null;
+
         if (Platform.OS === 'android') {
             UIManager.setLayoutAnimationEnabledExperimental && UIManager.setLayoutAnimationEnabledExperimental(true);
         }
@@ -37,6 +39,8 @@ export default class InputBox extends Component<Props> {
             return;
         }
         this.props.onSubmitEditing(this.state.text);
+        // 清空inputText
+        this.inputTextRef.setNativeProps({text: ''});
     }
 
     onTextChange(text) {
@@ -85,6 +89,7 @@ export default class InputBox extends Component<Props> {
                         style={styles.textInput}
                         onChangeText={this.onTextChange}
                         onSubmitEditing={this.onSubmit}
+                        ref={(comp) => { this.inputTextRef = comp }}
                     />
                     {submit}
                 </View>

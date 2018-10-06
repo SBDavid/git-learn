@@ -58,3 +58,5 @@ LayoutAnimation.spring();
 ```
 
 ### 第三阶段：ScrollView程序触发滚动
+当ScrollView所在的组件触发componentDidUpdate方法时，SrollView的内容并没有发生变化。原因还没有找到。
+但是可以使用onContentSizeChange事件回调监听内容的变化

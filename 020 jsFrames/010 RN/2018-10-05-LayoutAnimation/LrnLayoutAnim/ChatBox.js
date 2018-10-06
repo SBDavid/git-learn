@@ -16,12 +16,42 @@ type Props = {
 };
 export default class ChatBox extends Component<Props> {
 
+    constructor(props) {
+        super(props);
+
+        this.hasNewMsg = false;
+
+        this.scrollViewRef = null;
+    }
+
+    componentDidUpdate(prevProps, prevState, snapshot) {
+
+        if (prevProps.messages.length === 0 || this.props.messages.length === 0) {
+            return;
+        }
+
+        const prevLastestMsgId = prevProps.messages[prevProps.messages.length-1].id;
+        const currLastestMsgId = this.props.messages[this.props.messages.length-1].id;
+
+        if (currLastestMsgId > prevLastestMsgId) {
+            this.hasNewMsg = true;
+        } else {
+            this.hasNewMsg = false;
+        }
+    }
+
 	render() {
 		return (
             <View style={this.props.style}>
                 <View style={styles.chatBox}>
                     <ScrollView
                     contentContainerStyle={styles.contentContainer}
+                    ref = {(comp) => { this.scrollViewRef = comp; }}
+                    onContentSizeChange = {() => {
+                        if (this.hasNewMsg) {
+                            this.scrollViewRef.scrollToEnd({animated: true});
+                        }
+                    }}
                     >
                         {
                             this.props.messages.map((val, idx) => {
