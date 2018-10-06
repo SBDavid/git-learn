@@ -8,6 +8,7 @@
 
 import React, { Component } from 'react';
 import { StyleSheet, View } from 'react-native';
+import {UIManager, Platform, LayoutAnimation} from 'react-native';
 
 import ChatBox from './ChatBox';
 import InputBox from './InputBox';
@@ -28,7 +29,11 @@ export default class App extends Component<AppProps> {
 					text: 'hello world'
 				} */
 			]
-		}
+		};
+
+		if (Platform.OS === 'android') {
+            UIManager.setLayoutAnimationEnabledExperimental && UIManager.setLayoutAnimationEnabledExperimental(true);
+        }
 	}
 
 	render() {
@@ -41,6 +46,21 @@ export default class App extends Component<AppProps> {
 				<InputBox
 				style={styles.InputBox}
 				onSubmitEditing={(text) => {
+					LayoutAnimation.configureNext({
+						duration: 300, //持续时间
+						create: { // 视图创建
+							type: LayoutAnimation.Types.spring,
+							property: LayoutAnimation.Properties.opacity,// opacity、scaleXY
+						},
+						update: { // 视图更新
+							type: LayoutAnimation.Types.spring,
+							property: LayoutAnimation.Properties.opacity,
+						},
+						delete: {
+							type: LayoutAnimation.Types.linear,
+							property: LayoutAnimation.Properties.opacity,
+						}
+					});
 					this.setState((state) => {
 						const newMessages = Object.assign([], state.messages);
 						const newMessage = {
@@ -52,7 +72,7 @@ export default class App extends Component<AppProps> {
 						return {
 							messages: newMessages
 						}
-					})
+					});
 				}}
 				></InputBox>
 			</View>

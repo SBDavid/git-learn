@@ -21,3 +21,40 @@ Button组件只能设置样色，而且在Android和IOS的展现不一样
 
 #### 1.6 Margin
 不是每个组件都有Margin属性，TextInput、TouchableHighlight就没有Margin
+
+### 第二阶段：Layout动画
+
+#### 2.1 打开实验功能
+```js
+import {UIManager, Platform, LayoutAnimation} from 'react-native';
+
+if (Platform.OS === 'android') {
+    UIManager.setLayoutAnimationEnabledExperimental && UIManager.setLayoutAnimationEnabledExperimental(true);
+}
+```
+
+可以手动设置属性
+```js
+LayoutAnimation.configureNext({
+    duration: 300, //持续时间
+    create: { // 视图创建
+        type: LayoutAnimation.Types.spring,
+        property: LayoutAnimation.Properties.opacity,// opacity、scaleXY
+    },
+    update: { // 视图更新
+        type: LayoutAnimation.Types.spring,
+        property: LayoutAnimation.Properties.opacity,
+    },
+    delete: {
+        type: LayoutAnimation.Types.linear,
+        property: LayoutAnimation.Properties.opacity,
+    }
+});
+```
+
+也可以使用预设
+```js
+LayoutAnimation.spring();
+```
+
+### 第三阶段：ScrollView程序触发滚动
