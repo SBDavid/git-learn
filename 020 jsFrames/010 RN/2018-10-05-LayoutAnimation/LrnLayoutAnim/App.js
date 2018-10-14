@@ -33,7 +33,7 @@ export default class App extends Component<AppProps> {
 
 		if (Platform.OS === 'android') {
             UIManager.setLayoutAnimationEnabledExperimental && UIManager.setLayoutAnimationEnabledExperimental(true);
-        }
+		}
 	}
 
 	render() {
