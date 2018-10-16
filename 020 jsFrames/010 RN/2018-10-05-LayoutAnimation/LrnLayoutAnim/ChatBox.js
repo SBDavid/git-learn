@@ -10,6 +10,7 @@ import React, { Component } from 'react';
 import { Platform, StyleSheet, Text, View, ScrollView } from 'react-native';
 
 import Message from './Message';
+import { red } from 'ansi-colors';
 
 type Props = {
     messages: []
@@ -22,6 +23,12 @@ export default class ChatBox extends Component<Props> {
         this.hasNewMsg = false;
 
         this.scrollViewRef = null;
+        this.chatBoxRef = null;
+        this.viewRef = null;
+
+        this._onResize = this._onResize.bind(this);
+        this.containerH = 0;
+        this.contentH = 0;
     }
 
     componentDidUpdate(prevProps, prevState, snapshot) {
@@ -43,27 +50,67 @@ export default class ChatBox extends Component<Props> {
         }
     }
 
+    _onResize() {
+        if (this.contentH <= this.containerH) {
+            console.info('_onResize', this.containerH);
+            this.viewRef.setNativeProps({
+                justifyContent: 'flex-start'
+            });
+            this.chatBoxRef.setNativeProps({
+                height: this.containerH,
+            });
+        } else {
+            this.viewRef.setNativeProps({
+                justifyContent: 'flex-end'
+            });
+            this.chatBoxRef.setNativeProps({
+                height: this.contentH,
+            });
+        }
+    }
+
 	render() {
 		return (
             <View style={this.props.style}>
-                <View style={styles.chatBox}>
-                    <ScrollView
-                    contentContainerStyle={styles.contentContainer}
-                    ref = {(comp) => { this.scrollViewRef = comp; }}
-                    onContentSizeChange = {() => {
-                        if (this.hasNewMsg) {
-                            //this.scrollViewRef.scrollToEnd({animated: true});
-                        }
-                    }}
+                <View 
+                style={
+                    {
+                        justifyContent: 'flex-start',
+                        height: '100%',
+                        overflow: 'hidden',
+                        borderStyle: 'solid',
+                        borderWidth: 0
+                    }
+                }
+                onLayout={(event) => {
+                    console.info(event.nativeEvent);
+                    this.containerH = event.nativeEvent.layout.height;
+                    this._onResize();
+                }}
+                ref={(comp) => { this.viewRef = comp; }}
+                >
+                    <View
+                    style={styles.chatBox}
+                    ref = {(comp) => { this.chatBoxRef = comp; }}
                     >
-                        {
-                            this.props.messages.map((val, idx) => {
-                                return (
-                                    <Message key={val.id} text={val.text}/>
-                                );
-                            })
-                        }
-                    </ScrollView>
+                        <ScrollView
+                        style={styles.scrollView}
+                        contentContainerStyle={styles.contentContainer}
+                        ref = {(comp) => { this.scrollViewRef = comp; }}
+                        onContentSizeChange = {(contentWidth, contentHeight) => {
+                            console.info('onContentSizeChange',contentHeight);
+                            this.contentH = contentHeight;
+                            // this._onResize();
+                        }}>
+                            {
+                                this.props.messages.map((val, idx) => {
+                                    return (
+                                        <Message key={val.id} text={val.text}/>
+                                    );
+                                })
+                            }
+                        </ScrollView>
+                    </View>
                 </View>
             </View>
 		);
@@ -71,13 +118,17 @@ export default class ChatBox extends Component<Props> {
 }
 
 const styles = StyleSheet.create({
+    scrollView: {
+        borderStyle: 'solid',
+        borderWidth: 0,
+    },
 	chatBox: {
         padding: 5,
 		width: '100%',
-		height: '100%',
+		height: 582,
         backgroundColor: '#F5FCFF',
 	},
 	contentContainer: {
-		alignItems: 'flex-start',
+        alignItems: 'flex-start',
 	}
 });

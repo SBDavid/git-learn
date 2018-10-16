@@ -8,7 +8,7 @@
 
 import React, { Component } from 'react';
 import { StyleSheet, View } from 'react-native';
-import {UIManager, Platform, LayoutAnimation} from 'react-native';
+import {UIManager, Platform, Text, LayoutAnimation} from 'react-native';
 
 import ChatBox from './ChatBox';
 import InputBox from './InputBox';
@@ -27,6 +27,56 @@ export default class App extends Component<AppProps> {
 					id: 0,
 					user: 'me',
 					text: 'hello world'
+				},
+				{
+					id: 1,
+					user: 'me',
+					text: 'hello world'
+				},
+				{
+					id: 2,
+					user: 'me',
+					text: 'hello world'
+				},
+				{
+					id: 3,
+					user: 'me',
+					text: 'hello world'
+				},
+				{
+					id: 4,
+					user: 'me',
+					text: 'hello world'
+				},
+				{
+					id: 5,
+					user: 'me',
+					text: 'hello world'
+				},
+				{
+					id: 6,
+					user: 'me',
+					text: 'hello world'
+				},
+				{
+					id: 7,
+					user: 'me',
+					text: 'hello world'
+				},
+				{
+					id: 8,
+					user: 'me',
+					text: 'hello world'
+				},
+				{
+					id: 9,
+					user: 'me',
+					text: 'hello world'
+				},
+				{
+					id: 10,
+					user: 'me',
+					text: 'hello worldhello worldhello worldhello worldhello worldhello worldhello worldhello world'
 				} */
 			]
 		};
@@ -39,6 +89,7 @@ export default class App extends Component<AppProps> {
 	render() {
 		return (
 			<View style={styles.container}>
+				<Text>Chat Room</Text>
 				<ChatBox
 				style={styles.chatBox}
 				messages={this.state.messages}
@@ -85,7 +136,7 @@ const styles = StyleSheet.create({
 		flex: 1,
 		justifyContent: 'flex-start',
 		alignItems: 'flex-start',
-		backgroundColor: 'powderblue',
+		backgroundColor: '#F5FCFF',
 	},
 	chatBox: {
 		flex: 1,
