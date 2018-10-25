@@ -11,13 +11,14 @@ import { StyleSheet, View } from 'react-native';
 
 import { createStackNavigator } from 'react-navigation';
 import RouterNameScreen from './RouterNameScreen';
+import AnotherRouterNameScreen from './AnotherRouterNameScreen';
 
 const StackRouter = createStackNavigator({
 	Home: {
 		screen: RouterNameScreen
 	},
 	Detail: {
-		screen: RouterNameScreen
+		screen: AnotherRouterNameScreen
 	},
 });
 

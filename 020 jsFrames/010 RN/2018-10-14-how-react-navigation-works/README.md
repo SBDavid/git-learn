@@ -60,3 +60,5 @@ NavigatorView可以更具这个descriptors渲染出第一个导航页面
 
 https://apiko.com/blog/10-react-native-open-source-projects-you-must-know/
 https://www.moveoapps.com/blog/libraries-that-make-react-native-development-easier-and-faster/
+
+https://www.jianshu.com/p/470606826b12

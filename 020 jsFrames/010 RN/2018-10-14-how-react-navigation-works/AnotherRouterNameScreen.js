@@ -1,10 +1,10 @@
 import React from 'react';
 import {View, Text, Button, StyleSheet} from 'react-native';
 
-/* export default class RouterNameScreen extends React.Component {
+class RouterNameScreen extends React.Component {
     render() {
 
-        console.info('RouterNameScreen render');
+        console.info('AnotherRouterNameScreen render');
 
         return(
             <View style={styles.container}>
@@ -18,23 +18,13 @@ import {View, Text, Button, StyleSheet} from 'react-native';
             </View>
         );
     }
-} */
+}
 
 
 export default (props) => {
-    console.info('RouterNameScreen render');
+    console.info('AnotherRouterNameScreen', props);
 
-        return(
-            <View style={styles.container}>
-                <Text>{props.navigation.state.routeName}</Text>
-                <Button 
-                title={'push'}
-                onPress={() => {
-                    props.navigation.push('Detail');
-                }}
-                />
-            </View>
-        );
+    return <RouterNameScreen {...props}/>;
 }
 
 const styles = StyleSheet.create({
