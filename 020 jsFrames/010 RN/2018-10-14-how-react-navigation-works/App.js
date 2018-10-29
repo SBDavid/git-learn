@@ -20,6 +20,12 @@ const StackRouter = createStackNavigator({
 	Detail: {
 		screen: AnotherRouterNameScreen
 	},
+	Detail1: {
+		screen: AnotherRouterNameScreen
+	},
+	Detail2: {
+		screen: AnotherRouterNameScreen
+	},
 });
 
 type AppProps = {};

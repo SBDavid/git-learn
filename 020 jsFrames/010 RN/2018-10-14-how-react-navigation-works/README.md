@@ -62,3 +62,6 @@ https://apiko.com/blog/10-react-native-open-source-projects-you-must-know/
 https://www.moveoapps.com/blog/libraries-that-make-react-native-development-easier-and-faster/
 
 https://www.jianshu.com/p/470606826b12
+
+
+Attempted to transition from state `RESPONDER_INACTIVE_PRESS_IN` to `RESPONDER_ACTIVE_LONG_PRESS_IN`, which is not supported. This is most likely due to `Touchable.longPressDelayTimeout` not being cancelled.

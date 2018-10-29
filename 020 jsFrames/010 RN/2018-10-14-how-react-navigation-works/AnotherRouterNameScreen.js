@@ -8,11 +8,16 @@ class RouterNameScreen extends React.Component {
 
         return(
             <View style={styles.container}>
-                <Text>{this.props.navigation.state.routeName}</Text>
                 <Button 
-                title={'push'}
+                title={'push Detail'}
                 onPress={() => {
                     this.props.navigation.push('Detail');
+                }}
+                />
+                <Button 
+                title={'push Home'}
+                onPress={() => {
+                    this.props.navigation.push('Home');
                 }}
                 />
             </View>
