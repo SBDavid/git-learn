@@ -2063,10 +2063,6 @@ gauge@~2.7.3:
     strip-ansi "^3.0.1"
     wide-align "^1.1.0"
 
-gcanvas.js@^0.0.8:
-  version "0.0.8"
-  resolved "http://registry.npm.taobao.org/gcanvas.js/download/gcanvas.js-0.0.8.tgz#54cc834583cbdeed383b474aba87523dc0e6b1e3"
-
 get-caller-file@^1.0.1:
   version "1.0.3"
   resolved "http://registry.npm.taobao.org/get-caller-file/download/get-caller-file-1.0.3.tgz#f978fa4c90d1dfe7ff2d6beda2a515e713bdcf4a"
@@ -3965,10 +3961,6 @@ react-is@^16.5.0:
   version "16.6.0"
   resolved "http://registry.npm.taobao.org/react-is/download/react-is-16.6.0.tgz#456645144581a6e99f6816ae2bd24ee94bdd0c01"
 
-react-native-gcanvas@^0.0.7-dev:
-  version "0.0.7-dev"
-  resolved "http://registry.npm.taobao.org/react-native-gcanvas/download/react-native-gcanvas-0.0.7-dev.tgz#8a8cd9434737ef12666d58b72f6d88e36b033cfb"
-
 react-native@0.52.0:
   version "0.52.0"
   resolved "http://registry.npm.taobao.org/react-native/download/react-native-0.52.0.tgz#9784663a2aa40b30c87d4c9c06ef26cf8d419d91"
@@ -4564,8 +4556,8 @@ spdx-expression-parse@^3.0.0:
     spdx-license-ids "^3.0.0"
 
 spdx-license-ids@^3.0.0:
-  version "3.0.2"
-  resolved "http://registry.npm.taobao.org/spdx-license-ids/download/spdx-license-ids-3.0.2.tgz#a59efc09784c2a5bada13cfeaf5c75dd214044d2"
+  version "3.0.1"
+  resolved "http://registry.npm.taobao.org/spdx-license-ids/download/spdx-license-ids-3.0.1.tgz#e2a303236cac54b04031fa7a5a79c7e701df852f"
 
 split-string@^3.0.1, split-string@^3.0.2:
   version "3.1.0"

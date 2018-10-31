@@ -8,11 +8,9 @@
   },
   "dependencies": {
     "@babel/core": "7.0.0",
-    "gcanvas.js": "^0.0.8",
     "prop-types": "15.6.2",
     "react": "16.2.0",
-    "react-native": "0.52.0",
-    "react-native-gcanvas": "^0.0.7-dev"
+    "react-native": "0.52.0"
   },
   "devDependencies": {
     "babel-jest": "23.6.0",
