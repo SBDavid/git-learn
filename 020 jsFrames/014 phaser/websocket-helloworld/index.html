@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>WebSocket</title>
+</head>
+<body>
+    <h1>Echo Test</h1>
+    <input id="sendTxt" type="text"/>
+    <button id="sendBtn">发送</button>
+    <div id="recv"></div>
+    <script type="text/javascript">
+        // //官方示例的服务器
+        // var WebSocket = new WebSocket("ws://echo.websocket.org");
+        // wsServer搭建的服务器
+        var WebSocket = new WebSocket("ws://localhost:3000/counter?user=david&room=123456");
+        WebSocket.onopen = function(){
+            console.log('websocket open');
+            document.getElementById("recv").innerHTML = "Connected";
+        }
+        WebSocket.onclose = function(){
+            console.log('websocket close');
+        }
+        WebSocket.onmessage = function(e){
+            console.log(e.data);
+            document.getElementById("recv").innerHTML = e.data;
+        }
+        document.getElementById("sendBtn").onclick = function(){
+            var txt = document.getElementById("sendTxt").value;
+            WebSocket.send(txt);
+        }
+    </script>
+</body>
+</html>
