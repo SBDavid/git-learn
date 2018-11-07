@@ -1,0 +1,3 @@
+FlatList性能特性
+
+FlatList的长度不能过长，否则严重加长layout时间，并且收不到onScroll
