@@ -12,5 +12,5 @@ const defaultStore: Store = {
 }
 
 export default function chatRoom(state: Store): Store {
-    return state;
+    return defaultStore;
 }
