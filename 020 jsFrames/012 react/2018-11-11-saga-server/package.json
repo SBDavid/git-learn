@@ -1,0 +1,17 @@
+{
+  "name": "2018-11-11-saga-server",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/socket.io": "^2.1.0",
+    "typescript": "^3.1.6"
+  },
+  "scripts": {
+    "build": "rm -rf lib && tsc -w"
+  },
+  "dependencies": {
+    "nodejs-websocket": "^1.7.1",
+    "socket.io": "^2.1.1"
+  }
+}
