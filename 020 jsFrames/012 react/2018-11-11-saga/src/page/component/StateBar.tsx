@@ -1,5 +1,4 @@
 import * as React from 'react';
-
 import { Message } from '../../store/messages';
 
 interface IProps {
@@ -9,6 +8,9 @@ interface IProps {
 }
 
 export default class StateBar extends React.PureComponent<IProps> {
+
+    componentDidMount() {
+    }
 
     render() {
         return (

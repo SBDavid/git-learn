@@ -1,14 +1,13 @@
 import socket from './connect';
 import ResponseBase from './response';
 
-interface loginRes extends ResponseBase {}
-
-interface logoutRes extends ResponseBase {}
+export interface loginRes extends ResponseBase {}
+export interface logoutRes extends ResponseBase {}
 
 export default class Login {
 
-    onLoginRes: (success: Boolean) => void;
-    onLogoutRes: (success: Boolean) => void;
+    onLoginRes: (res: loginRes) => void;
+    onLogoutRes: (res: logoutRes) => void;
 
     constructor() {
 
@@ -50,7 +49,7 @@ export default class Login {
         }
     }
 
-    regist(event: 'loginRes'|'logoutRes', callback: (success: Boolean)=> void) {
+    regist(event: 'loginRes'|'logoutRes', callback: (res: loginRes|logoutRes)=> void) {
         if (event === 'loginRes') {
             this.onLoginRes = callback;
         } else if (event === 'logoutRes') {
@@ -59,10 +58,10 @@ export default class Login {
     }
 
     loginResHandler(res: loginRes) {
-        this.onLoginRes(res.success);
+        this.onLoginRes(res);
     }
 
     logoutResHandler(res: logoutRes) {
-        this.onLogoutRes(res.success);
+        this.onLogoutRes(res);
     }
 }

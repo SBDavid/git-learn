@@ -1,5 +1,4 @@
 import User from '../User';
-import { truncateSync } from 'fs';
 
 export default class Message {
     id: Number;

@@ -1,7 +1,9 @@
 import * as React from 'react';
 import styled from 'styled-components';
 import StateBar from './container/StateBar';
+import Input from './component/Input';
 import api from '../api';
+import { loginRes } from '../api/login';
 
 const Container = styled.div`
     height: 100%;
@@ -34,8 +36,8 @@ export default class App extends React.Component<any> {
     constructor(props: IProps) {
         super(props);
 
-        api.login.regist("loginRes", (success: boolean) => {
-            if (success) {
+        api.login.regist("loginRes", (res: loginRes) => {
+            if (res.success) {
                 console.info('登陆成功');
                 props.tempDispatch({
                     type: 'login'
@@ -73,10 +75,12 @@ export default class App extends React.Component<any> {
     render() {
         return <Container>
             <StateBarBox>
-                <StateBar></StateBar>
+                <StateBar />
             </StateBarBox>
             <MessageBox></MessageBox>
-            <InputBox></InputBox>
+            <InputBox>
+                <Input />
+            </InputBox>
         </Container>;
     }
 }

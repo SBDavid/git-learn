@@ -11,7 +11,7 @@ export interface loginAction {
 export type loginState = String;
 
 export default function login(state: loginState, action: loginAction) {
-    if (action) {
+    if (action.type === 'login' || action.type === 'logout' || action.type === 'pending') {
         return action.type;
     } else {
         return 'logout';
