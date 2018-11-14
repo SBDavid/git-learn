@@ -1,27 +1,23 @@
 import * as React from 'react';
-import { Message } from '../../store/reducers';
+
+import { Message } from '../../store/messages';
 
 interface IProps {
-    state: String;
+    login: String;
     messages: Message[];
     userId: String;
 }
 
-export default class StateBar extends React.PureComponent<any> {
-
-    constructor(props: IProps) {
-        super(props);
-    }
+export default class StateBar extends React.PureComponent<IProps> {
 
     render() {
-
-        const props = this.props as IProps;
-
-        return <div>
-            登陆状态：{props.state}
-            消息数量：{props.messages.length}
-            <br />
-            用户名：{props.userId}
-        </div>
+        return (
+            <div>
+                登陆状态：{this.props.login}
+                消息数量：{this.props.messages.length}
+                <br />
+                用户名：{this.props.userId}
+            </div>
+        );
     }
 }

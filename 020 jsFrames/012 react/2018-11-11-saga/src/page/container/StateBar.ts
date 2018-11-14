@@ -2,36 +2,21 @@ import { connect } from 'react-redux';
 import { Store } from '../../store/reducers';
 import { Dispatch } from 'redux';
 import StateBarComp from '../component/StateBar';
+import { loginAction } from '../../store/login';
 
 const mapStateToProps = (state: Store) => {
     return {
-        state: state.login,
+        login: state.login,
         messages: state.messages,
         userId: state.userId
     }
 }
 
-const mapDispatchToProps = (dispatch: Dispatch) => {
+const mapDispatchToProps = (dispatch: Dispatch<loginAction>) => {
     return {
-        login: () => {
-            dispatch({
-                type: 'login'
-            })
-        },
         logout: () => {
             dispatch({
                 type: 'logout'
-            })
-        },
-        pending: () => {
-            dispatch({
-                type: 'pending'
-            })
-        },
-        setUserId: (userId: String) => {
-            dispatch({
-                type: 'setUserId',
-                userId
             })
         }
     }
