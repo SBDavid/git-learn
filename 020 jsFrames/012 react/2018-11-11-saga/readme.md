@@ -11,3 +11,5 @@ redux中的mapDispatchToProps也可以规定Action的类型
 redux中的createStore也可以指定类型
 #### 1.1.4 react：component<props, state, ?>第三个参数是什么？
 第三个参数是snapshot，以后研究一下
+#### 1.1.5 和组件无关的业务逻辑写在哪里？
+似乎应该写在saga中

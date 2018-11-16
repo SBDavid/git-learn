@@ -4,10 +4,10 @@ export interface userIdAction {
     userId: String;
 }
 
-export default function userId(state: userIdState, action: userIdAction) {
+export default function userId(state: userIdState = 'null', action: userIdAction) {
     if (action.type === 'setUserId') {
         return action.userId;
     } else {
-        return 'null';
+        return state;
     }
 }

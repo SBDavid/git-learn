@@ -16,12 +16,12 @@ export interface messagesAction {
     message: Message;
 }
 
-export default function messages(state: messagesState, action: messagesAction) {
+export default function messages(state: messagesState = [], action: messagesAction) {
     if (action.type === 'add') {
         const newState: Message[] = [];
         newState.concat(state, [action.message]);
         return newState;
     } else {
-        return [];
+        return state;
     }
 }
