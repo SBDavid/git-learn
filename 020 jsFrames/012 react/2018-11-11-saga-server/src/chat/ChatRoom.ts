@@ -1,7 +1,7 @@
 // 聊天室业务逻辑
 
 import User from '../User';
-import Message from './Message';
+import Message from './models/Message';
 
 export class ChatRoom {
     // 已登录用户
@@ -9,11 +9,12 @@ export class ChatRoom {
     // 房间所有消息（实时）
     messages: Message[];
     // 消息自增ID
-    messageId: 0;
+    messageId: number;
 
     constructor() {
         this.users = new Map<String ,User>();
         this.messages = [];
+        this.messageId = 0;
     }
 
     /**
@@ -80,6 +81,7 @@ export class ChatRoom {
         if (user) {
             const msg = new Message(this.messageId++, user, text, +new Date());
             this.messages.push(msg);
+            return msg;
         }
     }
 }

@@ -5,8 +5,8 @@ import messages, {messagesAction, messagesState} from './messages';
 import { type } from 'os';
 
 export type loginAction = loginAction;
-export type userIdAction = loginAction;
-export type messagesAction = loginAction;
+export type userIdAction = userIdAction;
+export type messagesAction = messagesAction;
 
 export interface Store {
     messages: messagesState;

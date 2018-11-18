@@ -1,6 +1,6 @@
 // 监听用户请求登录信息
 import * as sio from 'socket.io';
-import { ChatRoom } from '../ChatRoom';
+import publicRoom, { ChatRoom } from '../ChatRoom';
 
 export default function sendMsgReq(server: sio.Server, socket: sio.Socket, room: ChatRoom) {
     return (id: String, text: String) => {
@@ -11,9 +11,9 @@ export default function sendMsgReq(server: sio.Server, socket: sio.Socket, room:
         } else {
             room.addMessage(socket.id, text);
             socket.emit('sendMsgRes', {success: true});
+            const msg = publicRoom.addMessage(id, text);
             server.nsps['/chat'].emit('receMsgReq', {success: true, content: {
-                id,
-                text
+                msg
             }});
         }
     }

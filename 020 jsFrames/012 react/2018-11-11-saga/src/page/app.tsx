@@ -2,6 +2,7 @@ import * as React from 'react';
 import styled from 'styled-components';
 import StateBar from './container/StateBar';
 import Input from './component/Input';
+import Messages from './container/Messages';
 import api from '../api';
 import { loginRes } from '../api/login';
 
@@ -20,6 +21,7 @@ const StateBarBox = styled.div`
 const MessageBox = styled.div`
     background: skyblue;
     flex-grow: 1;
+    display: flex;
 `;
 
 const InputBox = styled.div`
@@ -77,7 +79,9 @@ export default class App extends React.Component<any> {
             <StateBarBox>
                 <StateBar />
             </StateBarBox>
-            <MessageBox></MessageBox>
+            <MessageBox>
+                <Messages/>
+            </MessageBox>
             <InputBox>
                 <Input />
             </InputBox>

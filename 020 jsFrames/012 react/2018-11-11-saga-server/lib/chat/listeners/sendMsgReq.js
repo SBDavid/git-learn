@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+var ChatRoom_1 = require("../ChatRoom");
 function sendMsgReq(server, socket, room) {
     return function (id, text) {
         console.info("sendMsgReq id: " + id + " text: " + text);
@@ -10,9 +11,9 @@ function sendMsgReq(server, socket, room) {
         else {
             room.addMessage(socket.id, text);
             socket.emit('sendMsgRes', { success: true });
+            var msg = ChatRoom_1.default.addMessage(id, text);
             server.nsps['/chat'].emit('receMsgReq', { success: true, content: {
-                    id: id,
-                    text: text
+                    msg: msg
                 } });
         }
     };

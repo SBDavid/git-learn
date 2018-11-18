@@ -2,12 +2,12 @@
 
 import socket from './connect';
 import ResponseBase from './response';
+import { Message } from '../model/Message';
 
 export interface sendMsgRes extends ResponseBase {}
 export interface receMsgReq extends ResponseBase {
     content: {
-        id: String;
-        text: String;
+        msg: Message
     }
 }
 

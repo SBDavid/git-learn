@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Message } from '../../store/messages';
+import {Message} from '../../model/Message';
 
 interface IProps {
     login: String;

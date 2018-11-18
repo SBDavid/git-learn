@@ -2,11 +2,12 @@
 // 聊天室业务逻辑
 Object.defineProperty(exports, "__esModule", { value: true });
 var User_1 = require("../User");
-var Message_1 = require("./Message");
+var Message_1 = require("./models/Message");
 var ChatRoom = /** @class */ (function () {
     function ChatRoom() {
         this.users = new Map();
         this.messages = [];
+        this.messageId = 0;
     }
     Object.defineProperty(ChatRoom.prototype, "userAmount", {
         /**
@@ -71,6 +72,7 @@ var ChatRoom = /** @class */ (function () {
         if (user) {
             var msg = new Message_1.default(this.messageId++, user, text, +new Date());
             this.messages.push(msg);
+            return msg;
         }
     };
     return ChatRoom;
