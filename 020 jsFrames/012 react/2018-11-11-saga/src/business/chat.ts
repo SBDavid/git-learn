@@ -2,8 +2,7 @@ import api from '../api';
 
 import { receMsgReq, sendMsgRes } from '../api/chat';
 import store from '../store';
-import { createMessage } from '../model/Message';
-import { createUser } from '../model/User';
+import { addMessage } from '../store/messages';
 import { loginAction, messagesAction, userIdAction } from '../store/reducers';
 
 class Chat {
@@ -29,16 +28,12 @@ class Chat {
     receMsgReq() {
         api.chat.regist('receMsgReq', (res: receMsgReq) => {
             if (res.success) {
-                const action: messagesAction = {
-                    type: 'add',
-                    message: createMessage(
-                        res.content.msg.id,
-                        createUser(res.content.msg.user.id),
-                        res.content.msg.text,
-                        res.content.msg.time
-                    )
-                }
-                store.dispatch(action);
+                store.dispatch(addMessage(
+                    res.content.msg.user.id,
+                    res.content.msg.id,
+                    res.content.msg.text,
+                    res.content.msg.time
+                ));
             } else {
                 console.warn('收到新消息失败');
             }
