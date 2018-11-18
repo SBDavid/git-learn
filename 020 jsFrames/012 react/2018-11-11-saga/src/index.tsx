@@ -17,3 +17,7 @@ window.onload = function () {
         document.getElementById('root'),
     );
 }
+
+window.addEventListener('resize', () => {
+    console.info(111);
+})

@@ -19,14 +19,13 @@ const StateBarBox = styled.div`
 `;
 
 const MessageBox = styled.div`
-    background: skyblue;
+    background: #f1f1f1;
     flex-grow: 1;
     display: flex;
 `;
 
 const InputBox = styled.div`
     height: 50px;
-    background: steelblue;
     flex-grow: 0;
 `;
 

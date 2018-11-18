@@ -13,10 +13,18 @@ const ContainerSelf = styled.div`
     flex-direction: row-reverse;
 `;
 
-const Msg = styled.div`
+const MsgSelf = styled.div`
     padding: 10px;
     border-radius: 10px;
     background-color: #b0e46e;
+    flex-direction: column;
+    display: flex;
+`;
+
+const MsgOther = styled.div`
+    padding: 10px;
+    border-radius: 10px;
+    background-color: white;
     flex-direction: column;
     display: flex;
 `;
@@ -40,7 +48,7 @@ export default class Message extends React.PureComponent<Props> {
     render () {
 
         const Container = this.props.isSelf ? ContainerSelf : ContainerOther;
-
+        const Msg = this.props.isSelf ? MsgSelf : MsgOther;
         const time = new Date(this.props.time as number);
 
         return (
