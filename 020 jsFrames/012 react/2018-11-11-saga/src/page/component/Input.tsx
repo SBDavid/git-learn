@@ -47,9 +47,8 @@ export default class Input extends React.PureComponent {
                 ></input>
                 <Button
                 onClick={(event) => {
-                    console.info(this.inputRef.value);
                     chatBus.sendMsgReq(this.inputRef.value);
-                    this.inputRef.value = '';
+                    // this.inputRef.value = '';
                 }}
                 >发送信息</Button>
             </Container>

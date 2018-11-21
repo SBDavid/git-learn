@@ -12,21 +12,15 @@ export interface receMsgReq extends ResponseBase {
 }
 
 export default class Chat {
-    onSendMsgRes: (res: sendMsgRes) => void;
     onReceMsgReq: (req: receMsgReq) => void;
 
     constructor() {
-        // 发送消息返回
-        socket.on('sendMsgRes', (res: sendMsgRes) => {
-            this.sendMsgResHandler(res);
-        });
         // 服务端推动新消息
         socket.on('receMsgReq', (res: receMsgReq) => {
             this.receMsgReqHandler(res);
         })
 
         this.regist = this.regist.bind(this);
-        this.sendMsgResHandler = this.sendMsgResHandler.bind(this);
         this.receMsgReqHandler = this.receMsgReqHandler.bind(this);
     }
 
@@ -49,16 +43,10 @@ export default class Chat {
         });
     }
 
-    regist(event: 'sendMsgRes'|'receMsgReq', callback: (res: receMsgReq|sendMsgRes)=> void) {
-        if (event === 'sendMsgRes') {
-            this.onSendMsgRes = callback;
-        } else if (event === 'receMsgReq') {
+    regist(event: 'receMsgReq', callback: (res: receMsgReq|sendMsgRes)=> void) {
+        if (event === 'receMsgReq') {
             this.onReceMsgReq = callback;
         }
-    }
-
-    sendMsgResHandler(res: sendMsgRes) {
-        this.onSendMsgRes && this.onSendMsgRes(res);
     }
 
     // 收到服务端推送的消息
