@@ -21,8 +21,11 @@ class Chat {
         });
     }
 
-    sendMsgReq(text: String) {
-        api.chat.send(text);
+    sendMsgReq(text: string) {
+        store.dispatch({
+            type: 'SEND_MSG',
+            text
+        })
     }
 
     receMsgReq() {

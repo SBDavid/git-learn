@@ -1,13 +1,8 @@
 import { render } from 'react-dom';
 import * as React from 'react';
 import App from './page/app';
-import { Provider } from 'react-redux'
-import createSagaMiddleware from 'redux-saga';
-import sagas from './sagas';
+import { Provider } from 'react-redux';
 import store from './store';
-const sagaMiddleWare = createSagaMiddleware();
-
-// sagaMiddleWare.run(sagas);
 
 window.onload = function () {
     render(
@@ -17,7 +12,3 @@ window.onload = function () {
         document.getElementById('root'),
     );
 }
-
-window.addEventListener('resize', () => {
-    console.info(111);
-})

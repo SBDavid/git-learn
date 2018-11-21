@@ -30,13 +30,23 @@ export default class Chat {
         this.receMsgReqHandler = this.receMsgReqHandler.bind(this);
     }
 
+    /**
+     * 发送信息
+     *
+     * @param {String} text
+     * @memberof Chat
+     */
     send(text: String) {
-        if (socket.connected) {
-            socket.emit('sendMsgReq', socket.id, text);
-            console.info('sendMsgReq');
-        } else {
-            throw Error('connect broken');
-        }
+        return new Promise((res, rej) => {
+            if (socket.connected) {
+                console.info('sendMsgReq');
+                socket.emit('sendMsgReq', socket.id, text, (response: sendMsgRes) => {
+                    res(response);
+                });
+            } else {
+                rej('connect broken');
+            }
+        });
     }
 
     regist(event: 'sendMsgRes'|'receMsgReq', callback: (res: receMsgReq|sendMsgRes)=> void) {
