@@ -6,11 +6,12 @@
  * @flow
  */
 
-// JS通过websocket连接
+// scrollview
 
 import React, { Component } from 'react';
-import { StyleSheet, View, FlatList, Text } from 'react-native';
+import { StyleSheet, View, ScrollView, Text } from 'react-native';
 import Sender from './sender';
+import logger from 'websocket-log';
 
 type AppProps = {};
 export default class App extends Component<AppProps> {
@@ -22,7 +23,7 @@ export default class App extends Component<AppProps> {
 		}
 
 		this.addText = this.addText.bind(this);
-		this.sender = new Sender(200, (count) => {
+		this.sender = new Sender(50, (count) => {
 			const item = {
 				key: count,
 				backgroundColor: count%2 === 0 ? 'powderblue' : 'skyblue'
@@ -35,7 +36,7 @@ export default class App extends Component<AppProps> {
 
 	componentDidMount() {
 		try {
-			this.sender.run(50);
+			this.sender.run(100);
 		} catch (err) {
 			console.info(err);
 		}
@@ -58,37 +59,38 @@ export default class App extends Component<AppProps> {
 
 	render() {
 		const startTime = +new Date();
-		const ITEM_HEIGHT = 30;
+		
+		const items = this.state.list.map((item) => {
+			return <Text
+					style={{
+						fontSize: 20,
+						backgroundColor: item.backgroundColor,
+						height: 100,
+					}}
+					key={item.key}
+					getItemLayout={(data, index) => {
+						return {length: 90, offset: 90 * index, index}
+					}}
+					onLayout={() => {
+						logger.log('item-layout');
+					}}
+					>
+						{item.key}
+					</Text>
+		});
+
 		const jsx = (
 			<View style={styles.container}>
-				<FlatList
+				<ScrollView
+				showsVerticalScrollIndicator={false}
 				style={styles.list}
 				data={this.state.list}
-				onScroll={() => {
-					
+				onScroll={(event) => {
+					logger.log('ScrollView-onScroll');
 				}}
-				renderItem={
-					({item}) => {
-						return <Text
-						style={{
-							fontSize: 20,
-							backgroundColor: item.backgroundColor,
-							height: 30,
-						}}
-						key={item.key}
-						getItemLayout={(data, index) => {
-							return {length: 90, offset: 90 * index, index}
-						}}
-						onLayout={() => {
-						}}
-						>
-						{item.key}
-						
-						</Text>
-					}
-				}
 				>
-				</FlatList>
+					{items}
+				</ScrollView>
 			</View>
 		);
 		try {

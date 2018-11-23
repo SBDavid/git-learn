@@ -11,7 +11,8 @@
     "nodejs-websocket": "^1.7.1",
     "prop-types": "^15.6.2",
     "react": "16.2.0",
-    "react-native": "0.52.0"
+    "react-native": "0.52.0",
+    "websocket-log": "^1.0.0"
   },
   "devDependencies": {
     "babel-jest": "23.6.0",
