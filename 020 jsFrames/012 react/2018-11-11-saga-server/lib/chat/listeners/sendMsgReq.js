@@ -15,9 +15,9 @@ function sendMsgReq(server, socket, room) {
             ack({
                 success: true
             });
-            var msg = ChatRoom_1.default.addMessage(id, text);
+            var msgs = [ChatRoom_1.default.addMessage(id, text)];
             server.nsps['/chat'].emit('receMsgReq', { success: true, content: {
-                    msg: msg
+                    msgs: msgs
                 } });
         }
     };

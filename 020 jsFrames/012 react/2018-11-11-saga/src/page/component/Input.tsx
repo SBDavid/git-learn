@@ -28,7 +28,6 @@ export default class Input extends React.PureComponent {
     constructor(props: any) {
         super(props);
         this.inputRef = null;
-        chatBus.start();
     }
 
     render() {

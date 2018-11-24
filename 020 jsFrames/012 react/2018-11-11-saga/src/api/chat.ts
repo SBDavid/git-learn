@@ -7,7 +7,7 @@ import { Message } from '../model/Message';
 export interface sendMsgRes extends ResponseBase {}
 export interface receMsgReq extends ResponseBase {
     content: {
-        msg: Message
+        msgs: Message[]
     }
 }
 
@@ -43,10 +43,15 @@ export default class Chat {
         });
     }
 
-    regist(event: 'receMsgReq', callback: (res: receMsgReq|sendMsgRes)=> void) {
+    regist(event: 'receMsgReq', callback: (res: receMsgReq)=> void): () => void {
         if (event === 'receMsgReq') {
             this.onReceMsgReq = callback;
+            return () => {
+                this.onReceMsgReq = () => {};
+            }
         }
+
+        return () => {};
     }
 
     // 收到服务端推送的消息

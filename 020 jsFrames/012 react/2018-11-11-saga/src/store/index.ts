@@ -5,7 +5,7 @@ import { loginAction, userIdAction, messagesAction } from './reducers';
 import { sagaAction, rootSaga} from '../sagas';
 import createSagaMiddleware from 'redux-saga';
 
-const sagaMiddleWare = createSagaMiddleware();
+export const sagaMiddleWare = createSagaMiddleware();
 
 type storeAction = loginAction|userIdAction|messagesAction|sagaAction;
 

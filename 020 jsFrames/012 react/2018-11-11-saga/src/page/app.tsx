@@ -4,6 +4,8 @@ import StateBar from './container/StateBar';
 import Input from './component/Input';
 import Messages from './container/Messages';
 import api from '../api';
+import chat from '../business/chat';
+import login from '../business/login';
 import { loginRes } from '../api/login';
 
 const Container = styled.div`
@@ -66,11 +68,11 @@ export default class App extends React.Component<any> {
         const props = this.props as IProps;
 
         // 用户尝试登陆聊天室
-
-        api.login.login();
-        props.tempDispatch({
-            type: 'pending'
-        });
+        login.login();
+        // 启动监听服务端发送的消息
+        chat.startReceMsgReq();
+        // 停止监听消息
+        // chat.stopReceMsgReq();
     }
 
     render() {

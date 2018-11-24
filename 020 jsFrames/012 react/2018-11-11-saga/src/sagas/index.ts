@@ -1,8 +1,9 @@
 import { all } from 'redux-saga/effects'
-import { watchSendMsg, watchSendMsgInChannel, watchReceMsgInChannel, sendMsgAction } from './chat';
+import { watchSendMsgInChannel, sendMsgAction } from './chat';
+import { watchLogin, loginAction } from './login';
 
-export type sagaAction = sendMsgAction;
+export type sagaAction = sendMsgAction|loginAction;
 
 export function* rootSaga() {
-    yield all([watchSendMsgInChannel(), watchReceMsgInChannel()]);
+    yield all([watchSendMsgInChannel(), watchLogin()]);
 }

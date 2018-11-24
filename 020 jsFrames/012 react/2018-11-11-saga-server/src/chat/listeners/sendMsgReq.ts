@@ -18,9 +18,9 @@ export default function sendMsgReq(server: sio.Server, socket: sio.Socket, room:
             ack({
                 success: true
             })
-            const msg = publicRoom.addMessage(id, text);
+            const msgs = [publicRoom.addMessage(id, text)];
             server.nsps['/chat'].emit('receMsgReq', {success: true, content: {
-                msg
+                msgs
             }});
         }
     }
