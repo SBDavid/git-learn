@@ -1,0 +1,25 @@
+{
+  "name": "react-native-template",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node node_modules/react-native/local-cli/cli.js start"
+  },
+  "dependencies": {
+    "@babel/core": "^7.0.0-0",
+    "prop-types": "^15.6.2",
+    "react": "16.2.0",
+    "react-native": "0.52.0"
+  },
+  "devDependencies": {
+    "@types/react": "^16.7.13",
+    "@types/react-native": "^0.57.15",
+    "babel-preset-react-native": "4.0.0",
+    "react-native-typescript-transformer": "^1.2.10",
+    "react-test-renderer": "16.5.0",
+    "typescript": "^3.2.2"
+  },
+  "jest": {
+    "preset": "react-native"
+  }
+}
