@@ -2,51 +2,79 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types';
 import { ScrollView, TouchableOpacity, View, Keyboard, Text } from 'react-native'
 
-const machine = {
+const stateSet = {
   // 初始状态，组件还未显示在屏幕上
-  init: {
-    LAYOUT: 'nonScroll' // Scroll Layout
-  },
+  init: 'init',
   // 不可滚动状态
-  nonScroll: {
-    ADD_MSG: 'nonScroll',   // 插入消息
-    Enable_Scroll: 'stayAroundBottom' // 消息从长度 > ScrollView高度
-  },
+  nonScroll: 'nonScroll',
   // 静止在底部附近
-  stayAroundBottom: {
-    ADD_MSG: 'stayBelowBottom', // 插入消息
-    DRAG_BEGIN: 'dragAroundBottom'
-  },
+  stayAroundBottom: 'stayAroundBottom',
   // 静止在上部
-  stayAwayFromBottom: {
-    SCROLL_BEGIN: 'scrollAwayFromBottom',
-    DRAG_BEGIN: 'dragAwayFromBottom'
-  },
+  stayAwayFromBottom: 'stayAwayFromBottom',
   // 新消息超出底部
-  stayBelowBottom: {
-    SCROLL_BEGIN: 'scrollAroundBottom', // 在底部滚动
-  },
+  stayBelowBottom: 'stayBelowBottom',
   // 在底部滚动
-  scrollAroundBottom: {
-    SCROLL_END: 'stayAroundBottom', // 停止滚动
-    DETTACH_BOTTOM: 'scrollAwayFromBottom'  // 滚动到上部
-  },
+  scrollAroundBottom: 'scrollAroundBottom',
   // 在上部移动
-  scrollAwayFromBottom: {
-    SCROLL_END: 'stayAwayFromBottom', // 停止滚动
-    ATTACH_BOTTOM: 'scrollAroundBottom'  // 滚动到下部
-  },
+  scrollAwayFromBottom: 'scrollAwayFromBottom',
   // 在底部拖拽
-  dragAroundBottom: {
-    DRAG_END_STAY: 'stayAroundBottom', // 停止拖拽
-    DRAG_END_SCROLL: 'scrollAroundBottom', // 停止拖拽
-    DETTACH_BOTTOM: 'dragAwayFromBottom'  // 拖拽到上部
-  },
+  dragAroundBottom: 'dragAroundBottom',
   // 在上部部拖拽
-  dragAwayFromBottom: {
-    DRAG_END_STAY: 'stayAwayFromBottom', // 停止拖拽
-    DRAG_END_SCROLL: 'scrollAwayFromBottom', // 停止拖拽
-    ATTACH_BOTTOM: 'dragAroundBottom'  // 拖拽到下部
+  dragAwayFromBottom: 'dragAwayFromBottom'
+}
+
+const actionSet = {
+  // Scroll Layout
+  LAYOUT: 'LAYOUT',
+  // 插入消息
+  ADD_MSG: 'ADD_MSG',
+  // 消息从长度 > ScrollView高度
+  Enable_Scroll: 'Enable_Scroll',
+  DRAG_BEGIN: 'DRAG_BEGIN',
+  DRAG_END_STAY: 'DRAG_END_STAY',
+  DRAG_END_SCROLL: 'DRAG_END_SCROLL',
+  SCROLL_BEGIN: 'SCROLL_BEGIN',
+  SCROLL_END: 'SCROLL_END',
+  ATTACH_BOTTOM: 'ATTACH_BOTTOM',
+  DETTACH_BOTTOM: 'DETTACH_BOTTOM'
+}
+
+const machine = {
+  [stateSet.init]: {
+    [actionSet.LAYOUT]: stateSet.nonScroll
+  },
+  [stateSet.nonScroll]: {
+    [actionSet.ADD_MSG]: stateSet.nonScroll,
+    [actionSet.Enable_Scroll]: stateSet.stayAroundBottom
+  },
+  [stateSet.stayAroundBottom]: {
+    [actionSet.ADD_MSG]: stateSet.stayBelowBottom,
+    [actionSet.DRAG_BEGIN]: stateSet.dragAroundBottom
+  },
+  [stateSet.stayAwayFromBottom]: {
+    [actionSet.SCROLL_BEGIN]: stateSet.scrollAwayFromBottom,
+    [actionSet.DRAG_BEGIN]: stateSet.dragAwayFromBottom
+  },
+  [stateSet.stayBelowBottom]: {
+    [actionSet.SCROLL_BEGIN]: stateSet.scrollAroundBottom,
+  },
+  [stateSet.scrollAroundBottom]: {
+    [actionSet.SCROLL_END]: stateSet.stayAroundBottom,
+    [actionSet.DETTACH_BOTTOM]: stateSet.scrollAwayFromBottom
+  },
+  [stateSet.scrollAwayFromBottom]: {
+    [actionSet.SCROLL_END]: stateSet.stayAwayFromBottom,
+    [actionSet.ATTACH_BOTTOM]: stateSet.scrollAroundBottom
+  },
+  [stateSet.dragAroundBottom]: {
+    [actionSet.DRAG_END_STAY]: stateSet.stayAroundBottom,
+    [actionSet.DRAG_END_SCROLL]: stateSet.scrollAroundBottom,
+    [actionSet.DETTACH_BOTTOM]: stateSet.dragAwayFromBottom
+  },
+  [stateSet.dragAwayFromBottom]: {
+    [actionSet.DRAG_END_STAY]: stateSet.stayAwayFromBottom,
+    [actionSet.DRAG_END_SCROLL]: stateSet.scrollAwayFromBottom,
+    [actionSet.ATTACH_BOTTOM]: stateSet.dragAroundBottom
   }
 }
 
@@ -65,6 +93,77 @@ export default class MessageList extends Component {
     // 停止移动计时器
     this.scrollEndTimer = null
 
+    this.commends = {
+      [stateSet.init]: {
+        [actionSet.LAYOUT]: (payload) => {
+          const evt = payload
+          this.containerHeight = evt.nativeEvent.layout.height
+        }
+      },
+      [stateSet.nonScroll]: {
+        [actionSet.ADD_MSG]: null,
+        [actionSet.Enable_Scroll]: (payload) => {
+          this.props.onContentLongerThanContainer()
+        }
+      },
+      [stateSet.stayAroundBottom]: {
+        [actionSet.ADD_MSG]: (payload) => {
+          const msg = payload
+          this.addMsg(msg)
+        },
+        [actionSet.DRAG_BEGIN]: (payload) => {
+          this.props.onScrollBegin()
+        }
+      },
+      [stateSet.stayAwayFromBottom]: {
+        [actionSet.SCROLL_BEGIN]: (payload) => {
+          this.props.onScrollBegin()
+        },
+        [actionSet.DRAG_BEGIN]: (payload) => {
+          this.props.onScrollBegin()
+        }
+      },
+      [stateSet.stayBelowBottom]: {
+        [actionSet.SCROLL_BEGIN]: (payload) => {
+          this.props.onScrollBegin()
+        },
+      },
+      [stateSet.scrollAroundBottom]: {
+        [actionSet.SCROLL_END]: (payload) => {
+          this.props.onScrollEnd()
+        },
+        [actionSet.DETTACH_BOTTOM]: (payload) => {
+          this.props.onDettachBottom()
+        }
+      },
+      [stateSet.scrollAwayFromBottom]: {
+        [actionSet.SCROLL_END]: (payload) => {
+          this.props.onScrollEnd()
+        },
+        [actionSet.ATTACH_BOTTOM]: (payload) => {
+          this.props.onAttachBottom()
+        }
+      },
+      [stateSet.dragAroundBottom]: {
+        [actionSet.DRAG_END_STAY]: (payload) => {
+          this.props.onScrollEnd()
+        },
+        [actionSet.DRAG_END_SCROLL]: null,
+        [actionSet.DETTACH_BOTTOM]: (payload) => {
+          this.props.onDettachBottom()
+        }
+      },
+      [stateSet.dragAwayFromBottom]: {
+        [actionSet.DRAG_END_STAY]: (payload) => {
+          this.props.onScrollEnd()
+        },
+        [actionSet.DRAG_END_SCROLL]: null,
+        [actionSet.ATTACH_BOTTOM]: (payload) => {
+          this.props.onAttachBottom()
+        }
+      }
+    }
+
     this.transition = this.transition.bind(this)
     this.command = this.command.bind(this)
     this.addMsg = this.addMsg.bind(this)
@@ -77,9 +176,10 @@ export default class MessageList extends Component {
     const currentListState = this.currentState
     const nextListState = machine[currentListState][action.type]
 
-    console.info('transition', currentListState, action.type, nextListState)
+    // console.info('transition', currentListState, action.type, nextListState)
 
     if (nextListState) {
+      console.info('transition', currentListState, action.type, nextListState)
       this.command(currentListState, action)
 
       this.currentState = nextListState
@@ -88,7 +188,13 @@ export default class MessageList extends Component {
 
   // 状态操作
   command(currentState, { type, payload }) {
-    switch (currentState) {
+
+    const action = this.commends[currentState][type]
+    if (action) {
+      action(payload)
+    }
+
+    /* switch (currentState) {
       case 'init':
         if (type === 'LAYOUT') {
           const evt = payload
@@ -115,18 +221,23 @@ export default class MessageList extends Component {
       case 'scrollAroundBottom':
         if (type === 'SCROLL_END') {
           this.props.onScrollEnd()
+        } else if (type === 'DETTACH_BOTTOM') {
+          this.props.onDettachBottom()
         }
-      case 'scrollAroundBottom':
-        if (type === '') {
-          
+        break
+      case 'scrollAwayFromBottom':
+        if (type === 'SCROLL_END') {
+          this.props.onScrollEnd()
+        } else if (type === 'ATTACH_BOTTOM') {
+          this.props.onAttachBottom()
         }
-      case 'dragAroundBottom': {
+        break
+      case 'dragAroundBottom':
         if (type === 'DRAG_END_STAY') {
           this.props.onScrollEnd()
         }
-      }
         break
-    }
+    } */
   }
 
   addMsg(msg) {
@@ -226,10 +337,6 @@ export default class MessageList extends Component {
             if (contentHeight >= this.containerHeight) {
               this.transition({
                 type: 'Enable_Scroll'
-              })
-            } else {
-              this.transition({
-                type: 'ADD_MSG'
               })
             }
           }}
