@@ -1,0 +1,14 @@
+{
+  "name": "template-node",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "rm -rf lib && tsc -w"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "xstate": "^4.3.1"
+  }
+}
