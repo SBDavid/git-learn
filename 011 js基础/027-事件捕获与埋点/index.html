@@ -28,9 +28,18 @@
         <span>
             如果捕获和命中阶段修改了Dom树，在冒泡阶段无法再次读取到元素的路径。
         </span>
+        <a href="https:www.baidu.com">www.baidu.com</a>
     </div>
     <script>
         document.querySelector('button.close').addEventListener('click', (e) => {
+            console.info('button.close is handled by itself: ', e.target.nodeName, e.target.parentNode.nodeName);
+            
+            e.target.parentNode.removeChild(e.target);
+
+            console.info('after remove itself: ', e.target.nodeName, e.target.parentNode.nodeName);
+        });
+
+        document.querySelector('a').addEventListener('click', (e) => {
             console.info('button.close is handled by itself: ', e.target.nodeName, e.target.parentNode.nodeName);
             
             e.target.parentNode.removeChild(e.target);
