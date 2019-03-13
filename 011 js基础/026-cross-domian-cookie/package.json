@@ -1,0 +1,15 @@
+{
+  "name": "026-cross-domian-cookie",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "cookie-parser": "^1.4.4",
+    "cookie-session": "^1.3.3",
+    "cors": "^2.8.5",
+    "express": "^4.16.4"
+  },
+  "scripts": {
+    "start": "node ./src/index.js"
+  }
+}

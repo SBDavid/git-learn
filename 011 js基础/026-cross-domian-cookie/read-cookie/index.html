@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    
+</head>
+<body>
+    <h1>Cross-Domain-Cookie-Test</h1>
+    <h3>Read-Cookie</h1>
+    <div id="cookie"></div>
+    
+    <script>
+        fetch('http://write-cookie.com/check-cookie', {
+            method: 'GET',
+            credentials: "include",
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
+            },
+        }).then(function(response) {
+            return response.json();
+        })
+        .then(function(myJson) {
+            document.querySelector('div').innerText = JSON.stringify(myJson);
+            console.log(myJson);
+        });
+    </script>
+</body>
+</html>
