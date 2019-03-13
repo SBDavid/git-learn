@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .alert {
+            width: 200px;
+            height: 200px;
+            background-color: aquamarine;
+            position: relative;
+        }
+        .close {
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 50px;
+            height: 50px;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="alert">
+        <button class="close"></button>
+        <span>
+            如果捕获和命中阶段修改了Dom树，在冒泡阶段无法再次读取到元素的路径。
+        </span>
+    </div>
+    <script>
+        document.querySelector('button.close').addEventListener('click', (e) => {
+            console.info('button.close is handled by itself: ', e.target.nodeName, e.target.parentNode.nodeName);
+            
+            e.target.parentNode.removeChild(e.target);
+
+            console.info('after remove itself: ', e.target.nodeName, e.target.parentNode.nodeName);
+        });
+
+        document.body.addEventListener('click', e => {
+            console.info('button.close is handled by body on capture: ', e.target.nodeName, e.target.parentNode.nodeName);
+        }, true)
+
+        document.body.addEventListener('click', e => {
+            console.info('button.close is handled by body on popup: ', e.target.nodeName, e.target.parentNode.nodeName);
+        }, false)
+    </script>
+</body>
+</html>
