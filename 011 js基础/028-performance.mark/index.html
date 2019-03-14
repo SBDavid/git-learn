@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div>performance.mark无法在chrome的performance面板中显示消息</div>
+    <button id="mark">mark</button>
+    <button id="mark-meature">mark-meature</button>
+
+    <script>
+        console.info(performance.mark);
+        document.querySelector('#mark').addEventListener('click', () => {
+            performance.mark('testS');
+        });
+        document.querySelector('#mark-meature').addEventListener('click', () => {
+            performance.mark('testE');
+            performance.measure('testP-measure', 'testS', 'testE');
+
+            const marks = performance.getEntriesByType('mark');
+            console.info('marks', marks);
+
+            const measures = performance.getEntriesByName('testP-measure', 'measure');
+            console.info('measures', measures);
+
+        });
+    </script>
+</body>
+</html>
