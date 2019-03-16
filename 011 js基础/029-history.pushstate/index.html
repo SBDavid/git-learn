@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .hide {
+            display: none
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li><a id="show-history">show-history</a></li>
+        <li><a id="to-page1">toPage1</a></li>
+        <li><a id="to-page2">toPage2</a></li>
+        <li><a id="back">back</a></li>
+        <li><a id="forward">forward</a></li>
+    </ul>
+    <div id='p1'>page1</div>
+    <div id="p2" class="hide">page2</div>
+
+    <script>
+        document.querySelector("#show-history").addEventListener('click', () => {
+            console.info('show-history');
+            console.info(window.history);
+        });
+
+        document.querySelector("#to-page1").addEventListener('click', () => {
+            console.info('to-page1');
+            window.history.pushState(null, 'to-page1', 'page1');
+        });
+
+        document.querySelector("#to-page2").addEventListener('click', () => {
+            console.info('to-page2');
+            window.history.pushState(null, 'to-page2', 'page2');
+        });
+
+        document.querySelector("#back").addEventListener('click', () => {
+            console.info('back');
+            window.history.back();
+        });
+
+        document.querySelector("#forward").addEventListener('click', () => {
+            console.info('forward');
+            window.history.forward();
+        });
+
+        window.onpopstate = (e) => {
+            console.info('onpopstate', e, window.history.state);
+        }
+
+        
+    </script>
+</body>
+</html>
