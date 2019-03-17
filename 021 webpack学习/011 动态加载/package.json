@@ -1,0 +1,15 @@
+{
+  "name": "daimicy-import",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "webpack": "^4.29.6"
+  },
+  "scripts": {
+    "start": "webpack -w --colors --profile"
+  },
+  "devDependencies": {
+    "webpack-cli": "^3.3.0"
+  }
+}

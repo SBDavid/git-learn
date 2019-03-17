@@ -1,0 +1,1 @@
+{"version":3,"sources":["webpack:///./src/modA.js"],"names":[],"mappings":";;;;;;;;;;AAAA;AAAA;AACA;AACA;;AAEe,oEAAK,E","file":"0.index.js","sourcesContent":["function print() {\n    console.info('modA');\n}\n\nexport default print;"],"sourceRoot":""}
