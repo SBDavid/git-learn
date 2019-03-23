@@ -1,0 +1,11 @@
+[2019-03-21 16:38:36.866] [INFO] pomelo-admin - [32m[MqttServer] [39m[MqttServer] listen on 3005
+[2019-03-21 16:38:36.875] [INFO] pomelo-admin - [32m[ConsoleService] [39mtry to connect master: "master", "127.0.0.1", 3005
+[2019-03-21 16:38:37.209] [INFO] pomelo-admin - [32m[ConsoleService] [39mtry to connect master: "connector", "127.0.0.1", 3005
+[2019-03-21 16:38:53.266] [INFO] pomelo-admin - [32m[MqttServer] [39m[MqttServer] listen on 3005
+[2019-03-21 16:38:53.273] [INFO] pomelo-admin - [32m[ConsoleService] [39mtry to connect master: "master", "127.0.0.1", 3005
+[2019-03-21 16:38:53.567] [INFO] pomelo-admin - [32m[ConsoleService] [39mtry to connect master: "connector", "127.0.0.1", 3005
+[2019-03-21 16:44:25.098] [INFO] pomelo-admin - [32m[MasterAgent] [39mclient user : admin login to master
+[2019-03-21 16:44:25.112] [DEBUG] pomelo-admin - [36m[MasterSocket] [39mdisconnect pomelo_list_1553157865045 client "client"
+[2019-03-21 16:44:25.114] [INFO] pomelo-admin - [32m[MasterSocket] [39mclient user admin exit
+[2019-03-21 16:45:33.495] [INFO] pomelo-admin - [32m[MasterAgent] [39mclient user : admin login to master
+[2019-03-21 16:45:33.501] [DEBUG] pomelo-admin - [36m[MasterSocket] [39mdisconnect connector-server-1 connector {"main":"/Users/xmly/git-learn/020 jsFrames/021 pomelo/2019-03-21-helloworld/game-server/app.js","env":"development","id":"connector-server-1","host":"127.0.0.1","port":3150,"clientHost":"127.0.0.1","clientPort":3010,"frontend":"true","serverType":"connector","pid":12390}
