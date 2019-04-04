@@ -1,0 +1,17 @@
+{
+  "name": "2019-03-26-helloworld",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "build": "webpack --mode=development",
+    "watch": "webpack -w --mode=development"
+  },
+  "devDependencies": {
+    "webpack": "^4.29.6",
+    "webpack-cli": "^3.3.0"
+  },
+  "dependencies": {
+    "phaser": "^3.16.2"
+  }
+}
