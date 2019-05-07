@@ -11,8 +11,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@types/node": "^10.12.24",
-    "xstate": "^4.3.1"
+    "@types/node": "^10.12.24"
   },
   "devDependencies": {
     "@babel/cli": "^7.2.3",
