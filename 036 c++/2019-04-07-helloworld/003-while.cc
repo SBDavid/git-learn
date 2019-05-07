@@ -2,10 +2,11 @@
 
 int main() {
 
-	int i;
+	char* i;
 
-	bool r = std::cin >> i;
+	while(std::cin >> i) {
 
-	std::cout << r << std::endl;
+		std::cout << i << std::endl;
+	}
 	return 0;
 }
