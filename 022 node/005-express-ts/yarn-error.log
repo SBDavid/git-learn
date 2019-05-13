@@ -1,0 +1,53 @@
+Arguments: 
+  /usr/local/bin/node /usr/local/Cellar/yarn/1.7.0/libexec/bin/yarn.js
+
+PATH: 
+  /Users/xmly/.sdkbox/bin:/Users/xmly/temp/cocos/cocos2d-x-3.17.1/templates:/Users/xmly/temp/cocos:/Users/xmly/temp/cocos/cocos2d-x-3.17.1/tools/cocos2d-console/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Applications/Wireshark.app/Contents/MacOS:/Users/xmly/temp/cocos/cocos2d-x-3.17.1/templates:/Users/xmly/temp/cocos:/Users/xmly/temp/cocos/cocos2d-x-3.17.1/tools/cocos2d-console/bin:/Users/xmly/tools:/Users/xmly/tools/global-modules/lib/node_modules/yarn/bin/yarn:/Users/xmly/tools/global-modules/bin:/Users/xmly/tools/android-sdk-macos/platform-tools:/Users/xmly/tools/flutter/bin:/Users/xmly/tools:/Users/xmly/tools/global-modules/lib/node_modules/yarn/bin/yarn:/Users/xmly/tools/global-modules/bin:/Users/xmly/tools/android-sdk-macos/platform-tools:/Users/xmly/tools/flutter/bin
+
+Yarn version: 
+  1.7.0
+
+Node version: 
+  8.11.3
+
+Platform: 
+  darwin x64
+
+Trace: 
+  Error: http://xnpm.ximalaya.com/@types%2fnode: ETIMEDOUT
+      at Timeout._onTimeout (/usr/local/Cellar/yarn/1.7.0/libexec/lib/cli.js:135339:19)
+      at ontimeout (timers.js:498:11)
+      at tryOnTimeout (timers.js:323:5)
+      at Timer.listOnTimeout (timers.js:290:5)
+
+npm manifest: 
+  {
+    "name": "template-node",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+      "build": "rm -rf lib && tsc -w",
+      "babel": "babel ./src --watch --out-dir lib --extensions '.ts,.tsx,.js'",
+      "exe": "node lib/index.js"
+    },
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+      "@types/node": "^10.12.24"
+    },
+    "devDependencies": {
+      "@babel/cli": "^7.2.3",
+      "@babel/core": "^7.2.2",
+      "@babel/plugin-proposal-class-properties": "^7.3.0",
+      "@babel/plugin-proposal-object-rest-spread": "^7.3.2",
+      "@babel/preset-env": "^7.3.1",
+      "@babel/preset-typescript": "^7.1.0"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile

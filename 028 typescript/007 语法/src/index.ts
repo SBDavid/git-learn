@@ -1,8 +1,11 @@
-interface ClockConstructor {
-  new (hour: number, minute: number);
+interface Fetcher {
+  getObject(done: (data: any, elapsedTime: number) => void): void;
 }
 
-class Clock implements ClockConstructor {
-  currentTime: Date;
-  constructor(h: number, m: number) { }
+var test: Fetcher = {
+  getObject: (call: (data: any, elapsedTime: number) => void) => {
+    
+  }
 }
+
+test.getObject((data) => {})

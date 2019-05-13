@@ -1,5 +1,5 @@
-var Clock = /** @class */ (function () {
-    function Clock(h, m) {
+var test = {
+    getObject: function (call) {
     }
-    return Clock;
-}());
+};
+test.getObject(function (data) { });
