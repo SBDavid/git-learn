@@ -12,8 +12,12 @@
   "dependencies": {
     "@babel/preset-typescript": "^7.3.3",
     "@types/react-dom": "^16.8.4",
+    "@types/react-redux": "^7.0.9",
     "react": "^16.3.2",
-    "react-dom": "^16.3.2"
+    "react-dom": "^16.3.2",
+    "react-redux": "^7.0.3",
+    "redux": "^4.0.1",
+    "xstate": "^4.6.0"
   },
   "devDependencies": {
     "@babel/core": "^7.4.4",
