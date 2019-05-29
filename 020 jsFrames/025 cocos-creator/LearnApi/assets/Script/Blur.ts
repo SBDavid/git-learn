@@ -3,7 +3,7 @@ import * as blur from 'stackblur-canvas';
 const {ccclass, property} = cc._decorator;
 
 @ccclass
-export default class NewClass extends cc.Component {
+export default class Blur extends cc.Component {
 
     @property(cc.Sprite)
     src: cc.Sprite = null;
