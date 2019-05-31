@@ -1,10 +1,10 @@
 import {MachineConfig, assign, Sender, Receiver} from 'xstate';
 
-interface Context {
+export interface Context {
     count: number;
 }
 
-const initialContext: Context = {
+export const initialContext: Context = {
     count: 0
 }
 
@@ -15,7 +15,7 @@ interface State {
     }
 }
 
-type ApiEvent =
+export type ApiEvent =
 | {type: 'TOGGLE'}
 | {type: 'DONE'}
 

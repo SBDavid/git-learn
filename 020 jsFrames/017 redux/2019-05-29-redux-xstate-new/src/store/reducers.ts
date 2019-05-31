@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux'
-import {UpdateTitleAction, TitleState, UpdateTitle, ToggleState, ToggleXstateAction} from './actions';
+import {UpdateTitleAction, TitleState, UpdateTitle, ToggleState, ToggleXstateAction, ToggleXstateNoMiAction} from './actions';
 
 const initialTitelState: TitleState = 'SwitchCount';
 
@@ -31,9 +31,23 @@ function toggle(state = initialToggleState, action: ToggleXstateAction): ToggleS
     }
 }
 
+
+// xstate中的reducer 不使用中间件
+function toggleNoMi(state = initialToggleState, action: ToggleXstateNoMiAction): ToggleState {
+    if (action.type === '$$UpdateStateMachineToggleNoMi') {
+        return {
+            value: action.value,
+            context: action.context
+        };
+    } else {
+        return state;
+    }
+}
+
 export const rootReducer = combineReducers({
     title,
-    toggle
+    toggle,
+    toggleNoMi
 });
 
 export type AppState = ReturnType<typeof rootReducer>

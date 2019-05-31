@@ -43,3 +43,23 @@ export function toggle(): ToggleAction {
         machineName: 'toggle'
     }
 }
+
+// xstate中的action 不使用中间件
+
+export const ToggleNoMi = 'TOGGLENOMI';
+
+export interface ToggleXstateNoMiAction {
+    type: '$$UpdateStateMachineToggleNoMi';
+    value: string;
+    context: {
+        count: number;
+    }
+}
+
+export function toggleNoMi(value: string, context: {count: number}): ToggleXstateNoMiAction {
+    return {
+        type: '$$UpdateStateMachineToggleNoMi',
+        value,
+        context
+    }
+}
