@@ -23,6 +23,7 @@
     "babel-cli": "^6.26.0",
     "babel-core": "^7.0.0-0",
     "babel-loader": "^8.0.6",
+    "babel-plugin-transform-class-properties": "^6.24.1",
     "cross-env": "^5.1.4",
     "css-loader": "^0.28.11",
     "style-loader": "^0.21.0",

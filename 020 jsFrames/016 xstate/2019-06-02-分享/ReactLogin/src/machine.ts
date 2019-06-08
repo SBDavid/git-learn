@@ -1,4 +1,4 @@
-import {MachineConfig, assign, Sender, Receiver, ActionFunctionMap, MachineOptions} from 'xstate';
+import {MachineConfig, assign, ServiceConfig, Sender, Receiver, ActionFunctionMap, MachineOptions} from 'xstate';
 
 export interface Context {
     userToken: string;
@@ -9,10 +9,12 @@ export const initialContext: Context = {
     userToken: ''
 }
 
+export const initialState = 'authLoading';
+
 // 状态定义
-export interface State {
+export interface StateSchema {
     states: {
-        autoLoading: {},
+        authLoading: {},
         logout: {},
         loading: {},
         login: {}
@@ -20,42 +22,46 @@ export interface State {
 }
 
 // 事件定义
-interface NoAuto {
+interface NoAuth {
     type: 'NO_AUTH'
 }
 
-interface HasAuto {
+interface HasAuth {
     type: 'HAS_AUTH',
     userToken: string
 }
 
-interface Login {
-    type: 'LOGIN',
+interface LoginSuccess {
+    type: 'LOGIN_SUCCESS',
     userToken: string
 }
 
 interface Logout {
-    type: 'LOGOUT',
-    userToken: string
+    type: 'LOGOUT'
 }
 
 interface RequestUserToken {
     type: 'REQUEST_USER_TOKEN',
-    userToken: string
+    userName: string
+}
+
+interface CancelRequest {
+    type: 'CANCEL_REQUEST'
 }
 
 export type ApiEvent =
-| NoAuto
-| HasAuto
-| Login
+| NoAuth
+| HasAuth
+| LoginSuccess
 | Logout
 | RequestUserToken
+| CancelRequest
 
-export const config: MachineConfig<Context, State, ApiEvent> = {
-    initial: 'autoLoading',
+export const config: MachineConfig<Context, StateSchema, ApiEvent> = {
+    initial: initialState,
     context: initialContext,
     states: {
-        autoLoading: {
+        authLoading: {
             on: {
                 NO_AUTH: 'logout',
                 HAS_AUTH: {
@@ -70,10 +76,16 @@ export const config: MachineConfig<Context, State, ApiEvent> = {
             }
         },
         loading: {
+            invoke: {
+                src: 'loading'
+            },
             on: {
-                LOGIN: {
+                LOGIN_SUCCESS: {
                     target: 'login',
                     actions: 'saveUserToken'
+                },
+                CANCEL_REQUEST: {
+                    target: 'logout'
                 }
             }
         },
@@ -89,25 +101,41 @@ export const config: MachineConfig<Context, State, ApiEvent> = {
 }
 
 const actions: ActionFunctionMap<Context, ApiEvent> = {
-    cacheUserToken: assign((context, event: HasAuto) => {
+    cacheUserToken: assign((context, event: HasAuth) => {
         return {
             userToken: event.userToken
         }
     }),
-    saveUserToken: assign((context, event: Login) => {
-        // localStorage
+    saveUserToken: assign((context, event: LoginSuccess) => {
+        localStorage.setItem('userToken', event.userToken);
         return {
             userToken: event.userToken
         }
     }),
     clearUserToken: assign((context, event: Logout) => {
-        // localStorage
+        localStorage.removeItem('userToken');
         return {
             userToken: ''
         }
     }),
 }
 
+const services: Record<string, ServiceConfig<Context>> = {
+    loading: (context: Context, event: ApiEvent) => (callback: Sender<ApiEvent>, onEvent: Receiver<ApiEvent>) => {
+        const timer = setTimeout(() => {
+            callback({
+                type: 'LOGIN_SUCCESS',
+                userToken: 'user-token'
+            });
+        }, 3000);
+
+        return () => {
+            clearTimeout(timer);
+        }
+    }
+}
+
 export const option: Partial<MachineOptions<Context, ApiEvent>> = {
-    actions
+    actions,
+    services
 }
