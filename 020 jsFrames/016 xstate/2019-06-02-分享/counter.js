@@ -40,7 +40,9 @@ const fetchMachine = Machine({
         }
       }
     },
-    s25:{}
+    s25:{
+      onEntry: 'done'
+    }
   }
 }, {
   guards: {
@@ -50,6 +52,7 @@ const fetchMachine = Machine({
     TIMEOUT: 2000
   },
   actions: {
-    error: () => {console.info('error')}
+    error: () => {console.info('error')},
+    done: () => {console.info('完成')}
   }
 });

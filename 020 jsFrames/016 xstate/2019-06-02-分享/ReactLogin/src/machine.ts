@@ -125,7 +125,7 @@ const services: Record<string, ServiceConfig<Context>> = {
         const timer = setTimeout(() => {
             callback({
                 type: 'LOGIN_SUCCESS',
-                userToken: 'user-token'
+                userToken: 'this is a token'
             });
         }, 3000);
 
