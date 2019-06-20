@@ -6,31 +6,31 @@
 
 const fetchMachine = Machine({
   id: 'lock',
-  initial: 'open',
+  initial: '开启',
   context: {
     lock1: false,
     lock2: false
   },
   states: {
-    open: {
-      on: { CLOSE: 'close'}
+    '开启': {
+      on: { '关闭宝箱': '关闭'}
     },
-    close: {
+    '关闭': {
       on: {
-        OPEN: {
-          target: 'open',
-          cond: 'bothUnlock'
+        '打开宝箱': {
+          target: '开启',
+          cond: '两个锁都处于锁定状态'
         },
-        UNLOCK1: {
+        '左边解锁': {
           actions: assign((context) => {return {lock1: false}})
         },
-        UNLOCK2: {
+        '右边解锁': {
           actions: assign((context) => {return {lock2: false}})
         },
-        LOCK1: {
+        '左边上锁': {
           actions: assign((context) => {return {lock1: true}})
         },
-        LOCK2: {
+        '右边上锁': {
           actions: assign((context) => {return {lock2: true}})
         }
       }
@@ -38,7 +38,7 @@ const fetchMachine = Machine({
   }
 }, {
   guards: {
-    bothUnlock: (context) => {
+    '两个锁都处于锁定状态': (context) => {
       return !context.lock1 && !context.lock2
     }
   }

@@ -54,19 +54,19 @@ class App extends React.Component<Props, State> {
                 type: 'NO_AUTH'
             });
         }
-        }, 1000);
+        }, 2000);
     }
 
     render() {
         return (
             <div>
                 <h1>React Login</h1>
-                <div> current state: {this.state.logState}</div>
-                <div> userToken: {this.state.userToken}</div>
+                <p> current state: <span>{this.state.logState}</span></p>
+                <p> userToken: <span>{this.state.userToken}</span></p>
                 <div>
-                    <button onClick={this.onLogin} style= {this.interpret.state.matches('logout') ? {display: 'block'} : {display: 'none'}}>Login</button>
-                    <button onClick={this.onCancel} style= {this.interpret.state.matches('loading') ? {display: 'block'} : {display: 'none'}}>Cancel</button>
-                    <button onClick={this.onLogout} style= {this.interpret.state.matches('login') ? {display: 'block'} : {display: 'none'}}>Logout</button>
+                    <button className={'button'} onClick={this.onLogin} style= {this.interpret.state.matches('logout') ? {display: 'block'} : {display: 'none'}}>Login</button>
+                    <button className={'button'} onClick={this.onCancel} style= {this.interpret.state.matches('loading') ? {display: 'block'} : {display: 'none'}}>Cancel</button>
+                    <button className={'button'} onClick={this.onLogout} style= {this.interpret.state.matches('login') ? {display: 'block'} : {display: 'none'}}>Logout</button>
                 </div>
             </div>
         );

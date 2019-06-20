@@ -4,55 +4,57 @@
 // assign (action)
 // XState (all XState exports)
 
-const fetchMachine = Machine({
-  id: 'counter',
-  initial: 's0',
+const config = {
+  id: '投币机',
+  initial: '收集到0元',
   states: {
-    s0: {
+    '收集到0元': {
       on: {
-        e5: 's5',
-        e10: 's10',
+        '投入5元': '收集到5元',
+        '投入10元': '收集到10元',
       }
     },
-    s5: {
+    '收集到5元': {
       on: {
-        e5: 's10',
-        e10: 's15',
+        '投入5元': '收集到10元',
+        '投入10元': '收集到15元',
       }
     },
-    s10: {
+    '收集到10元': {
       on: {
-        e5: 's15',
-        e10: 's20',
+        '投入5元': '收集到15元',
+        '投入10元': '收集到20元',
       }
     },
-    s15: {
+    '收集到15元': {
       on: {
-        e5: 's20',
-        e10: 's25',
+        '投入5元': '收集到20元',
+        '投入10元': '收集到25元',
       }
     },
-    s20: {
+    '收集到20元': {
       on: {
-        e5: 's25',
-        e10: {
-          actions: 'error'
+        '投入5元': '收集到25元',
+        '投入10元': {
+          actions: '错误'
         }
       }
     },
-    s25:{
-      onEntry: 'done'
+    '收集到25元':{
+      onEntry: '完成',
+      on: {
+        '重置': '收集到0元'
+      }
     }
   }
-}, {
-  guards: {
-    maxAttempts: ctx =>  ctx.attempts >= 5
-  },
-  delays: {
-    TIMEOUT: 2000
-  },
-  actions: {
-    error: () => {console.info('error')},
-    done: () => {console.info('完成')}
-  }
+};
+
+const actions = {
+    '错误': () => {alert('错误')},
+    '完成': () => {alert('完成')}
+}
+
+
+const fetchMachine = Machine(config, {
+  actions: actions
 });

@@ -6,55 +6,55 @@
 
 const fetchMachine = Machine({
   id: 'lock',
-  initial: 'open',
+  initial: '打开',
   states: {
-    open: {
-      on: { CLOSE: 'close'}
+    '打开': {
+      on: { '关闭宝箱': '关闭'}
     },
-    close: {
+    '关闭': {
       type: 'parallel',
       on: {
-        OPEN: {
-          target: 'open',
+        '打开宝箱': {
+          target: '打开',
           in: {
-            close: {
-              lock1: 'unlock',
-              lock2: 'unlock',
+            '关闭': {
+              '左边的锁': '解锁',
+              '右边的锁': '解锁'
             }
           }
         }
       },
       states: {
-        lock1: {
-          initial: 'unlock',
+        '左边的锁': {
+          initial: '解锁',
           states: {
-            locked: {
+            '锁定': {
               on: {
-                UNLOCK1: 'unlock'
+                '左边解锁': '解锁'
               }
             },
-            unlock: {
+            '解锁': {
               on: {
-                LOCK1: 'locked'
+                '左边上锁': '锁定'
               }
             }
           }
         },
-        lock2: {
-          initial: 'unlock',
+        '右边的锁': {
+          initial: '解锁',
           states: {
-            locked: {
+            '锁定': {
               on: {
-                UNLOCK2: 'unlock'
+                '右边解锁': '解锁'
               }
             },
-            unlock: {
+            '解锁': {
               on: {
-                LOCK2: 'locked'
+                '右边上锁': '锁定'
               }
             }
           }
-        }
+        },
       }
     }
   }

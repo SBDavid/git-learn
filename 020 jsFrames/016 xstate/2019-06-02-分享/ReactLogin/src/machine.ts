@@ -127,7 +127,7 @@ const services: Record<string, ServiceConfig<Context>> = {
                 type: 'LOGIN_SUCCESS',
                 userToken: 'this is a token'
             });
-        }, 3000);
+        }, 1000);
 
         return () => {
             clearTimeout(timer);
