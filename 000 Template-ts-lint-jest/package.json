@@ -1,0 +1,30 @@
+{
+  "name": "xm-ive",
+  "version": "1.0.0",
+  "description": "喜马拉雅互动剧播放引擎",
+  "main": "index.js",
+  "scripts": {
+    "start": "npm run build:dev",
+    "build": "rm -rf ./lib && tsc",
+    "build:dev": "rm -rf ./lib && tsc --project ./tsconfig.dev.json -w",
+    "eslint-check": "eslint --print-config src/index.ts | eslint-config-prettier-check",
+    "test": "jest"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/jest": "^24.0.15",
+    "@typescript-eslint/eslint-plugin": "^1.11.0",
+    "@typescript-eslint/parser": "^1.11.0",
+    "eslint": "5.3.0",
+    "eslint-config-airbnb-base": "13.2.0",
+    "eslint-config-prettier": "^6.0.0",
+    "eslint-import-resolver-typescript": "^1.1.1",
+    "eslint-plugin-import": "^2.17.2",
+    "eslint-plugin-prettier": "^3.1.0",
+    "jest": "^24.8.0",
+    "prettier": "^1.18.2",
+    "ts-jest": "^24.0.2",
+    "typescript": "^3.5.2"
+  }
+}
