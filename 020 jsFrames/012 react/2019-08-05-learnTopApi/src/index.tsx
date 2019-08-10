@@ -89,6 +89,10 @@ class App extends React.Component<Props, State> {
         super(props);
     }
 
+    componentDidMount() {
+        this.setState({})
+    }
+
     render() {
         return (
             <Container>
@@ -100,5 +104,7 @@ class App extends React.Component<Props, State> {
         );
     }
 }
+
+
 
 render(<App />, document.getElementById("root"))

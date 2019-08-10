@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <!-- requestAnimationFrame中的回调函数执行完成后，会立即调用GPU -->
+    <div id="t"></div>
+    <script>
+
+        function miningBitcoin(ms) {
+            let now = Date.now();
+            while (Date.now() < now + ms) {
+                // noop
+            }
+        }
+
+        let i = 0;
+
+        function log() {
+            document.getElementById('t').innerHTML = i++;
+            
+            /* setTimeout(() => {
+                performance.mark("analytics-start");
+                // miningBitcoin(5);
+                performance.mark("analytics-end");
+                performance.measure(
+                    "Analytics: " + "test",
+                    "analytics-start",
+                    "analytics-end"
+                );
+            }) */
+
+            performance.mark("analytics-start");
+            miningBitcoin(10);
+            performance.mark("analytics-end");
+            performance.measure(
+                "Analytics: " + "test",
+                "analytics-start",
+                "analytics-end"
+            );
+
+            window.requestAnimationFrame(log);
+        }
+
+        window.requestAnimationFrame(() => {
+            log();
+        });
+    </script>
+</body>
+</html>
