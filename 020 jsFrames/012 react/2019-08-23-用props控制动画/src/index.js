@@ -6,22 +6,35 @@ class App extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            isPlaying: true
+            isPlaying: true,
+            count: 0
         }
     }
 
+    /* shouldComponentUpdate() {
+        return false;
+    } */
+
     componentDidMount() {
-       
+       setInterval(() => {
+           this.setState((state) => {
+               return {
+                   count: state.count + 1
+               }
+           })
+       }, 1000);
     }
 
-    componentWillUnmount() {
+    componentDidUpdate() {
+        console.info('app componentDidUpdate');
     }
 
     render() {
+        console.info('app render');
+
         return (
             <div>
-                <div>也可是使用css animation-play-state  animation</div>
-                <Spin isPlaying={this.state.isPlaying}/>
+                <Spin isPlaying={this.state.isPlaying}>{this.state.count}</Spin>
                 <button onClick = {() => {
                     this.setState((state) => {
                         return {
@@ -29,6 +42,10 @@ class App extends React.Component {
                         }
                     })
                 }}>Play</button>
+
+                <div>也可是使用css animation-play-state  animation</div>
+                <div>父级的shouldUpdate返回false，自己都不触发render</div>
+                <div>只要父级的状态发生变化，父级和子集render就会触发，无论页面渲染是否用到这些状态</div>
             </div>
         );
     }
@@ -39,41 +56,49 @@ class Spin extends React.Component {
         super(props);
 
         this.rotate = 0;
-        this.timer = null;
         this.ref = React.createRef();
+
+        this.play = this.play.bind(this);
     }
 
     componentDidMount() {
-        console.info('componentDidMount');
+        console.info('Spin componentDidMount');
         this.play()
-        
     }
 
     play() {
-        this.timer = setInterval(() => {
+        /* this.timer = setInterval(() => {
             this.ref.current.style.transform = `rotate(${this.rotate++}deg)`
-        }, 16);
+        }, 16); */
 
-        console.info(this.ref.current.style.transform);
+        requestAnimationFrame(() => {
+            this.ref.current.style.transform = `rotate(${this.rotate++}deg)`;
+            if (this.props.isPlaying)
+                this.play();
+        });
     }
 
     componentDidUpdate(prevProps, prevState, snapshot) {
-        console.info('componentDidUpdate');
+        console.info('spin componentDidUpdate');
         if (prevProps.isPlaying !== this.props.isPlaying) {
             if (this.props.isPlaying) {
                 this.play();
             } else {
-                clearInterval(this.timer);
                 this.ref.current.style.transform = `rotate(${this.rotate++}deg)`
             }
         } 
     }
 
     render() {
+
+        console.info('spin render');
+
         return (
             <div ref={this.ref} className="spin" style={{
                 transform: [`rotate(${this.rotate}deg)`]
-            }} ></div>
+            }} >
+                {this.props.children}
+            </div>
         );
     }
 }
