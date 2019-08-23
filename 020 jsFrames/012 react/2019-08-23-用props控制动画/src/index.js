@@ -16,13 +16,14 @@ class App extends React.Component {
     } */
 
     componentDidMount() {
-       setInterval(() => {
+        console.info('app componentDidMount');
+        setInterval(() => {
            this.setState((state) => {
                return {
                    count: state.count + 1
                }
            })
-       }, 1000);
+       }, 1000000);
     }
 
     componentDidUpdate() {
