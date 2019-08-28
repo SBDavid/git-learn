@@ -31,3 +31,11 @@ stopPropagation();
 - webworker
 
 ## 5. 如何跨域访问（简单）
+
+https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Access_control_CORS
+- 什么可以跨域
+  - img script
+- 什么收到跨域限制
+  -  XMLHttpRequest 或 Fetch 
+  -  Web 字体
+  -  使用 drawImage 将 Images/video 画面绘制到 canvas
