@@ -1,5 +1,7 @@
 ## 学习最基本的容器Container
 
+Container是一个组合式容器，其中包含了ConstraintsBox，padding，等容器
+
 1. 可以设置padding
 2. 设置margin
 3. decoration
