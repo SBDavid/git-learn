@@ -1,4 +1,4 @@
-// Generated from Hello.g4 by ANTLR 4.7.1
+// Generated from /Users/xmly/git-learn/038-flutter/003-play-antlr/Hello.g4 by ANTLR 4.7.1
 import org.antlr.v4.runtime.Lexer;
 import org.antlr.v4.runtime.CharStream;
 import org.antlr.v4.runtime.Token;
@@ -9,7 +9,7 @@ import org.antlr.v4.runtime.dfa.DFA;
 import org.antlr.v4.runtime.misc.*;
 
 @SuppressWarnings({"all", "warnings", "unchecked", "unused", "cast"})
-public class Hello extends Lexer {
+public class HelloLexer extends Lexer {
 	static { RuntimeMetaData.checkVersion("4.7.1", RuntimeMetaData.VERSION); }
 
 	protected static final DFA[] _decisionToDFA;
@@ -79,7 +79,7 @@ public class Hello extends Lexer {
 	}
 
 
-	public Hello(CharStream input) {
+	public HelloLexer(CharStream input) {
 		super(input);
 		_interp = new LexerATNSimulator(this,_ATN,_decisionToDFA,_sharedContextCache);
 	}

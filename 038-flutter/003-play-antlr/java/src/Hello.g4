@@ -1,7 +1,7 @@
 lexer grammar Hello;  //lexer 关键字意味着这是一个词法规则文件，名称是 Hello，要与文件名相同
 
 // 关键字
-If :               'if';
+If:                 'if' | '如果';
 Int :              'int';
 
 // 字面量

@@ -1,4 +1,4 @@
-// Generated from Hello.g4 by ANTLR 4.7.1
+// Generated from /Users/xmly/git-learn/038-flutter/003-play-antlr/Hello.g4 by ANTLR 4.7.1
 import org.antlr.v4.runtime.Lexer;
 import org.antlr.v4.runtime.CharStream;
 import org.antlr.v4.runtime.Token;
