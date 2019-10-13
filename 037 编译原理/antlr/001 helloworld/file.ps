@@ -1,0 +1,39 @@
+%!PS-Adobe-3.0 EPSF-3.0
+%%BoundingBox: 0 0 49 49
+
+0.3 setlinewidth
+%% x y w h highlight
+/highlight {
+        4 dict begin
+        /h exch def
+        /w exch def
+        /y exch def
+        /x exch def
+        gsave
+        newpath
+        x y moveto
+        0 h rlineto     % up to left corner
+        w 0 rlineto     % to upper right corner
+        0 h neg rlineto % to lower right corner
+        w neg 0 rlineto % back home to lower left corner
+        closepath
+        .95 .83 .82 setrgbcolor
+        fill
+        grestore
+        end
+} def
+/Helvetica findfont 11 scalefont setfont
+26.593 32.582 moveto
+12.616 15.582 lineto
+26.593 32.582 moveto
+40.569 15.582 lineto
+1.000 5.000 moveto
+(hello) show
+stroke
+33.232 5.000 moveto
+(ooi) show
+stroke
+24.761 37.582 moveto
+(r) show
+stroke
+%%Trailer
