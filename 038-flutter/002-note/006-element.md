@@ -11,7 +11,7 @@ Element.dart
 - _widget：对应的配置
 - _parent：父级element
 - _slot：？？？
-- _owner：？？？
+- _owner：BuildOwner管理widget的rebuild
 - _active：是否是激活状态
 - RenderObject get renderObject：或取自己活子级的renderObject
 - Element updateChild：widget更新后，更新element
