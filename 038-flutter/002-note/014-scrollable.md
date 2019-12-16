@@ -70,7 +70,7 @@
 
 - 子类
   - BallisticScrollActivity
-  - DrivenScrollActivity
+  - DrivenScrollActivityxw
 
 ## ScrollPositionWithSingleContext
 > 管理 scroll activities，ScrollActivity会影响viewport的显示内容
