@@ -1,3 +1,11 @@
+## 文章
+http://gityuan.com/2019/07/20/flutter_message_loop/
+http://gityuan.com/2019/07/27/flutter-isolate/
+http://gityuan.com/2019/06/22/flutter_booting/
+
+## 打开flutter引擎代码
+
+
 ## AndroidManifest.xml application标签
 
 该节点中包含有应用程序属性和子节点。
