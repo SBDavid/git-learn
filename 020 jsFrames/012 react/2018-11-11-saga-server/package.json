@@ -12,6 +12,6 @@
   },
   "dependencies": {
     "nodejs-websocket": "^1.7.1",
-    "socket.io": "^2.1.1"
+    "socket.io": "^2.4.0"
   }
 }
