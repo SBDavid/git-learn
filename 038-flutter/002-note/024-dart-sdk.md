@@ -78,12 +78,49 @@
 
 
 ```shell
+# 运行aot产物
 ~/001-workspace/dart-sdk/sdk/xcodebuild/DebugX64/dart-sdk/bin/dartaotruntime  /Users/jiaweitang/002-learn/learn_dartvm_debug/main.aot
-
+# 编译aot产物
 ~/001-workspace/dart-sdk/sdk/xcodebuild/DebugX64/dart-sdk/bin/dart2native -k aot /Users/jiaweitang/002-learn/learn_dartvm_debug/main.dart
-
+# 运行jit脚本
 ~/001-workspace/dart-sdk/sdk/xcodebuild/DebugX64/dart-sdk/bin/dart  /Users/jiaweitang/002-learn/learn_dartvm_debug/main.dart
-
+# 编译dart
 ./tools/build.py --mode debug --arch x64 create_sdk
 ```
 
+## Xcode调
+
+- 添加命令行参数：Product->scheme->edit scheme->argument
+
+- 断点问题
+
+  - 原因：调试符号找不到源码，当前工作路径无法解析相对路径
+
+  - 解决：在scheme中配置LLDB init file
+
+    - ```python
+      settings set -- target.source-map '../..' '/Users/jiaweitang/001-workspace/dart-sdk/sdk'
+      ```
+
+  - 相关学习：
+
+    - lldb
+
+      - 文档：http://lldb.llvm.org
+    
+      - ```python
+    image lookup -vn 'dart::MessageHandler::HandleMessages'
+        settings set -- target.source-map '../..' '/Users/jiaweitang/001-workspace/dart-sdk/sdk'
+        breakpoint set --file "message_handler.cc" --line 214
+        frame info
+        register read
+        ```
+    
+    - ninja
+    
+    - xcode
+    
+      - build phases
+        - Action "Compile and copy dart via ninja"：执行脚本
+        - compile source：如果xcode编译的项目这里会有
+        - Link binary with Libraries：如果xcode编译的项目这里会有
