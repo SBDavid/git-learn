@@ -6,4 +6,9 @@
 6. http2.0的改进
 7. git reset rebase
 8. promise全局错误收集
+window.addEventListener('unhandledrejection', function(event) {
+  // the event object has two special properties:
+  alert(event.promise); // [object Promise] - the promise that generated the error
+  alert(event.reason); // Error: Whoops! - the unhandled error object
+});
 9. 异常监控
