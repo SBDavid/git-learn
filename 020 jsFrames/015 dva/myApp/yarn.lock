@@ -7479,9 +7479,9 @@ ripemd160@^2.0.0, ripemd160@^2.0.1:
     hash-base "^3.0.0"
     inherits "^2.0.1"
 
-roadhog@^2.0.0:
+roadhog@^2.4.5:
   version "2.4.5"
-  resolved "http://registry.npm.taobao.org/roadhog/download/roadhog-2.4.5.tgz#bc1c667b9a816fc8ec7076ab2f2950c0eeb98560"
+  resolved "https://registry.npmmirror.com/roadhog/-/roadhog-2.4.5.tgz#bc1c667b9a816fc8ec7076ab2f2950c0eeb98560"
   dependencies:
     "@babel/core" "7.0.0-beta.46"
     "@babel/polyfill" "7.0.0-beta.46"
